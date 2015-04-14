@@ -1,0 +1,147 @@
+\hypertarget{_string___utils___tests_8c}{}\section{C\+:/\+Professor\+Example/\+C\+\_\+\+Utils/\+String\+\_\+\+Utils\+\_\+\+Tests.c File Reference}
+\label{_string___utils___tests_8c}\index{C\+:/\+Professor\+Example/\+C\+\_\+\+Utils/\+String\+\_\+\+Utils\+\_\+\+Tests.\+c@{C\+:/\+Professor\+Example/\+C\+\_\+\+Utils/\+String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+{\ttfamily \#include \char`\"{}String\+\_\+\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_string___utils___tests_8c_a6821bafc3c88dfb2e433a095df9940c6}{B\+U\+F\+\_\+\+S\+I\+Z\+E}~50
+\item 
+\#define \hyperlink{_string___utils___tests_8c_a18f05b9e1972168302ee5569d161eb4d}{T\+E\+S\+T\+\_\+\+A\+L\+L\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+S}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_string___utils___tests_8c_aa812f916e38a5f0d4e9e99587e20e451}{test\+\_\+\+String\+\_\+\+Utils\+\_\+join} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_a06454a18e26f9e637bf500213f41fc1f}{test\+\_\+\+String\+\_\+\+Utils\+\_\+starts\+\_\+with\+\_\+and\+\_\+ends\+\_\+with} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_a9a5f51744bfeeda13a4f226cddc32a65}{test\+\_\+\+String\+\_\+\+Utils\+\_\+\+Free\+\_\+\+Array} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_a5684160271905217cf3405560d9e6ae9}{test\+\_\+\+String\+\_\+\+Utils\+\_\+substring} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_a694c7d808b2442362806dff227dd2e8e}{test\+\_\+\+String\+\_\+\+Utils\+\_\+trim} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_af0d533bbaa7cdab47f18232d448a3cd6}{test\+\_\+\+String\+\_\+\+Utils\+\_\+capitalize} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_ace33dbef2a2238a5a9b4f50441089cf5}{test\+\_\+\+String\+\_\+\+Utils\+\_\+index\+\_\+of} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_af4783b3e5e541772ae568cef959f7da1}{test\+\_\+\+String\+\_\+\+Utils\+\_\+count} (void)
+\item 
+void \hyperlink{_string___utils___tests_8c_aa7a3e6c2eca7a83415b2f59a59724dba}{test\+\_\+\+String\+\_\+\+Utils\+\_\+between} (void)
+\item 
+int \hyperlink{_string___utils___tests_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_string___utils}{String\+\_\+\+Utils} $\ast$ \hyperlink{_string___utils___tests_8c_a96119db9060de11407c93a179573fdd5}{su}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_string___utils___tests_8c_a6821bafc3c88dfb2e433a095df9940c6}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}}
+\index{B\+U\+F\+\_\+\+S\+I\+Z\+E@{B\+U\+F\+\_\+\+S\+I\+Z\+E}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{B\+U\+F\+\_\+\+S\+I\+Z\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+U\+F\+\_\+\+S\+I\+Z\+E~50}\label{_string___utils___tests_8c_a6821bafc3c88dfb2e433a095df9940c6}
+\hypertarget{_string___utils___tests_8c_a18f05b9e1972168302ee5569d161eb4d}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!T\+E\+S\+T\+\_\+\+A\+L\+L\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+S@{T\+E\+S\+T\+\_\+\+A\+L\+L\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+S}}
+\index{T\+E\+S\+T\+\_\+\+A\+L\+L\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+S@{T\+E\+S\+T\+\_\+\+A\+L\+L\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+S}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{T\+E\+S\+T\+\_\+\+A\+L\+L\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+E\+S\+T\+\_\+\+A\+L\+L\+\_\+\+F\+U\+N\+C\+T\+I\+O\+N\+S}\label{_string___utils___tests_8c_a18f05b9e1972168302ee5569d161eb4d}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \hyperlink{_string___utils___tests_8c_af4783b3e5e541772ae568cef959f7da1}{\(\backslash\)}
+\hyperlink{_string___utils___tests_8c_af4783b3e5e541772ae568cef959f7da1}{        test\_String\_Utils\_count}();\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed Test: Count!\(\backslash\)n"});\hyperlink{_string___utils___tests_8c_af0d533bbaa7cdab47f18232d448a3cd6}{\(\backslash\)}
+\hyperlink{_string___utils___tests_8c_af0d533bbaa7cdab47f18232d448a3cd6}{        test\_String\_Utils\_capitalize}();\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed Test: Capitalize!\(\backslash\)n"});\hyperlink{_string___utils___tests_8c_ace33dbef2a2238a5a9b4f50441089cf5}{\(\backslash\)}
+\hyperlink{_string___utils___tests_8c_ace33dbef2a2238a5a9b4f50441089cf5}{        test\_String\_Utils\_index\_of}();\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed Test: Index\_Of!\(\backslash\)n"});\hyperlink{_string___utils___tests_8c_aa812f916e38a5f0d4e9e99587e20e451}{\(\backslash\)}
+\hyperlink{_string___utils___tests_8c_aa812f916e38a5f0d4e9e99587e20e451}{        test\_String\_Utils\_join}();\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed Test: Join!\(\backslash\)n"});\hyperlink{_string___utils___tests_8c_a06454a18e26f9e637bf500213f41fc1f}{\(\backslash\)}
+\hyperlink{_string___utils___tests_8c_a06454a18e26f9e637bf500213f41fc1f}{        test\_String\_Utils\_starts\_with\_and\_ends\_with}();\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed Test: Starts\_with\_and\_ends\_with!\(\backslash\)n"});\hyperlink{_string___utils___tests_8c_a9a5f51744bfeeda13a4f226cddc32a65}{\(\backslash\)}
+\hyperlink{_string___utils___tests_8c_a9a5f51744bfeeda13a4f226cddc32a65}{        test\_String\_Utils\_Free\_Array}();\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed Test: Free\_Array!\(\backslash\)n"});\hyperlink{_string___utils___tests_8c_a694c7d808b2442362806dff227dd2e8e}{\(\backslash\)}
+\hyperlink{_string___utils___tests_8c_a694c7d808b2442362806dff227dd2e8e}{        test\_String\_Utils\_trim}();\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed Test: Trim!\(\backslash\)n"});\(\backslash\)
+        printf(\textcolor{stringliteral}{"\(\backslash\)nPassed All Tests! YAY!!!\(\backslash\)n"});\(\backslash\)
+        \} \textcolor{keywordflow}{while}(0);
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{_string___utils___tests_8c_a840291bc02cba5474a4cb46a9b9566fe}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!main@{main}}
+\index{main@{main}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_a840291bc02cba5474a4cb46a9b9566fe}
+\hypertarget{_string___utils___tests_8c_aa7a3e6c2eca7a83415b2f59a59724dba}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+between@{test\+\_\+\+String\+\_\+\+Utils\+\_\+between}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+between@{test\+\_\+\+String\+\_\+\+Utils\+\_\+between}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+between}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+between (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_aa7a3e6c2eca7a83415b2f59a59724dba}
+\hypertarget{_string___utils___tests_8c_af0d533bbaa7cdab47f18232d448a3cd6}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+capitalize@{test\+\_\+\+String\+\_\+\+Utils\+\_\+capitalize}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+capitalize@{test\+\_\+\+String\+\_\+\+Utils\+\_\+capitalize}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+capitalize}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+capitalize (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_af0d533bbaa7cdab47f18232d448a3cd6}
+\hypertarget{_string___utils___tests_8c_af4783b3e5e541772ae568cef959f7da1}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+count@{test\+\_\+\+String\+\_\+\+Utils\+\_\+count}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+count@{test\+\_\+\+String\+\_\+\+Utils\+\_\+count}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_af4783b3e5e541772ae568cef959f7da1}
+\hypertarget{_string___utils___tests_8c_a9a5f51744bfeeda13a4f226cddc32a65}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+\+Free\+\_\+\+Array@{test\+\_\+\+String\+\_\+\+Utils\+\_\+\+Free\+\_\+\+Array}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+\+Free\+\_\+\+Array@{test\+\_\+\+String\+\_\+\+Utils\+\_\+\+Free\+\_\+\+Array}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+\+Free\+\_\+\+Array}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+\+Free\+\_\+\+Array (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_a9a5f51744bfeeda13a4f226cddc32a65}
+\hypertarget{_string___utils___tests_8c_ace33dbef2a2238a5a9b4f50441089cf5}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+index\+\_\+of@{test\+\_\+\+String\+\_\+\+Utils\+\_\+index\+\_\+of}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+index\+\_\+of@{test\+\_\+\+String\+\_\+\+Utils\+\_\+index\+\_\+of}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+index\+\_\+of}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+index\+\_\+of (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_ace33dbef2a2238a5a9b4f50441089cf5}
+\hypertarget{_string___utils___tests_8c_aa812f916e38a5f0d4e9e99587e20e451}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+join@{test\+\_\+\+String\+\_\+\+Utils\+\_\+join}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+join@{test\+\_\+\+String\+\_\+\+Utils\+\_\+join}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+join}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+join (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_aa812f916e38a5f0d4e9e99587e20e451}
+\hypertarget{_string___utils___tests_8c_a06454a18e26f9e637bf500213f41fc1f}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+starts\+\_\+with\+\_\+and\+\_\+ends\+\_\+with@{test\+\_\+\+String\+\_\+\+Utils\+\_\+starts\+\_\+with\+\_\+and\+\_\+ends\+\_\+with}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+starts\+\_\+with\+\_\+and\+\_\+ends\+\_\+with@{test\+\_\+\+String\+\_\+\+Utils\+\_\+starts\+\_\+with\+\_\+and\+\_\+ends\+\_\+with}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+starts\+\_\+with\+\_\+and\+\_\+ends\+\_\+with}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+starts\+\_\+with\+\_\+and\+\_\+ends\+\_\+with (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_a06454a18e26f9e637bf500213f41fc1f}
+\hypertarget{_string___utils___tests_8c_a5684160271905217cf3405560d9e6ae9}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+substring@{test\+\_\+\+String\+\_\+\+Utils\+\_\+substring}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+substring@{test\+\_\+\+String\+\_\+\+Utils\+\_\+substring}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+substring}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+substring (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_a5684160271905217cf3405560d9e6ae9}
+\hypertarget{_string___utils___tests_8c_a694c7d808b2442362806dff227dd2e8e}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!test\+\_\+\+String\+\_\+\+Utils\+\_\+trim@{test\+\_\+\+String\+\_\+\+Utils\+\_\+trim}}
+\index{test\+\_\+\+String\+\_\+\+Utils\+\_\+trim@{test\+\_\+\+String\+\_\+\+Utils\+\_\+trim}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{test\+\_\+\+String\+\_\+\+Utils\+\_\+trim}]{\setlength{\rightskip}{0pt plus 5cm}void test\+\_\+\+String\+\_\+\+Utils\+\_\+trim (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_string___utils___tests_8c_a694c7d808b2442362806dff227dd2e8e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{_string___utils___tests_8c_a96119db9060de11407c93a179573fdd5}{}\index{String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}!su@{su}}
+\index{su@{su}!String\+\_\+\+Utils\+\_\+\+Tests.\+c@{String\+\_\+\+Utils\+\_\+\+Tests.\+c}}
+\subsubsection[{su}]{\setlength{\rightskip}{0pt plus 5cm}{\bf String\+\_\+\+Utils}$\ast$ su}\label{_string___utils___tests_8c_a96119db9060de11407c93a179573fdd5}

@@ -1,0 +1,305 @@
+\hypertarget{struct_string___utils}{}\section{String\+\_\+\+Utils Struct Reference}
+\label{struct_string___utils}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+
+
+{\ttfamily \#include $<$String\+\_\+\+Utils.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$$\ast$($\ast$ \hyperlink{struct_string___utils_a0c2d1f4cb2b322fbf9f3d0c402549ff3}{add\+\_\+to} )(char $\ast$$\ast$array, char $\ast$string, size\+\_\+t $\ast$size, int parameter)
+\begin{DoxyCompactList}\small\item\em Not implemented. \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a66942fc862667d85616e0ce9acf4b2c9}{between} )(char $\ast$string, char $\ast$start, char $\ast$end, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns a substring between the first occurrences of the two substrings given. (Options\+: M\+O\+D\+I\+F\+Y, I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a76ddd153562d3e5cc35b28e6cad86416}{capitalize} )(char $\ast$string, int parameter)
+\begin{DoxyCompactList}\small\item\em Capitalizes the first character in the first word. (Options\+: Modify) \end{DoxyCompactList}\item 
+char($\ast$ \hyperlink{struct_string___utils_a165241eff2c5eaaf582e1e38f753d36a}{char\+\_\+at} )(char $\ast$string, unsigned int index)
+\begin{DoxyCompactList}\small\item\em Returns the character at index in string (or last char if out of bounds) \end{DoxyCompactList}\item 
+char $\ast$$\ast$($\ast$ \hyperlink{struct_string___utils_a74a8e43b4ec773c1127882608bc1988a}{combine} )(char $\ast$$\ast$array\+\_\+one, size\+\_\+t $\ast$array\+\_\+one\+\_\+size, char $\ast$$\ast$array\+\_\+two, size\+\_\+t $\ast$array\+\_\+two\+\_\+size, int parameter)
+\begin{DoxyCompactList}\small\item\em Not implemented. \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_aa295704dbae3b08709ed3d36fa562843}{compare} )(char $\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameters)
+\begin{DoxyCompactList}\small\item\em Compares two strings. (string\+\_\+one -\/ string\+\_\+two) (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_ae83461b87a5dd02592e517a2cb22b37d}{concat} )(char $\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameters)
+\begin{DoxyCompactList}\small\item\em Concatenates two strings. (Options\+: M\+O\+D\+I\+F\+Y) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a490b7ad14aa39447ea1e261b3f5398fa}{concat\+\_\+all} )(int parameter, unsigned int amount, char $\ast$string,...)
+\begin{DoxyCompactList}\small\item\em Concatenates all strings passed to it into one. (Options\+: M\+O\+D\+I\+F\+Y) \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_a3f85784009f04048b40078fc2a86bd93}{contains} )(char $\ast$string, char $\ast$search, int parameters)
+\begin{DoxyCompactList}\small\item\em Checks if a string is inside of another string. 1 if true, 0 if false (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a75ebff0bc901abc33f30d46f5db88d66}{copy} )(char $\ast$string, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns a copy of the string (Options\+: L\+O\+W\+E\+R\+C\+A\+S\+E, U\+P\+P\+E\+R\+C\+A\+S\+E, R\+E\+V\+E\+R\+S\+E) \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_aad837adc48fdcd287e13c6e845350541}{count} )(char $\ast$string, char $\ast$\hyperlink{struct_string___utils_a381c718b857c1e1791c0528134a53947}{substring}, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns occurrences of substring in string. (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_acb04b0d3ebef7b0bbf2a1dd85c21c1f5}{ends\+\_\+with} )(char $\ast$string, char $\ast$token, int parameter)
+\begin{DoxyCompactList}\small\item\em Checks if string ends with substring (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_ad3251d14f6d70d7b8a14a2f2e693fabe}{equals} )(char $\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameters)
+\begin{DoxyCompactList}\small\item\em Checks if two strings are equal. 1 if equal, 0 if not. (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{struct_string___utils_a7c06608656a34556a5780d7516979bf7}{free\+\_\+array} )(char $\ast$$\ast$array, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Frees an array of strings. N\+O\+T\+E\+: This function frees the contents, but cannot N\+U\+L\+L the pointer. \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a65e07feab3b61c0bb51c9b15dcb00c22}{from} )(char $\ast$string, unsigned int index, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns a substring from index to end of string. (Options\+: M\+O\+D\+I\+F\+Y) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_af7187b0f8160f90ac71ecfab71b60ff6}{from\+\_\+token} )(char $\ast$string, char $\ast$\hyperlink{struct_string___utils_a381c718b857c1e1791c0528134a53947}{substring}, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns a substring from a substring (Option\+: M\+O\+D\+I\+F\+Y, F\+I\+R\+S\+T, L\+A\+S\+T) \end{DoxyCompactList}\item 
+unsigned int $\ast$($\ast$ \hyperlink{struct_string___utils_acb4ba735906a187651cb53538f6ec070}{get\+\_\+bytes} )(char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Get an array of bytes of a string. \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_a4c735a3556a0e63300f6c23e36668d08}{index\+\_\+of} )(char $\ast$string, char $\ast$\hyperlink{struct_string___utils_a381c718b857c1e1791c0528134a53947}{substring}, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns start index of substring in string. (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_ac942d3f461814d4649f55f5bf577b954}{join} )(char $\ast$$\ast$array\+\_\+of\+\_\+strings, char $\ast$delimiter, size\+\_\+t $\ast$size, int parameter)
+\begin{DoxyCompactList}\small\item\em Joins an array of strings into one string. (Options\+: N\+O\+N\+E) \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_a58de371476767a271dc657f57f5bd5da}{length} )(char $\ast$string)
+\begin{DoxyCompactList}\small\item\em Returns length of string. \end{DoxyCompactList}\item 
+char $\ast$$\ast$($\ast$ \hyperlink{struct_string___utils_abfe28f997f8aeb3f694f6077b2074fe5}{remove\+\_\+from} )(char $\ast$$\ast$array, char $\ast$string, size\+\_\+t $\ast$size, int parameter)
+\begin{DoxyCompactList}\small\item\em Not implemented. \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_ab981dab5e80222905fd97d838ad82219}{replace} )(char $\ast$string, char old\+\_\+char, char new\+\_\+char, int parameter)
+\begin{DoxyCompactList}\small\item\em Replaces all of a char with another. (Options\+: M\+O\+D\+I\+F\+Y, I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_aabf2d796331e3bbc3d00e7d386b931f0}{reverse} )(char $\ast$string, int parameter)
+\begin{DoxyCompactList}\small\item\em Reverses the string. (Options\+: M\+O\+D\+I\+F\+Y);. \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a15fa9ed7b6ac4791b3d3885b69b361b0}{set} )(char $\ast$$\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameter)
+\begin{DoxyCompactList}\small\item\em Sets first string to second string. (Options\+: See Copy) \end{DoxyCompactList}\item 
+char $\ast$$\ast$($\ast$ \hyperlink{struct_string___utils_a1f06d8659ad94939ae299f55d9ede495}{sort} )(char $\ast$$\ast$array, size\+\_\+t $\ast$size, int parameter)
+\begin{DoxyCompactList}\small\item\em Not implemented. \end{DoxyCompactList}\item 
+char $\ast$$\ast$($\ast$ \hyperlink{struct_string___utils_a6e0ff9f0639b20ff2f8e890d9cd3a52e}{split} )(char $\ast$string, char $\ast$delimiter, size\+\_\+t $\ast$size, int parameter)
+\begin{DoxyCompactList}\small\item\em Splits a string into an array of strings based on a delimiter. (Options\+: N\+O\+N\+E) \end{DoxyCompactList}\item 
+int($\ast$ \hyperlink{struct_string___utils_a2e0c72da8d89b7706e0dde7b033f6f6c}{starts\+\_\+with} )(char $\ast$string, char $\ast$\hyperlink{struct_string___utils_a381c718b857c1e1791c0528134a53947}{substring}, int parameter)
+\begin{DoxyCompactList}\small\item\em Checks if string starts with substring (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a381c718b857c1e1791c0528134a53947}{substring} )(char $\ast$string, unsigned int begin, unsigned int end, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns a substring from beginning to end of a string. (Options\+: See Copy) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a9171295acb6faebe83a9748eb54fac9f}{to\+\_\+lowercase} )(char $\ast$string, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns an lowercase string. (Options\+: M\+O\+D\+I\+F\+Y) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_ad0509a3af747c289031c30a2090b51e4}{to\+\_\+uppercase} )(char $\ast$string, int parameter)
+\begin{DoxyCompactList}\small\item\em Returns an uppercase string. (Options\+: M\+O\+D\+I\+F\+Y) \end{DoxyCompactList}\item 
+char $\ast$($\ast$ \hyperlink{struct_string___utils_a02777c13e79db30115643ae7d63ee7a1}{trim} )(char $\ast$string, int parameter)
+\begin{DoxyCompactList}\small\item\em Trims white spaces at beginning and end of string. (Options\+: M\+O\+D\+I\+F\+Y) \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{struct_string___utils_adb024a194f2233b94721c1d45940be23}{update} )(\hyperlink{struct_string___utils}{String\+\_\+\+Utils} $\ast$self)
+\begin{DoxyCompactList}\small\item\em Do not use! \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_string___utils_a0c2d1f4cb2b322fbf9f3d0c402549ff3}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!add\+\_\+to@{add\+\_\+to}}
+\index{add\+\_\+to@{add\+\_\+to}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{add\+\_\+to}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$($\ast$ add\+\_\+to) (char $\ast$$\ast$array, char $\ast$string, size\+\_\+t $\ast$size, int parameter)}\label{struct_string___utils_a0c2d1f4cb2b322fbf9f3d0c402549ff3}
+
+
+Not implemented. 
+
+\hypertarget{struct_string___utils_a66942fc862667d85616e0ce9acf4b2c9}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!between@{between}}
+\index{between@{between}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{between}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ between) (char $\ast$string, char $\ast$start, char $\ast$end, int parameter)}\label{struct_string___utils_a66942fc862667d85616e0ce9acf4b2c9}
+
+
+Returns a substring between the first occurrences of the two substrings given. (Options\+: M\+O\+D\+I\+F\+Y, I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_a76ddd153562d3e5cc35b28e6cad86416}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!capitalize@{capitalize}}
+\index{capitalize@{capitalize}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{capitalize}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ capitalize) (char $\ast$string, int parameter)}\label{struct_string___utils_a76ddd153562d3e5cc35b28e6cad86416}
+
+
+Capitalizes the first character in the first word. (Options\+: Modify) 
+
+\hypertarget{struct_string___utils_a165241eff2c5eaaf582e1e38f753d36a}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!char\+\_\+at@{char\+\_\+at}}
+\index{char\+\_\+at@{char\+\_\+at}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{char\+\_\+at}]{\setlength{\rightskip}{0pt plus 5cm}char($\ast$ char\+\_\+at) (char $\ast$string, unsigned int index)}\label{struct_string___utils_a165241eff2c5eaaf582e1e38f753d36a}
+
+
+Returns the character at index in string (or last char if out of bounds) 
+
+\hypertarget{struct_string___utils_a74a8e43b4ec773c1127882608bc1988a}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!combine@{combine}}
+\index{combine@{combine}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{combine}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$($\ast$ combine) (char $\ast$$\ast$array\+\_\+one, size\+\_\+t $\ast$array\+\_\+one\+\_\+size, char $\ast$$\ast$array\+\_\+two, size\+\_\+t $\ast$array\+\_\+two\+\_\+size, int parameter)}\label{struct_string___utils_a74a8e43b4ec773c1127882608bc1988a}
+
+
+Not implemented. 
+
+\hypertarget{struct_string___utils_aa295704dbae3b08709ed3d36fa562843}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!compare@{compare}}
+\index{compare@{compare}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{compare}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ compare) (char $\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameters)}\label{struct_string___utils_aa295704dbae3b08709ed3d36fa562843}
+
+
+Compares two strings. (string\+\_\+one -\/ string\+\_\+two) (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_ae83461b87a5dd02592e517a2cb22b37d}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!concat@{concat}}
+\index{concat@{concat}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{concat}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ concat) (char $\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameters)}\label{struct_string___utils_ae83461b87a5dd02592e517a2cb22b37d}
+
+
+Concatenates two strings. (Options\+: M\+O\+D\+I\+F\+Y) 
+
+\hypertarget{struct_string___utils_a490b7ad14aa39447ea1e261b3f5398fa}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!concat\+\_\+all@{concat\+\_\+all}}
+\index{concat\+\_\+all@{concat\+\_\+all}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{concat\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ concat\+\_\+all) (int parameter, unsigned int amount, char $\ast$string,...)}\label{struct_string___utils_a490b7ad14aa39447ea1e261b3f5398fa}
+
+
+Concatenates all strings passed to it into one. (Options\+: M\+O\+D\+I\+F\+Y) 
+
+\hypertarget{struct_string___utils_a3f85784009f04048b40078fc2a86bd93}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!contains@{contains}}
+\index{contains@{contains}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ contains) (char $\ast$string, char $\ast$search, int parameters)}\label{struct_string___utils_a3f85784009f04048b40078fc2a86bd93}
+
+
+Checks if a string is inside of another string. 1 if true, 0 if false (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_a75ebff0bc901abc33f30d46f5db88d66}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!copy@{copy}}
+\index{copy@{copy}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{copy}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ copy) (char $\ast$string, int parameter)}\label{struct_string___utils_a75ebff0bc901abc33f30d46f5db88d66}
+
+
+Returns a copy of the string (Options\+: L\+O\+W\+E\+R\+C\+A\+S\+E, U\+P\+P\+E\+R\+C\+A\+S\+E, R\+E\+V\+E\+R\+S\+E) 
+
+\hypertarget{struct_string___utils_aad837adc48fdcd287e13c6e845350541}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!count@{count}}
+\index{count@{count}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ count) (char $\ast$string, char $\ast${\bf substring}, int parameter)}\label{struct_string___utils_aad837adc48fdcd287e13c6e845350541}
+
+
+Returns occurrences of substring in string. (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_acb04b0d3ebef7b0bbf2a1dd85c21c1f5}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!ends\+\_\+with@{ends\+\_\+with}}
+\index{ends\+\_\+with@{ends\+\_\+with}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{ends\+\_\+with}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ ends\+\_\+with) (char $\ast$string, char $\ast$token, int parameter)}\label{struct_string___utils_acb04b0d3ebef7b0bbf2a1dd85c21c1f5}
+
+
+Checks if string ends with substring (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_ad3251d14f6d70d7b8a14a2f2e693fabe}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!equals@{equals}}
+\index{equals@{equals}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{equals}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ equals) (char $\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameters)}\label{struct_string___utils_ad3251d14f6d70d7b8a14a2f2e693fabe}
+
+
+Checks if two strings are equal. 1 if equal, 0 if not. (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_a7c06608656a34556a5780d7516979bf7}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!free\+\_\+array@{free\+\_\+array}}
+\index{free\+\_\+array@{free\+\_\+array}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{free\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ free\+\_\+array) (char $\ast$$\ast$array, size\+\_\+t size)}\label{struct_string___utils_a7c06608656a34556a5780d7516979bf7}
+
+
+Frees an array of strings. N\+O\+T\+E\+: This function frees the contents, but cannot N\+U\+L\+L the pointer. 
+
+\hypertarget{struct_string___utils_a65e07feab3b61c0bb51c9b15dcb00c22}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!from@{from}}
+\index{from@{from}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{from}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ from) (char $\ast$string, unsigned int index, int parameter)}\label{struct_string___utils_a65e07feab3b61c0bb51c9b15dcb00c22}
+
+
+Returns a substring from index to end of string. (Options\+: M\+O\+D\+I\+F\+Y) 
+
+\hypertarget{struct_string___utils_af7187b0f8160f90ac71ecfab71b60ff6}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!from\+\_\+token@{from\+\_\+token}}
+\index{from\+\_\+token@{from\+\_\+token}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{from\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ from\+\_\+token) (char $\ast$string, char $\ast${\bf substring}, int parameter)}\label{struct_string___utils_af7187b0f8160f90ac71ecfab71b60ff6}
+
+
+Returns a substring from a substring (Option\+: M\+O\+D\+I\+F\+Y, F\+I\+R\+S\+T, L\+A\+S\+T) 
+
+\hypertarget{struct_string___utils_acb4ba735906a187651cb53538f6ec070}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!get\+\_\+bytes@{get\+\_\+bytes}}
+\index{get\+\_\+bytes@{get\+\_\+bytes}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{get\+\_\+bytes}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int$\ast$($\ast$ get\+\_\+bytes) (char $\ast$string)}\label{struct_string___utils_acb4ba735906a187651cb53538f6ec070}
+
+
+Get an array of bytes of a string. 
+
+\hypertarget{struct_string___utils_a4c735a3556a0e63300f6c23e36668d08}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!index\+\_\+of@{index\+\_\+of}}
+\index{index\+\_\+of@{index\+\_\+of}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{index\+\_\+of}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ index\+\_\+of) (char $\ast$string, char $\ast${\bf substring}, int parameter)}\label{struct_string___utils_a4c735a3556a0e63300f6c23e36668d08}
+
+
+Returns start index of substring in string. (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_ac942d3f461814d4649f55f5bf577b954}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!join@{join}}
+\index{join@{join}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{join}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ join) (char $\ast$$\ast$array\+\_\+of\+\_\+strings, char $\ast$delimiter, size\+\_\+t $\ast$size, int parameter)}\label{struct_string___utils_ac942d3f461814d4649f55f5bf577b954}
+
+
+Joins an array of strings into one string. (Options\+: N\+O\+N\+E) 
+
+\hypertarget{struct_string___utils_a58de371476767a271dc657f57f5bd5da}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!length@{length}}
+\index{length@{length}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{length}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ length) (char $\ast$string)}\label{struct_string___utils_a58de371476767a271dc657f57f5bd5da}
+
+
+Returns length of string. 
+
+\hypertarget{struct_string___utils_abfe28f997f8aeb3f694f6077b2074fe5}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!remove\+\_\+from@{remove\+\_\+from}}
+\index{remove\+\_\+from@{remove\+\_\+from}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{remove\+\_\+from}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$($\ast$ remove\+\_\+from) (char $\ast$$\ast$array, char $\ast$string, size\+\_\+t $\ast$size, int parameter)}\label{struct_string___utils_abfe28f997f8aeb3f694f6077b2074fe5}
+
+
+Not implemented. 
+
+\hypertarget{struct_string___utils_ab981dab5e80222905fd97d838ad82219}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!replace@{replace}}
+\index{replace@{replace}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{replace}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ replace) (char $\ast$string, char old\+\_\+char, char new\+\_\+char, int parameter)}\label{struct_string___utils_ab981dab5e80222905fd97d838ad82219}
+
+
+Replaces all of a char with another. (Options\+: M\+O\+D\+I\+F\+Y, I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_aabf2d796331e3bbc3d00e7d386b931f0}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!reverse@{reverse}}
+\index{reverse@{reverse}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{reverse}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ reverse) (char $\ast$string, int parameter)}\label{struct_string___utils_aabf2d796331e3bbc3d00e7d386b931f0}
+
+
+Reverses the string. (Options\+: M\+O\+D\+I\+F\+Y);. 
+
+\hypertarget{struct_string___utils_a15fa9ed7b6ac4791b3d3885b69b361b0}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!set@{set}}
+\index{set@{set}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{set}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ set) (char $\ast$$\ast$string\+\_\+one, char $\ast$string\+\_\+two, int parameter)}\label{struct_string___utils_a15fa9ed7b6ac4791b3d3885b69b361b0}
+
+
+Sets first string to second string. (Options\+: See Copy) 
+
+\hypertarget{struct_string___utils_a1f06d8659ad94939ae299f55d9ede495}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!sort@{sort}}
+\index{sort@{sort}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{sort}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$($\ast$ sort) (char $\ast$$\ast$array, size\+\_\+t $\ast$size, int parameter)}\label{struct_string___utils_a1f06d8659ad94939ae299f55d9ede495}
+
+
+Not implemented. 
+
+\hypertarget{struct_string___utils_a6e0ff9f0639b20ff2f8e890d9cd3a52e}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!split@{split}}
+\index{split@{split}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{split}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$($\ast$ split) (char $\ast$string, char $\ast$delimiter, size\+\_\+t $\ast$size, int parameter)}\label{struct_string___utils_a6e0ff9f0639b20ff2f8e890d9cd3a52e}
+
+
+Splits a string into an array of strings based on a delimiter. (Options\+: N\+O\+N\+E) 
+
+\hypertarget{struct_string___utils_a2e0c72da8d89b7706e0dde7b033f6f6c}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!starts\+\_\+with@{starts\+\_\+with}}
+\index{starts\+\_\+with@{starts\+\_\+with}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{starts\+\_\+with}]{\setlength{\rightskip}{0pt plus 5cm}int($\ast$ starts\+\_\+with) (char $\ast$string, char $\ast${\bf substring}, int parameter)}\label{struct_string___utils_a2e0c72da8d89b7706e0dde7b033f6f6c}
+
+
+Checks if string starts with substring (Options\+: I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E) 
+
+\hypertarget{struct_string___utils_a381c718b857c1e1791c0528134a53947}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!substring@{substring}}
+\index{substring@{substring}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{substring}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ substring) (char $\ast$string, unsigned int begin, unsigned int end, int parameter)}\label{struct_string___utils_a381c718b857c1e1791c0528134a53947}
+
+
+Returns a substring from beginning to end of a string. (Options\+: See Copy) 
+
+\hypertarget{struct_string___utils_a9171295acb6faebe83a9748eb54fac9f}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!to\+\_\+lowercase@{to\+\_\+lowercase}}
+\index{to\+\_\+lowercase@{to\+\_\+lowercase}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{to\+\_\+lowercase}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ to\+\_\+lowercase) (char $\ast$string, int parameter)}\label{struct_string___utils_a9171295acb6faebe83a9748eb54fac9f}
+
+
+Returns an lowercase string. (Options\+: M\+O\+D\+I\+F\+Y) 
+
+\hypertarget{struct_string___utils_ad0509a3af747c289031c30a2090b51e4}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!to\+\_\+uppercase@{to\+\_\+uppercase}}
+\index{to\+\_\+uppercase@{to\+\_\+uppercase}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{to\+\_\+uppercase}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ to\+\_\+uppercase) (char $\ast$string, int parameter)}\label{struct_string___utils_ad0509a3af747c289031c30a2090b51e4}
+
+
+Returns an uppercase string. (Options\+: M\+O\+D\+I\+F\+Y) 
+
+\hypertarget{struct_string___utils_a02777c13e79db30115643ae7d63ee7a1}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!trim@{trim}}
+\index{trim@{trim}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{trim}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$($\ast$ trim) (char $\ast$string, int parameter)}\label{struct_string___utils_a02777c13e79db30115643ae7d63ee7a1}
+
+
+Trims white spaces at beginning and end of string. (Options\+: M\+O\+D\+I\+F\+Y) 
+
+\hypertarget{struct_string___utils_adb024a194f2233b94721c1d45940be23}{}\index{String\+\_\+\+Utils@{String\+\_\+\+Utils}!update@{update}}
+\index{update@{update}!String\+\_\+\+Utils@{String\+\_\+\+Utils}}
+\subsubsection[{update}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ update) ({\bf String\+\_\+\+Utils} $\ast$self)}\label{struct_string___utils_adb024a194f2233b94721c1d45940be23}
+
+
+Do not use! 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+String\+\_\+\+Utils/\+Code/\hyperlink{_string___utils_8h}{String\+\_\+\+Utils.\+h}\end{DoxyCompactItemize}
