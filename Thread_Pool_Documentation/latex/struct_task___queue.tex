@@ -1,0 +1,97 @@
+\hypertarget{struct_task___queue}{}\section{Task\+\_\+\+Queue Struct Reference}
+\label{struct_task___queue}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+
+
+The queue all worker threads use to obtain the next task to process.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+\_\+\+Pool.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_task}{Task} $\ast$ \hyperlink{struct_task___queue_af5acea37bcf6ce1d8fcd3e164a93b37d}{head}
+\begin{DoxyCompactList}\small\item\em Pointer to the head of the queue. \end{DoxyCompactList}\item 
+\hyperlink{struct_task}{Task} $\ast$ \hyperlink{struct_task___queue_a5ecf97d7a2c4b562c68aaf5514691fc1}{tail}
+\begin{DoxyCompactList}\small\item\em Pointer to the tail of the queue. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{struct_task___queue_a854352f53b148adc24983a58a1866d66}{size}
+\begin{DoxyCompactList}\small\item\em Maintains the size of the current queue. \end{DoxyCompactList}\item 
+pthread\+\_\+cond\+\_\+t $\ast$ \hyperlink{struct_task___queue_a5516e2d0cf00a5eeb4fb0ed563302577}{is\+\_\+finished}
+\begin{DoxyCompactList}\small\item\em Condition variable to signal that all tasks are finished. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_task___queue_a82c4f8c176f73a4611cfd93d8182047e}{no\+\_\+tasks}
+\begin{DoxyCompactList}\small\item\em Lock to use to wait until is\+\_\+finished is signaled. \end{DoxyCompactList}\item 
+pthread\+\_\+cond\+\_\+t $\ast$ \hyperlink{struct_task___queue_a246f0c6d74730bab84d4cf40d95b4bcd}{new\+\_\+task}
+\begin{DoxyCompactList}\small\item\em Condition variable to signal when a task is added to the queue. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_task___queue_a9e5223ee99a4ba19be87c90bfd48663e}{await\+\_\+task}
+\begin{DoxyCompactList}\small\item\em Lock to use to wait until a new task is added. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_task___queue_a45cc6cc8a880eb1ea2cd3bbbfa5ddae5}{adding\+\_\+task}
+\begin{DoxyCompactList}\small\item\em Lock to use when adding a task. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The queue all worker threads use to obtain the next task to process. 
+
+\subsection{Field Documentation}
+\hypertarget{struct_task___queue_a45cc6cc8a880eb1ea2cd3bbbfa5ddae5}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!adding\+\_\+task@{adding\+\_\+task}}
+\index{adding\+\_\+task@{adding\+\_\+task}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{adding\+\_\+task}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ adding\+\_\+task}\label{struct_task___queue_a45cc6cc8a880eb1ea2cd3bbbfa5ddae5}
+
+
+Lock to use when adding a task. 
+
+\hypertarget{struct_task___queue_a9e5223ee99a4ba19be87c90bfd48663e}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!await\+\_\+task@{await\+\_\+task}}
+\index{await\+\_\+task@{await\+\_\+task}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{await\+\_\+task}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ await\+\_\+task}\label{struct_task___queue_a9e5223ee99a4ba19be87c90bfd48663e}
+
+
+Lock to use to wait until a new task is added. 
+
+\hypertarget{struct_task___queue_af5acea37bcf6ce1d8fcd3e164a93b37d}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!head@{head}}
+\index{head@{head}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task}$\ast$ head}\label{struct_task___queue_af5acea37bcf6ce1d8fcd3e164a93b37d}
+
+
+Pointer to the head of the queue. 
+
+\hypertarget{struct_task___queue_a5516e2d0cf00a5eeb4fb0ed563302577}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!is\+\_\+finished@{is\+\_\+finished}}
+\index{is\+\_\+finished@{is\+\_\+finished}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{is\+\_\+finished}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+cond\+\_\+t$\ast$ is\+\_\+finished}\label{struct_task___queue_a5516e2d0cf00a5eeb4fb0ed563302577}
+
+
+Condition variable to signal that all tasks are finished. 
+
+\hypertarget{struct_task___queue_a246f0c6d74730bab84d4cf40d95b4bcd}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!new\+\_\+task@{new\+\_\+task}}
+\index{new\+\_\+task@{new\+\_\+task}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{new\+\_\+task}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+cond\+\_\+t$\ast$ new\+\_\+task}\label{struct_task___queue_a246f0c6d74730bab84d4cf40d95b4bcd}
+
+
+Condition variable to signal when a task is added to the queue. 
+
+\hypertarget{struct_task___queue_a82c4f8c176f73a4611cfd93d8182047e}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!no\+\_\+tasks@{no\+\_\+tasks}}
+\index{no\+\_\+tasks@{no\+\_\+tasks}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{no\+\_\+tasks}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ no\+\_\+tasks}\label{struct_task___queue_a82c4f8c176f73a4611cfd93d8182047e}
+
+
+Lock to use to wait until is\+\_\+finished is signaled. 
+
+\hypertarget{struct_task___queue_a854352f53b148adc24983a58a1866d66}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!size@{size}}
+\index{size@{size}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t size}\label{struct_task___queue_a854352f53b148adc24983a58a1866d66}
+
+
+Maintains the size of the current queue. 
+
+\hypertarget{struct_task___queue_a5ecf97d7a2c4b562c68aaf5514691fc1}{}\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!tail@{tail}}
+\index{tail@{tail}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\subsubsection[{tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task}$\ast$ tail}\label{struct_task___queue_a5ecf97d7a2c4b562c68aaf5514691fc1}
+
+
+Pointer to the tail of the queue. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Thread Pool/\+Code/\hyperlink{_thread___pool_8h}{Thread\+\_\+\+Pool.\+h}\end{DoxyCompactItemize}

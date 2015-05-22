@@ -1,0 +1,414 @@
+\hypertarget{_thread___pool_8c}{}\section{Thread Pool/\+Code/\+Thread\+\_\+\+Pool.c File Reference}
+\label{_thread___pool_8c}\index{Thread Pool/\+Code/\+Thread\+\_\+\+Pool.\+c@{Thread Pool/\+Code/\+Thread\+\_\+\+Pool.\+c}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+{\ttfamily \#include $<$signal.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}Thread\+\_\+\+Pool.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_thread___pool_8c_ac23aa31b2fd0a604ca601084a90bb800}{L\+O\+C\+K}(mutex)~pthread\+\_\+mutex\+\_\+lock(mutex)
+\begin{DoxyCompactList}\small\item\em Used to lock the given mutex. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a5126fc9133a1f3230ebb1f2be423f9d9}{T\+R\+Y\+L\+O\+C\+K}(mutex)~pthread\+\_\+mutex\+\_\+trylock(mutex)
+\begin{DoxyCompactList}\small\item\em Used to try to lock the mutex, returning immediately on failure. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_aab75c4136289e7d71035be5153b19b5d}{U\+N\+L\+O\+C\+K}(mutex)~pthread\+\_\+mutex\+\_\+unlock(mutex)
+\begin{DoxyCompactList}\small\item\em Used to unlock the given mutex. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a95a78f089f6a325394b0a7172997302e}{W\+A\+I\+T}(condition,  mutex)~pthread\+\_\+cond\+\_\+wait(condition, mutex)
+\begin{DoxyCompactList}\small\item\em Causes the current thread to wait for a signal to be sent. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a65efb54c577f309e575327a48e3438a1}{S\+I\+G\+N\+A\+L}(condition)~pthread\+\_\+cond\+\_\+signal(condition)
+\begin{DoxyCompactList}\small\item\em Signals a thread waiting on the condition based on a default scheduler. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a93954f8978d7d6964a369ecd6711276d}{B\+R\+O\+A\+D\+C\+A\+S\+T}(condition)~pthread\+\_\+cond\+\_\+broadcast(condition)
+\begin{DoxyCompactList}\small\item\em Used to broadcast to all threads waiting on the condition variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a70bf1bed622eea60920799da120e8692}{P\+A\+U\+S\+E}(thread)~pthread\+\_\+kill(thread, S\+I\+G\+U\+S\+R1)
+\begin{DoxyCompactList}\small\item\em Macro used to pause the thread, as the function name is very misleading. Sends S\+I\+G\+U\+S\+R1 signal. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_ac21b304e2788f1720a68da157f895184}{I\+N\+C\+R\+E\+M\+E\+N\+T}(var,  mutex)
+\begin{DoxyCompactList}\small\item\em Used to atomically increment the variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a5bd378fc65168cd66c8af83a07bf384e}{D\+E\+C\+R\+E\+M\+E\+N\+T}(var,  mutex)
+\begin{DoxyCompactList}\small\item\em Used to atomically decrement the variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_ad53e9538fb2721d198ad5fa9199cc276}{I\+N\+I\+T\+\_\+\+M\+U\+T\+E\+X}(mutex,  attr)
+\begin{DoxyCompactList}\small\item\em Used to quickly initialize a mutex. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_afb6e6fd026e8e393fa5545efd196fcf4}{I\+N\+I\+T\+\_\+\+C\+O\+N\+D}(cond,  attr)
+\begin{DoxyCompactList}\small\item\em Used to quickly initialize a condition variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a94db4f5104511890355a08264793aad7}{D\+E\+S\+T\+R\+O\+Y\+\_\+\+M\+U\+T\+E\+X}(mutex)
+\begin{DoxyCompactList}\small\item\em Free the mutex. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_aa6bb895a437a8ab3ed4c2f7fda6a1d0f}{D\+E\+S\+T\+R\+O\+Y\+\_\+\+C\+O\+N\+D}(cond)
+\begin{DoxyCompactList}\small\item\em Free the condition variable. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a101eb1f242994c1c4db05d9df04fccc1}{T\+P\+\_\+\+D\+E\+B\+U\+G}~0
+\begin{DoxyCompactList}\small\item\em Simple macro to enable debug. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_a1d77d27cfdf46dfc9ccd8254172ff78f}{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T}(str)~(\hyperlink{_thread___pool_8c_a101eb1f242994c1c4db05d9df04fccc1}{T\+P\+\_\+\+D\+E\+B\+U\+G} ? printf(str) \+: \hyperlink{_thread___pool_8c_a101eb1f242994c1c4db05d9df04fccc1}{T\+P\+\_\+\+D\+E\+B\+U\+G})
+\begin{DoxyCompactList}\small\item\em Print a message if and only if T\+P\+\_\+\+D\+E\+B\+U\+G is enabled. \end{DoxyCompactList}\item 
+\#define \hyperlink{_thread___pool_8c_ae717deb544d95eb9d1ab20080ef2ff72}{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+F}(str, ...)~(\hyperlink{_thread___pool_8c_a101eb1f242994c1c4db05d9df04fccc1}{T\+P\+\_\+\+D\+E\+B\+U\+G} ? printf(str, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+) \+: \hyperlink{_thread___pool_8c_a101eb1f242994c1c4db05d9df04fccc1}{T\+P\+\_\+\+D\+E\+B\+U\+G})
+\begin{DoxyCompactList}\small\item\em Print a formatted message if and only if T\+P\+\_\+\+D\+E\+B\+U\+G is enabled. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_thread___pool_8c_a5c430cfa5dae83aa5fa640c1f0dc2172}{Thread\+\_\+\+Pool\+\_\+\+Init} (size\+\_\+t number\+\_\+of\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Constructor for the thread pool, creating the requested amount of threads. \end{DoxyCompactList}\item 
+\hyperlink{struct_result}{Result} $\ast$ \hyperlink{_thread___pool_8c_a169ae10080b61eff9203ad6eae4dcb0f}{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task} (\hyperlink{_thread___pool_8h_a6020f0ebe47b326c900080b168c40b53}{thread\+\_\+callback} cb, void $\ast$args)
+\begin{DoxyCompactList}\small\item\em Adds a task to the thread pool. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8c_aba0e69821afa14c4dbdef215bb94b775}{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy} (\hyperlink{struct_result}{Result} $\ast$result)
+\begin{DoxyCompactList}\small\item\em Will destroy the \hyperlink{struct_result}{Result} and set it\textquotesingle{}s reference to N\+U\+L\+L. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_thread___pool_8c_abc0bf55f632012b472a02a2d618baf29}{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result} (\hyperlink{struct_result}{Result} $\ast$result)
+\begin{DoxyCompactList}\small\item\em Will block until result is ready. \end{DoxyCompactList}\item 
+void \hyperlink{_thread___pool_8c_a74c59d87a024ea0a1df868023cbfb35a}{Thread\+\_\+\+Pool\+\_\+\+Wait} (void)
+\begin{DoxyCompactList}\small\item\em Blocks until all tasks in the thread pool are finished. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8c_a438a1443bdaa8e20bb71ea23c03d0df8}{Thread\+\_\+\+Pool\+\_\+\+Destroy} (void)
+\begin{DoxyCompactList}\small\item\em Destroys the current thread pool, waiting for the current tasks to be finished. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8c_ab1af9879b18427f7b5fa273649bf1ba4}{Thread\+\_\+\+Pool\+\_\+\+Pause} (void)
+\begin{DoxyCompactList}\small\item\em Pause all operations in the task queue. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8c_afb4e495587c622e9d7009639e2248d39}{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause} (unsigned int seconds)
+\item 
+int \hyperlink{_thread___pool_8c_a582d687c426ef6de27de7346c884a92d}{Thread\+\_\+\+Pool\+\_\+\+Resume} (void)
+\begin{DoxyCompactList}\small\item\em Resume all worker threads that are paused. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_thread___pool_8c_a93954f8978d7d6964a369ecd6711276d}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!B\+R\+O\+A\+D\+C\+A\+S\+T@{B\+R\+O\+A\+D\+C\+A\+S\+T}}
+\index{B\+R\+O\+A\+D\+C\+A\+S\+T@{B\+R\+O\+A\+D\+C\+A\+S\+T}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{B\+R\+O\+A\+D\+C\+A\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\+R\+O\+A\+D\+C\+A\+S\+T(
+\begin{DoxyParamCaption}
+\item[{}]{condition}
+\end{DoxyParamCaption}
+)~pthread\+\_\+cond\+\_\+broadcast(condition)}\label{_thread___pool_8c_a93954f8978d7d6964a369ecd6711276d}
+
+
+Used to broadcast to all threads waiting on the condition variable. 
+
+\hypertarget{_thread___pool_8c_a5bd378fc65168cd66c8af83a07bf384e}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!D\+E\+C\+R\+E\+M\+E\+N\+T@{D\+E\+C\+R\+E\+M\+E\+N\+T}}
+\index{D\+E\+C\+R\+E\+M\+E\+N\+T@{D\+E\+C\+R\+E\+M\+E\+N\+T}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{D\+E\+C\+R\+E\+M\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+C\+R\+E\+M\+E\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{var, }
+\item[{}]{mutex}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_a5bd378fc65168cd66c8af83a07bf384e}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \hyperlink{_thread___pool_8c_ac23aa31b2fd0a604ca601084a90bb800}{\(\backslash\)}
+\hyperlink{_thread___pool_8c_ac23aa31b2fd0a604ca601084a90bb800}{            LOCK}(mutex); \(\backslash\)
+            var--; \hyperlink{_thread___pool_8c_aab75c4136289e7d71035be5153b19b5d}{\(\backslash\)}
+\hyperlink{_thread___pool_8c_aab75c4136289e7d71035be5153b19b5d}{            UNLOCK}(mutex); \(\backslash\)
+        \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Used to atomically decrement the variable. 
+
+\hypertarget{_thread___pool_8c_aa6bb895a437a8ab3ed4c2f7fda6a1d0f}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!D\+E\+S\+T\+R\+O\+Y\+\_\+\+C\+O\+N\+D@{D\+E\+S\+T\+R\+O\+Y\+\_\+\+C\+O\+N\+D}}
+\index{D\+E\+S\+T\+R\+O\+Y\+\_\+\+C\+O\+N\+D@{D\+E\+S\+T\+R\+O\+Y\+\_\+\+C\+O\+N\+D}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{D\+E\+S\+T\+R\+O\+Y\+\_\+\+C\+O\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+S\+T\+R\+O\+Y\+\_\+\+C\+O\+N\+D(
+\begin{DoxyParamCaption}
+\item[{}]{cond}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_aa6bb895a437a8ab3ed4c2f7fda6a1d0f}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+                pthread\_cond\_destroy(cond); \(\backslash\)
+                free(cond); \(\backslash\)
+            \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Free the condition variable. 
+
+\hypertarget{_thread___pool_8c_a94db4f5104511890355a08264793aad7}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!D\+E\+S\+T\+R\+O\+Y\+\_\+\+M\+U\+T\+E\+X@{D\+E\+S\+T\+R\+O\+Y\+\_\+\+M\+U\+T\+E\+X}}
+\index{D\+E\+S\+T\+R\+O\+Y\+\_\+\+M\+U\+T\+E\+X@{D\+E\+S\+T\+R\+O\+Y\+\_\+\+M\+U\+T\+E\+X}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{D\+E\+S\+T\+R\+O\+Y\+\_\+\+M\+U\+T\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+E\+S\+T\+R\+O\+Y\+\_\+\+M\+U\+T\+E\+X(
+\begin{DoxyParamCaption}
+\item[{}]{mutex}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_a94db4f5104511890355a08264793aad7}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+                pthread\_mutex\_destroy(mutex); \(\backslash\)
+                free(mutex); \(\backslash\)
+            \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Free the mutex. 
+
+\hypertarget{_thread___pool_8c_ac21b304e2788f1720a68da157f895184}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!I\+N\+C\+R\+E\+M\+E\+N\+T@{I\+N\+C\+R\+E\+M\+E\+N\+T}}
+\index{I\+N\+C\+R\+E\+M\+E\+N\+T@{I\+N\+C\+R\+E\+M\+E\+N\+T}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{I\+N\+C\+R\+E\+M\+E\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+C\+R\+E\+M\+E\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{var, }
+\item[{}]{mutex}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_ac21b304e2788f1720a68da157f895184}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \hyperlink{_thread___pool_8c_ac23aa31b2fd0a604ca601084a90bb800}{\(\backslash\)}
+\hyperlink{_thread___pool_8c_ac23aa31b2fd0a604ca601084a90bb800}{            LOCK}(mutex); \(\backslash\)
+            var++; \hyperlink{_thread___pool_8c_aab75c4136289e7d71035be5153b19b5d}{\(\backslash\)}
+\hyperlink{_thread___pool_8c_aab75c4136289e7d71035be5153b19b5d}{            UNLOCK}(mutex); \(\backslash\)
+        \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Used to atomically increment the variable. 
+
+\hypertarget{_thread___pool_8c_afb6e6fd026e8e393fa5545efd196fcf4}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!I\+N\+I\+T\+\_\+\+C\+O\+N\+D@{I\+N\+I\+T\+\_\+\+C\+O\+N\+D}}
+\index{I\+N\+I\+T\+\_\+\+C\+O\+N\+D@{I\+N\+I\+T\+\_\+\+C\+O\+N\+D}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+C\+O\+N\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+C\+O\+N\+D(
+\begin{DoxyParamCaption}
+\item[{}]{cond, }
+\item[{}]{attr}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_afb6e6fd026e8e393fa5545efd196fcf4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+               cond = malloc(\textcolor{keyword}{sizeof}(pthread\_cond\_t)); \(\backslash\)
+               pthread\_cond\_init(cond, attr); \(\backslash\)
+            \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Used to quickly initialize a condition variable. 
+
+\hypertarget{_thread___pool_8c_ad53e9538fb2721d198ad5fa9199cc276}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!I\+N\+I\+T\+\_\+\+M\+U\+T\+E\+X@{I\+N\+I\+T\+\_\+\+M\+U\+T\+E\+X}}
+\index{I\+N\+I\+T\+\_\+\+M\+U\+T\+E\+X@{I\+N\+I\+T\+\_\+\+M\+U\+T\+E\+X}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+M\+U\+T\+E\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+M\+U\+T\+E\+X(
+\begin{DoxyParamCaption}
+\item[{}]{mutex, }
+\item[{}]{attr}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_ad53e9538fb2721d198ad5fa9199cc276}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+               mutex = malloc(\textcolor{keyword}{sizeof}(pthread\_mutex\_t)); \(\backslash\)
+               pthread\_mutex\_init(mutex, attr); \(\backslash\)
+            \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Used to quickly initialize a mutex. 
+
+\hypertarget{_thread___pool_8c_ac23aa31b2fd0a604ca601084a90bb800}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!L\+O\+C\+K@{L\+O\+C\+K}}
+\index{L\+O\+C\+K@{L\+O\+C\+K}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+C\+K(
+\begin{DoxyParamCaption}
+\item[{}]{mutex}
+\end{DoxyParamCaption}
+)~pthread\+\_\+mutex\+\_\+lock(mutex)}\label{_thread___pool_8c_ac23aa31b2fd0a604ca601084a90bb800}
+
+
+Used to lock the given mutex. 
+
+\hypertarget{_thread___pool_8c_a70bf1bed622eea60920799da120e8692}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!P\+A\+U\+S\+E@{P\+A\+U\+S\+E}}
+\index{P\+A\+U\+S\+E@{P\+A\+U\+S\+E}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{P\+A\+U\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\+A\+U\+S\+E(
+\begin{DoxyParamCaption}
+\item[{}]{thread}
+\end{DoxyParamCaption}
+)~pthread\+\_\+kill(thread, S\+I\+G\+U\+S\+R1)}\label{_thread___pool_8c_a70bf1bed622eea60920799da120e8692}
+
+
+Macro used to pause the thread, as the function name is very misleading. Sends S\+I\+G\+U\+S\+R1 signal. 
+
+\hypertarget{_thread___pool_8c_a65efb54c577f309e575327a48e3438a1}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!S\+I\+G\+N\+A\+L@{S\+I\+G\+N\+A\+L}}
+\index{S\+I\+G\+N\+A\+L@{S\+I\+G\+N\+A\+L}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{S\+I\+G\+N\+A\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+I\+G\+N\+A\+L(
+\begin{DoxyParamCaption}
+\item[{}]{condition}
+\end{DoxyParamCaption}
+)~pthread\+\_\+cond\+\_\+signal(condition)}\label{_thread___pool_8c_a65efb54c577f309e575327a48e3438a1}
+
+
+Signals a thread waiting on the condition based on a default scheduler. 
+
+\hypertarget{_thread___pool_8c_a101eb1f242994c1c4db05d9df04fccc1}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!T\+P\+\_\+\+D\+E\+B\+U\+G@{T\+P\+\_\+\+D\+E\+B\+U\+G}}
+\index{T\+P\+\_\+\+D\+E\+B\+U\+G@{T\+P\+\_\+\+D\+E\+B\+U\+G}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{T\+P\+\_\+\+D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+P\+\_\+\+D\+E\+B\+U\+G~0}\label{_thread___pool_8c_a101eb1f242994c1c4db05d9df04fccc1}
+
+
+Simple macro to enable debug. 
+
+\hypertarget{_thread___pool_8c_a1d77d27cfdf46dfc9ccd8254172ff78f}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T@{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T}}
+\index{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T@{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T(
+\begin{DoxyParamCaption}
+\item[{}]{str}
+\end{DoxyParamCaption}
+)~({\bf T\+P\+\_\+\+D\+E\+B\+U\+G} ? printf(str) \+: {\bf T\+P\+\_\+\+D\+E\+B\+U\+G})}\label{_thread___pool_8c_a1d77d27cfdf46dfc9ccd8254172ff78f}
+
+
+Print a message if and only if T\+P\+\_\+\+D\+E\+B\+U\+G is enabled. 
+
+\hypertarget{_thread___pool_8c_ae717deb544d95eb9d1ab20080ef2ff72}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+F@{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+F}}
+\index{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+F@{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+F}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+P\+\_\+\+D\+E\+B\+U\+G\+\_\+\+P\+R\+I\+N\+T\+F(
+\begin{DoxyParamCaption}
+\item[{}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)~({\bf T\+P\+\_\+\+D\+E\+B\+U\+G} ? printf(str, \+\_\+\+\_\+\+V\+A\+\_\+\+A\+R\+G\+S\+\_\+\+\_\+) \+: {\bf T\+P\+\_\+\+D\+E\+B\+U\+G})}\label{_thread___pool_8c_ae717deb544d95eb9d1ab20080ef2ff72}
+
+
+Print a formatted message if and only if T\+P\+\_\+\+D\+E\+B\+U\+G is enabled. 
+
+\hypertarget{_thread___pool_8c_a5126fc9133a1f3230ebb1f2be423f9d9}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!T\+R\+Y\+L\+O\+C\+K@{T\+R\+Y\+L\+O\+C\+K}}
+\index{T\+R\+Y\+L\+O\+C\+K@{T\+R\+Y\+L\+O\+C\+K}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{T\+R\+Y\+L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+R\+Y\+L\+O\+C\+K(
+\begin{DoxyParamCaption}
+\item[{}]{mutex}
+\end{DoxyParamCaption}
+)~pthread\+\_\+mutex\+\_\+trylock(mutex)}\label{_thread___pool_8c_a5126fc9133a1f3230ebb1f2be423f9d9}
+
+
+Used to try to lock the mutex, returning immediately on failure. 
+
+\hypertarget{_thread___pool_8c_aab75c4136289e7d71035be5153b19b5d}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!U\+N\+L\+O\+C\+K@{U\+N\+L\+O\+C\+K}}
+\index{U\+N\+L\+O\+C\+K@{U\+N\+L\+O\+C\+K}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{U\+N\+L\+O\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+N\+L\+O\+C\+K(
+\begin{DoxyParamCaption}
+\item[{}]{mutex}
+\end{DoxyParamCaption}
+)~pthread\+\_\+mutex\+\_\+unlock(mutex)}\label{_thread___pool_8c_aab75c4136289e7d71035be5153b19b5d}
+
+
+Used to unlock the given mutex. 
+
+\hypertarget{_thread___pool_8c_a95a78f089f6a325394b0a7172997302e}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!W\+A\+I\+T@{W\+A\+I\+T}}
+\index{W\+A\+I\+T@{W\+A\+I\+T}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{W\+A\+I\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\+A\+I\+T(
+\begin{DoxyParamCaption}
+\item[{}]{condition, }
+\item[{}]{mutex}
+\end{DoxyParamCaption}
+)~pthread\+\_\+cond\+\_\+wait(condition, mutex)}\label{_thread___pool_8c_a95a78f089f6a325394b0a7172997302e}
+
+
+Causes the current thread to wait for a signal to be sent. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_thread___pool_8c_a169ae10080b61eff9203ad6eae4dcb0f}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task@{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task@{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Result}$\ast$ Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf thread\+\_\+callback}}]{cb, }
+\item[{void $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_a169ae10080b61eff9203ad6eae4dcb0f}
+
+
+Adds a task to the thread pool. 
+
+Callback must return a pointer $\ast$ and arguments must also be a pointer. Alternatively, you can cast the function pointer to a void pointer like such\+: (void $\ast$)function; Doing so results in undefined behavior, but allows it to work if you do not really want the result. 
+\begin{DoxyParams}{Parameters}
+{\em cb} & Callback function to be called as the task. \\
+\hline
+{\em args} & Arguments to pass to the thread pool. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result from the task to be obtained later. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8c_a438a1443bdaa8e20bb71ea23c03d0df8}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Destroy}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Destroy}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Destroy}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_a438a1443bdaa8e20bb71ea23c03d0df8}
+
+
+Destroys the current thread pool, waiting for the current tasks to be finished. 
+
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8c_a5c430cfa5dae83aa5fa640c1f0dc2172}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Init@{Thread\+\_\+\+Pool\+\_\+\+Init}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Init@{Thread\+\_\+\+Pool\+\_\+\+Init}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Init}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{number\+\_\+of\+\_\+threads}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_a5c430cfa5dae83aa5fa640c1f0dc2172}
+
+
+Constructor for the thread pool, creating the requested amount of threads. 
+
+Used to initialize the static variable in the source file, and should not be called (yet, no checks for if the thread pool currently exists are implemented yet) if one already exists, as it may result in undefined behavior. 
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+of\+\_\+threads} & Amount of worker threads to initialize at startup. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8c_abc0bf55f632012b472a02a2d618baf29}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result@{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result@{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result (
+\begin{DoxyParamCaption}
+\item[{{\bf Result} $\ast$}]{result}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_abc0bf55f632012b472a02a2d618baf29}
+
+
+Will block until result is ready. 
+
+Obtain the result from a \hyperlink{struct_result}{Result}, blocking until it\textquotesingle{}s ready. \hypertarget{_thread___pool_8c_ab1af9879b18427f7b5fa273649bf1ba4}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Pause}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Pause}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Pause}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Pause (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_ab1af9879b18427f7b5fa273649bf1ba4}
+
+
+Pause all operations in the task queue. 
+
+Warning\+: May be unstable if critical operations are being performed. \begin{DoxyReturn}{Returns}
+1 on success, 0 if at least one thread is not able to pause. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8c_aba0e69821afa14c4dbdef215bb94b775}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Result} $\ast$}]{result}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_aba0e69821afa14c4dbdef215bb94b775}
+
+
+Will destroy the \hyperlink{struct_result}{Result} and set it\textquotesingle{}s reference to N\+U\+L\+L. 
+
+Destroys the \hyperlink{struct_result}{Result} from a task. \hypertarget{_thread___pool_8c_a582d687c426ef6de27de7346c884a92d}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Resume@{Thread\+\_\+\+Pool\+\_\+\+Resume}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Resume@{Thread\+\_\+\+Pool\+\_\+\+Resume}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Resume}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Resume (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_a582d687c426ef6de27de7346c884a92d}
+
+
+Resume all worker threads that are paused. 
+
+If no threads are waiting, nothing happens. \begin{DoxyReturn}{Returns}
+1 on success, 0 if at least one thread cannot be resumed. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8c_afb4e495587c622e9d7009639e2248d39}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{seconds}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_afb4e495587c622e9d7009639e2248d39}
+\hypertarget{_thread___pool_8c_a74c59d87a024ea0a1df868023cbfb35a}{}\index{Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}!Thread\+\_\+\+Pool\+\_\+\+Wait@{Thread\+\_\+\+Pool\+\_\+\+Wait}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Wait@{Thread\+\_\+\+Pool\+\_\+\+Wait}!Thread\+\_\+\+Pool.\+c@{Thread\+\_\+\+Pool.\+c}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Wait}]{\setlength{\rightskip}{0pt plus 5cm}void Thread\+\_\+\+Pool\+\_\+\+Wait (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8c_a74c59d87a024ea0a1df868023cbfb35a}
+
+
+Blocks until all tasks in the thread pool are finished. 
+

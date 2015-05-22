@@ -1,0 +1,63 @@
+\hypertarget{struct_result}{}\section{Result Struct Reference}
+\label{struct_result}\index{Result@{Result}}
+
+
+The result returned when adding a new task to the task queue.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+\_\+\+Pool.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_result_a29a502fc8aca81df1310e7c10c3d99af}{not\+\_\+ready}
+\begin{DoxyCompactList}\small\item\em Lock to protect contents of \textquotesingle{}\hyperlink{struct_result}{Result}\textquotesingle{}. \end{DoxyCompactList}\item 
+pthread\+\_\+cond\+\_\+t $\ast$ \hyperlink{struct_result_a8f707934732f685f1b1b53a855de60d4}{is\+\_\+ready}
+\begin{DoxyCompactList}\small\item\em Condition variable to signal result being ready. \end{DoxyCompactList}\item 
+volatile unsigned char \hyperlink{struct_result_a7ad32217267e7e0144abffa4e782867c}{ready}
+\begin{DoxyCompactList}\small\item\em Determines whether or not it has been processed. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{struct_result_aeeeae972d4d97226aa998aa9ca91346c}{item}
+\begin{DoxyCompactList}\small\item\em The return type, N\+U\+L\+L until ready. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The result returned when adding a new task to the task queue. 
+
+It allows you to to wait on it\textquotesingle{}s result and obtain it. 
+
+\subsection{Field Documentation}
+\hypertarget{struct_result_a8f707934732f685f1b1b53a855de60d4}{}\index{Result@{Result}!is\+\_\+ready@{is\+\_\+ready}}
+\index{is\+\_\+ready@{is\+\_\+ready}!Result@{Result}}
+\subsubsection[{is\+\_\+ready}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+cond\+\_\+t$\ast$ is\+\_\+ready}\label{struct_result_a8f707934732f685f1b1b53a855de60d4}
+
+
+Condition variable to signal result being ready. 
+
+\hypertarget{struct_result_aeeeae972d4d97226aa998aa9ca91346c}{}\index{Result@{Result}!item@{item}}
+\index{item@{item}!Result@{Result}}
+\subsubsection[{item}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ item}\label{struct_result_aeeeae972d4d97226aa998aa9ca91346c}
+
+
+The return type, N\+U\+L\+L until ready. 
+
+\hypertarget{struct_result_a29a502fc8aca81df1310e7c10c3d99af}{}\index{Result@{Result}!not\+\_\+ready@{not\+\_\+ready}}
+\index{not\+\_\+ready@{not\+\_\+ready}!Result@{Result}}
+\subsubsection[{not\+\_\+ready}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ not\+\_\+ready}\label{struct_result_a29a502fc8aca81df1310e7c10c3d99af}
+
+
+Lock to protect contents of \textquotesingle{}\hyperlink{struct_result}{Result}\textquotesingle{}. 
+
+\hypertarget{struct_result_a7ad32217267e7e0144abffa4e782867c}{}\index{Result@{Result}!ready@{ready}}
+\index{ready@{ready}!Result@{Result}}
+\subsubsection[{ready}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char ready}\label{struct_result_a7ad32217267e7e0144abffa4e782867c}
+
+
+Determines whether or not it has been processed. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Thread Pool/\+Code/\hyperlink{_thread___pool_8h}{Thread\+\_\+\+Pool.\+h}\end{DoxyCompactItemize}

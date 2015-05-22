@@ -1,0 +1,224 @@
+\hypertarget{_thread___pool_8h}{}\section{Thread Pool/\+Code/\+Thread\+\_\+\+Pool.h File Reference}
+\label{_thread___pool_8h}\index{Thread Pool/\+Code/\+Thread\+\_\+\+Pool.\+h@{Thread Pool/\+Code/\+Thread\+\_\+\+Pool.\+h}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_thread___pool}{Thread\+\_\+\+Pool}
+\item 
+struct \hyperlink{struct_result}{Result}
+\begin{DoxyCompactList}\small\item\em The result returned when adding a new task to the task queue. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_task}{Task}
+\begin{DoxyCompactList}\small\item\em Encompasses the task submitted by the user. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_task___queue}{Task\+\_\+\+Queue}
+\begin{DoxyCompactList}\small\item\em The queue all worker threads use to obtain the next task to process. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_thread___pool}{Thread\+\_\+\+Pool} \hyperlink{_thread___pool_8h_a17ec3400f2d607780951d99f4515119a}{Thread\+\_\+\+Pool}
+\item 
+typedef struct \hyperlink{struct_result}{Result} \hyperlink{_thread___pool_8h_ade7e53b8ed7380705cbd1225db23cd5a}{Result}
+\item 
+typedef struct \hyperlink{_thread___pool_8h_a1bd93c36f127145cc8ff84518ea2f725}{Sub\+\_\+\+Process} \hyperlink{_thread___pool_8h_a1bd93c36f127145cc8ff84518ea2f725}{Sub\+\_\+\+Process}
+\item 
+typedef struct \hyperlink{struct_task}{Task} \hyperlink{_thread___pool_8h_a1d107d116293b1dddca4e5d3d2898d00}{Task}
+\item 
+typedef struct \hyperlink{struct_task___queue}{Task\+\_\+\+Queue} \hyperlink{_thread___pool_8h_ac125810655ad383f23134196935efa21}{Task\+\_\+\+Queue}
+\item 
+typedef void $\ast$($\ast$ \hyperlink{_thread___pool_8h_a6020f0ebe47b326c900080b168c40b53}{thread\+\_\+callback}) (void $\ast$args)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_thread___pool_8h_a5c430cfa5dae83aa5fa640c1f0dc2172}{Thread\+\_\+\+Pool\+\_\+\+Init} (size\+\_\+t number\+\_\+of\+\_\+threads)
+\begin{DoxyCompactList}\small\item\em Constructor for the thread pool, creating the requested amount of threads. \end{DoxyCompactList}\item 
+\hyperlink{struct_result}{Result} $\ast$ \hyperlink{_thread___pool_8h_a169ae10080b61eff9203ad6eae4dcb0f}{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task} (\hyperlink{_thread___pool_8h_a6020f0ebe47b326c900080b168c40b53}{thread\+\_\+callback} cb, void $\ast$args)
+\begin{DoxyCompactList}\small\item\em Adds a task to the thread pool. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8h_aba0e69821afa14c4dbdef215bb94b775}{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy} (\hyperlink{struct_result}{Result} $\ast$result)
+\begin{DoxyCompactList}\small\item\em Destroys the \hyperlink{struct_result}{Result} from a task. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8h_a438a1443bdaa8e20bb71ea23c03d0df8}{Thread\+\_\+\+Pool\+\_\+\+Destroy} (void)
+\begin{DoxyCompactList}\small\item\em Destroys the current thread pool, waiting for the current tasks to be finished. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_thread___pool_8h_abc0bf55f632012b472a02a2d618baf29}{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result} (\hyperlink{struct_result}{Result} $\ast$result)
+\begin{DoxyCompactList}\small\item\em Obtain the result from a \hyperlink{struct_result}{Result}, blocking until it\textquotesingle{}s ready. \end{DoxyCompactList}\item 
+void \hyperlink{_thread___pool_8h_a74c59d87a024ea0a1df868023cbfb35a}{Thread\+\_\+\+Pool\+\_\+\+Wait} (void)
+\begin{DoxyCompactList}\small\item\em Blocks until all tasks in the thread pool are finished. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8h_ab1af9879b18427f7b5fa273649bf1ba4}{Thread\+\_\+\+Pool\+\_\+\+Pause} (void)
+\begin{DoxyCompactList}\small\item\em Pause all operations in the task queue. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8h_afb4e495587c622e9d7009639e2248d39}{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause} (unsigned int seconds)
+\begin{DoxyCompactList}\small\item\em (Unimplemented) Pause the thread pool for the given amount of time. \end{DoxyCompactList}\item 
+int \hyperlink{_thread___pool_8h_a582d687c426ef6de27de7346c884a92d}{Thread\+\_\+\+Pool\+\_\+\+Resume} (void)
+\begin{DoxyCompactList}\small\item\em Resume all worker threads that are paused. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_thread___pool_8h_ade7e53b8ed7380705cbd1225db23cd5a}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Result@{Result}}
+\index{Result@{Result}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Result}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Result} {\bf Result}}\label{_thread___pool_8h_ade7e53b8ed7380705cbd1225db23cd5a}
+\hypertarget{_thread___pool_8h_a1bd93c36f127145cc8ff84518ea2f725}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Sub\+\_\+\+Process@{Sub\+\_\+\+Process}}
+\index{Sub\+\_\+\+Process@{Sub\+\_\+\+Process}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Sub\+\_\+\+Process}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Sub\+\_\+\+Process} {\bf Sub\+\_\+\+Process}}\label{_thread___pool_8h_a1bd93c36f127145cc8ff84518ea2f725}
+\hypertarget{_thread___pool_8h_a1d107d116293b1dddca4e5d3d2898d00}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Task@{Task}}
+\index{Task@{Task}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Task}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Task} {\bf Task}}\label{_thread___pool_8h_a1d107d116293b1dddca4e5d3d2898d00}
+\hypertarget{_thread___pool_8h_ac125810655ad383f23134196935efa21}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Task\+\_\+\+Queue}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Task\+\_\+\+Queue} {\bf Task\+\_\+\+Queue}}\label{_thread___pool_8h_ac125810655ad383f23134196935efa21}
+\hypertarget{_thread___pool_8h_a6020f0ebe47b326c900080b168c40b53}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!thread\+\_\+callback@{thread\+\_\+callback}}
+\index{thread\+\_\+callback@{thread\+\_\+callback}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{thread\+\_\+callback}]{\setlength{\rightskip}{0pt plus 5cm}typedef void$\ast$($\ast$ thread\+\_\+callback) (void $\ast$args)}\label{_thread___pool_8h_a6020f0ebe47b326c900080b168c40b53}
+\hypertarget{_thread___pool_8h_a17ec3400f2d607780951d99f4515119a}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Thread\+\_\+\+Pool} {\bf Thread\+\_\+\+Pool}}\label{_thread___pool_8h_a17ec3400f2d607780951d99f4515119a}
+
+
+\subsection{Function Documentation}
+\hypertarget{_thread___pool_8h_a169ae10080b61eff9203ad6eae4dcb0f}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task@{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task@{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Result}$\ast$ Thread\+\_\+\+Pool\+\_\+\+Add\+\_\+\+Task (
+\begin{DoxyParamCaption}
+\item[{{\bf thread\+\_\+callback}}]{cb, }
+\item[{void $\ast$}]{args}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_a169ae10080b61eff9203ad6eae4dcb0f}
+
+
+Adds a task to the thread pool. 
+
+Callback must return a pointer $\ast$ and arguments must also be a pointer. Alternatively, you can cast the function pointer to a void pointer like such\+: (void $\ast$)function; Doing so results in undefined behavior, but allows it to work if you do not really want the result. 
+\begin{DoxyParams}{Parameters}
+{\em cb} & Callback function to be called as the task. \\
+\hline
+{\em args} & Arguments to pass to the thread pool. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The result from the task to be obtained later. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8h_a438a1443bdaa8e20bb71ea23c03d0df8}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Destroy}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Destroy}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Destroy}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_a438a1443bdaa8e20bb71ea23c03d0df8}
+
+
+Destroys the current thread pool, waiting for the current tasks to be finished. 
+
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8h_a5c430cfa5dae83aa5fa640c1f0dc2172}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Init@{Thread\+\_\+\+Pool\+\_\+\+Init}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Init@{Thread\+\_\+\+Pool\+\_\+\+Init}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Init}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{size\+\_\+t}]{number\+\_\+of\+\_\+threads}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_a5c430cfa5dae83aa5fa640c1f0dc2172}
+
+
+Constructor for the thread pool, creating the requested amount of threads. 
+
+Used to initialize the static variable in the source file, and should not be called (yet, no checks for if the thread pool currently exists are implemented yet) if one already exists, as it may result in undefined behavior. 
+\begin{DoxyParams}{Parameters}
+{\em number\+\_\+of\+\_\+threads} & Amount of worker threads to initialize at startup. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8h_abc0bf55f632012b472a02a2d618baf29}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result@{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result@{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Thread\+\_\+\+Pool\+\_\+\+Obtain\+\_\+\+Result (
+\begin{DoxyParamCaption}
+\item[{{\bf Result} $\ast$}]{result}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_abc0bf55f632012b472a02a2d618baf29}
+
+
+Obtain the result from a \hyperlink{struct_result}{Result}, blocking until it\textquotesingle{}s ready. 
+
+This is the only safe way to obtain said result. 
+\begin{DoxyParams}{Parameters}
+{\em result} & \hyperlink{struct_result}{Result} to obtain result from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item stored inside of the result.
+\end{DoxyReturn}
+Obtain the result from a \hyperlink{struct_result}{Result}, blocking until it\textquotesingle{}s ready. \hypertarget{_thread___pool_8h_ab1af9879b18427f7b5fa273649bf1ba4}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Pause}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Pause}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Pause}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Pause (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_ab1af9879b18427f7b5fa273649bf1ba4}
+
+
+Pause all operations in the task queue. 
+
+Warning\+: May be unstable if critical operations are being performed. \begin{DoxyReturn}{Returns}
+1 on success, 0 if at least one thread is not able to pause. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8h_aba0e69821afa14c4dbdef215bb94b775}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy@{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Result\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Result} $\ast$}]{result}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_aba0e69821afa14c4dbdef215bb94b775}
+
+
+Destroys the \hyperlink{struct_result}{Result} from a task. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em result} & \hyperlink{struct_result}{Result} to be destroyed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success.
+\end{DoxyReturn}
+Destroys the \hyperlink{struct_result}{Result} from a task. \hypertarget{_thread___pool_8h_a582d687c426ef6de27de7346c884a92d}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Resume@{Thread\+\_\+\+Pool\+\_\+\+Resume}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Resume@{Thread\+\_\+\+Pool\+\_\+\+Resume}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Resume}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Resume (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_a582d687c426ef6de27de7346c884a92d}
+
+
+Resume all worker threads that are paused. 
+
+If no threads are waiting, nothing happens. \begin{DoxyReturn}{Returns}
+1 on success, 0 if at least one thread cannot be resumed. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8h_afb4e495587c622e9d7009639e2248d39}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause@{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause}]{\setlength{\rightskip}{0pt plus 5cm}int Thread\+\_\+\+Pool\+\_\+\+Timed\+\_\+\+Pause (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{seconds}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_afb4e495587c622e9d7009639e2248d39}
+
+
+(Unimplemented) Pause the thread pool for the given amount of time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seconds} & Amount of time to pause for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if at least one thread cannot pause. 
+\end{DoxyReturn}
+\hypertarget{_thread___pool_8h_a74c59d87a024ea0a1df868023cbfb35a}{}\index{Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}!Thread\+\_\+\+Pool\+\_\+\+Wait@{Thread\+\_\+\+Pool\+\_\+\+Wait}}
+\index{Thread\+\_\+\+Pool\+\_\+\+Wait@{Thread\+\_\+\+Pool\+\_\+\+Wait}!Thread\+\_\+\+Pool.\+h@{Thread\+\_\+\+Pool.\+h}}
+\subsubsection[{Thread\+\_\+\+Pool\+\_\+\+Wait}]{\setlength{\rightskip}{0pt plus 5cm}void Thread\+\_\+\+Pool\+\_\+\+Wait (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_thread___pool_8h_a74c59d87a024ea0a1df868023cbfb35a}
+
+
+Blocks until all tasks in the thread pool are finished. 
+

@@ -1,0 +1,72 @@
+\hypertarget{struct_task}{}\section{Task Struct Reference}
+\label{struct_task}\index{Task@{Task}}
+
+
+Encompasses the task submitted by the user.  
+
+
+
+
+{\ttfamily \#include $<$Thread\+\_\+\+Pool.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_thread___pool_8h_a6020f0ebe47b326c900080b168c40b53}{thread\+\_\+callback} \hyperlink{struct_task_a70806280c684914c6f1e1b9eb1b248c4}{cb}
+\begin{DoxyCompactList}\small\item\em \hyperlink{struct_task}{Task} to be executed. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{struct_task_add0eb34e0cef9e763462cf9080f9be0a}{args}
+\begin{DoxyCompactList}\small\item\em Arguments to be passed to the task. \end{DoxyCompactList}\item 
+\hyperlink{struct_task}{Task} $\ast$ \hyperlink{struct_task_afc791d22abed6d81e714bb3993c31223}{next}
+\begin{DoxyCompactList}\small\item\em Pointing to the next task in the queue. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_task_a985c44ad446f8eb8a9ac6958682f28e0}{being\+\_\+processed}
+\begin{DoxyCompactList}\small\item\em Mutex to ensure no other thread attempts to do this task. \end{DoxyCompactList}\item 
+\hyperlink{struct_result}{Result} $\ast$ \hyperlink{struct_task_a47963d2c7f557db21790fb71b8cd20d6}{result}
+\begin{DoxyCompactList}\small\item\em \hyperlink{struct_result}{Result} from the \hyperlink{struct_task}{Task}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Encompasses the task submitted by the user. 
+
+Contains the result of the task as well. 
+
+\subsection{Field Documentation}
+\hypertarget{struct_task_add0eb34e0cef9e763462cf9080f9be0a}{}\index{Task@{Task}!args@{args}}
+\index{args@{args}!Task@{Task}}
+\subsubsection[{args}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ args}\label{struct_task_add0eb34e0cef9e763462cf9080f9be0a}
+
+
+Arguments to be passed to the task. 
+
+\hypertarget{struct_task_a985c44ad446f8eb8a9ac6958682f28e0}{}\index{Task@{Task}!being\+\_\+processed@{being\+\_\+processed}}
+\index{being\+\_\+processed@{being\+\_\+processed}!Task@{Task}}
+\subsubsection[{being\+\_\+processed}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ being\+\_\+processed}\label{struct_task_a985c44ad446f8eb8a9ac6958682f28e0}
+
+
+Mutex to ensure no other thread attempts to do this task. 
+
+\hypertarget{struct_task_a70806280c684914c6f1e1b9eb1b248c4}{}\index{Task@{Task}!cb@{cb}}
+\index{cb@{cb}!Task@{Task}}
+\subsubsection[{cb}]{\setlength{\rightskip}{0pt plus 5cm}{\bf thread\+\_\+callback} cb}\label{struct_task_a70806280c684914c6f1e1b9eb1b248c4}
+
+
+\hyperlink{struct_task}{Task} to be executed. 
+
+\hypertarget{struct_task_afc791d22abed6d81e714bb3993c31223}{}\index{Task@{Task}!next@{next}}
+\index{next@{next}!Task@{Task}}
+\subsubsection[{next}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task}$\ast$ next}\label{struct_task_afc791d22abed6d81e714bb3993c31223}
+
+
+Pointing to the next task in the queue. 
+
+\hypertarget{struct_task_a47963d2c7f557db21790fb71b8cd20d6}{}\index{Task@{Task}!result@{result}}
+\index{result@{result}!Task@{Task}}
+\subsubsection[{result}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Result}$\ast$ result}\label{struct_task_a47963d2c7f557db21790fb71b8cd20d6}
+
+
+\hyperlink{struct_result}{Result} from the \hyperlink{struct_task}{Task}. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Thread Pool/\+Code/\hyperlink{_thread___pool_8h}{Thread\+\_\+\+Pool.\+h}\end{DoxyCompactItemize}

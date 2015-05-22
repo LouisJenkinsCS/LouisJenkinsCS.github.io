@@ -1,0 +1,98 @@
+\hypertarget{struct_thread___pool}{}\section{Thread\+\_\+\+Pool Struct Reference}
+\label{struct_thread___pool}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+
+
+{\ttfamily \#include $<$Thread\+\_\+\+Pool.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+t $\ast$$\ast$ \hyperlink{struct_thread___pool_ad525884783bf7870b455a6d9f48b30bb}{threads}
+\begin{DoxyCompactList}\small\item\em Array of threads. \end{DoxyCompactList}\item 
+\hyperlink{struct_task___queue}{Task\+\_\+\+Queue} $\ast$ \hyperlink{struct_thread___pool_ae83721ed927ae7124473880b3b14e3a7}{queue}
+\begin{DoxyCompactList}\small\item\em The queue with all jobs assigned to it. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{struct_thread___pool_a5c106e0816fd7534cf350f800fdb52e0}{thread\+\_\+count}
+\begin{DoxyCompactList}\small\item\em Amount of threads currently created, A.\+K.\+A Max amount. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{struct_thread___pool_a5cb991a29ec47a426811c8e09f979a2e}{active\+\_\+threads}
+\begin{DoxyCompactList}\small\item\em Amount of threads currently active. \end{DoxyCompactList}\item 
+volatile unsigned char \hyperlink{struct_thread___pool_ac24a1c7364475077551efc2e48bda9d0}{keep\+\_\+alive}
+\begin{DoxyCompactList}\small\item\em Flag to keep all threads alive. \end{DoxyCompactList}\item 
+volatile unsigned char \hyperlink{struct_thread___pool_aa3a3ac301929dcdd75a29d985167d7fa}{paused}
+\begin{DoxyCompactList}\small\item\em Flag used to pause all threads. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_thread___pool_a701a0c5c72518f8f0f179142c671fe17}{thread\+\_\+count\+\_\+change}
+\begin{DoxyCompactList}\small\item\em Mutex for thread\+\_\+count and active\+\_\+threads, and keep\+\_\+alive. \end{DoxyCompactList}\item 
+pthread\+\_\+cond\+\_\+t $\ast$ \hyperlink{struct_thread___pool_a08d1ddc052477bcca8d06a45f336f698}{resume}
+\begin{DoxyCompactList}\small\item\em Condition variable used to resume all threads. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_thread___pool_a851419414f86abe9a154628d00e5efb4}{pause}
+\begin{DoxyCompactList}\small\item\em Mutex accompanied by the condition variable. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_thread___pool_a5cb991a29ec47a426811c8e09f979a2e}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!active\+\_\+threads@{active\+\_\+threads}}
+\index{active\+\_\+threads@{active\+\_\+threads}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{active\+\_\+threads}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t active\+\_\+threads}\label{struct_thread___pool_a5cb991a29ec47a426811c8e09f979a2e}
+
+
+Amount of threads currently active. 
+
+\hypertarget{struct_thread___pool_ac24a1c7364475077551efc2e48bda9d0}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!keep\+\_\+alive@{keep\+\_\+alive}}
+\index{keep\+\_\+alive@{keep\+\_\+alive}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{keep\+\_\+alive}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char keep\+\_\+alive}\label{struct_thread___pool_ac24a1c7364475077551efc2e48bda9d0}
+
+
+Flag to keep all threads alive. 
+
+\hypertarget{struct_thread___pool_a851419414f86abe9a154628d00e5efb4}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!pause@{pause}}
+\index{pause@{pause}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{pause}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ pause}\label{struct_thread___pool_a851419414f86abe9a154628d00e5efb4}
+
+
+Mutex accompanied by the condition variable. 
+
+\hypertarget{struct_thread___pool_aa3a3ac301929dcdd75a29d985167d7fa}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!paused@{paused}}
+\index{paused@{paused}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{paused}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char paused}\label{struct_thread___pool_aa3a3ac301929dcdd75a29d985167d7fa}
+
+
+Flag used to pause all threads. 
+
+\hypertarget{struct_thread___pool_ae83721ed927ae7124473880b3b14e3a7}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!queue@{queue}}
+\index{queue@{queue}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{queue}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task\+\_\+\+Queue}$\ast$ queue}\label{struct_thread___pool_ae83721ed927ae7124473880b3b14e3a7}
+
+
+The queue with all jobs assigned to it. 
+
+\hypertarget{struct_thread___pool_a08d1ddc052477bcca8d06a45f336f698}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!resume@{resume}}
+\index{resume@{resume}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{resume}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+cond\+\_\+t$\ast$ resume}\label{struct_thread___pool_a08d1ddc052477bcca8d06a45f336f698}
+
+
+Condition variable used to resume all threads. 
+
+\hypertarget{struct_thread___pool_a5c106e0816fd7534cf350f800fdb52e0}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!thread\+\_\+count@{thread\+\_\+count}}
+\index{thread\+\_\+count@{thread\+\_\+count}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{thread\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t thread\+\_\+count}\label{struct_thread___pool_a5c106e0816fd7534cf350f800fdb52e0}
+
+
+Amount of threads currently created, A.\+K.\+A Max amount. 
+
+\hypertarget{struct_thread___pool_a701a0c5c72518f8f0f179142c671fe17}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!thread\+\_\+count\+\_\+change@{thread\+\_\+count\+\_\+change}}
+\index{thread\+\_\+count\+\_\+change@{thread\+\_\+count\+\_\+change}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{thread\+\_\+count\+\_\+change}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ thread\+\_\+count\+\_\+change}\label{struct_thread___pool_a701a0c5c72518f8f0f179142c671fe17}
+
+
+Mutex for thread\+\_\+count and active\+\_\+threads, and keep\+\_\+alive. 
+
+\hypertarget{struct_thread___pool_ad525884783bf7870b455a6d9f48b30bb}{}\index{Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}!threads@{threads}}
+\index{threads@{threads}!Thread\+\_\+\+Pool@{Thread\+\_\+\+Pool}}
+\subsubsection[{threads}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+t$\ast$$\ast$ threads}\label{struct_thread___pool_ad525884783bf7870b455a6d9f48b30bb}
+
+
+Array of threads. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Thread Pool/\+Code/\hyperlink{_thread___pool_8h}{Thread\+\_\+\+Pool.\+h}\end{DoxyCompactItemize}
