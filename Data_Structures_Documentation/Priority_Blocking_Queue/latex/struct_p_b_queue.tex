@@ -1,0 +1,128 @@
+\hypertarget{struct_p_b_queue}{}\section{P\+B\+Queue Struct Reference}
+\label{struct_p_b_queue}\index{P\+B\+Queue@{P\+B\+Queue}}
+
+
+{\ttfamily \#include $<$P\+B\+Queue.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_p_b_q___node}{P\+B\+Q\+\_\+\+Node} $\ast$ \hyperlink{struct_p_b_queue_ab4aace72deb6ab6ac22137e740a3968b}{head}
+\begin{DoxyCompactList}\small\item\em A pointer to the head node. \end{DoxyCompactList}\item 
+\hyperlink{struct_p_b_q___node}{P\+B\+Q\+\_\+\+Node} $\ast$ \hyperlink{struct_p_b_queue_a40a7192117a39559e60255079a1134fb}{tail}
+\begin{DoxyCompactList}\small\item\em A pointer to the tail node. \end{DoxyCompactList}\item 
+\hyperlink{_p_b_queue_8h_a7792d935a40458b9a7a58b2b62fc5466}{compare\+\_\+elements} \hyperlink{struct_p_b_queue_a0e28f62bf96f811d42068f8d6b76cd47}{comparator}
+\begin{DoxyCompactList}\small\item\em To compare elements to determine priority. \end{DoxyCompactList}\item 
+volatile size\+\_\+t \hyperlink{struct_p_b_queue_ad4e7ef20daed39b2cd453058b6fc4c63}{size}
+\begin{DoxyCompactList}\small\item\em Size of the current queue, meaning amount of elements currently in the queue. \end{DoxyCompactList}\item 
+size\+\_\+t \hyperlink{struct_p_b_queue_af4728438dee601cb2554d9bf18d78a43}{max\+\_\+size}
+\begin{DoxyCompactList}\small\item\em The maximum size of the queue if it is bounded. If it is unbounded it is 0. \end{DoxyCompactList}\item 
+pthread\+\_\+cond\+\_\+t $\ast$ \hyperlink{struct_p_b_queue_a67d9c501515653db90eee366c6471782}{is\+\_\+not\+\_\+full}
+\begin{DoxyCompactList}\small\item\em A new element may be added to the \hyperlink{struct_p_b_queue}{P\+B\+Queue}. \end{DoxyCompactList}\item 
+pthread\+\_\+cond\+\_\+t $\ast$ \hyperlink{struct_p_b_queue_a2de5f9fe801e3f825c62cbad497ac623}{is\+\_\+not\+\_\+empty}
+\begin{DoxyCompactList}\small\item\em A element has been added and may be removed from the \hyperlink{struct_p_b_queue}{P\+B\+Queue}. \end{DoxyCompactList}\item 
+pthread\+\_\+mutex\+\_\+t $\ast$ \hyperlink{struct_p_b_queue_aa6e3df38a61e0da51d311a7596ef413c}{adding\+\_\+or\+\_\+removing\+\_\+elements}
+\begin{DoxyCompactList}\small\item\em The lock used to add or remove an element to/from the queue (respectively). \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 42 of file P\+B\+Queue.\+h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_p_b_queue_aa6e3df38a61e0da51d311a7596ef413c}{}\index{P\+B\+Queue@{P\+B\+Queue}!adding\+\_\+or\+\_\+removing\+\_\+elements@{adding\+\_\+or\+\_\+removing\+\_\+elements}}
+\index{adding\+\_\+or\+\_\+removing\+\_\+elements@{adding\+\_\+or\+\_\+removing\+\_\+elements}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{adding\+\_\+or\+\_\+removing\+\_\+elements}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+mutex\+\_\+t$\ast$ adding\+\_\+or\+\_\+removing\+\_\+elements}\label{struct_p_b_queue_aa6e3df38a61e0da51d311a7596ef413c}
+
+
+The lock used to add or remove an element to/from the queue (respectively). 
+
+
+
+Definition at line 58 of file P\+B\+Queue.\+h.
+
+\hypertarget{struct_p_b_queue_a0e28f62bf96f811d42068f8d6b76cd47}{}\index{P\+B\+Queue@{P\+B\+Queue}!comparator@{comparator}}
+\index{comparator@{comparator}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{comparator}]{\setlength{\rightskip}{0pt plus 5cm}{\bf compare\+\_\+elements} comparator}\label{struct_p_b_queue_a0e28f62bf96f811d42068f8d6b76cd47}
+
+
+To compare elements to determine priority. 
+
+
+
+Definition at line 48 of file P\+B\+Queue.\+h.
+
+\hypertarget{struct_p_b_queue_ab4aace72deb6ab6ac22137e740a3968b}{}\index{P\+B\+Queue@{P\+B\+Queue}!head@{head}}
+\index{head@{head}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{head}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+B\+Q\+\_\+\+Node}$\ast$ head}\label{struct_p_b_queue_ab4aace72deb6ab6ac22137e740a3968b}
+
+
+A pointer to the head node. 
+
+
+
+Definition at line 44 of file P\+B\+Queue.\+h.
+
+\hypertarget{struct_p_b_queue_a2de5f9fe801e3f825c62cbad497ac623}{}\index{P\+B\+Queue@{P\+B\+Queue}!is\+\_\+not\+\_\+empty@{is\+\_\+not\+\_\+empty}}
+\index{is\+\_\+not\+\_\+empty@{is\+\_\+not\+\_\+empty}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{is\+\_\+not\+\_\+empty}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+cond\+\_\+t$\ast$ is\+\_\+not\+\_\+empty}\label{struct_p_b_queue_a2de5f9fe801e3f825c62cbad497ac623}
+
+
+A element has been added and may be removed from the \hyperlink{struct_p_b_queue}{P\+B\+Queue}. 
+
+
+
+Definition at line 56 of file P\+B\+Queue.\+h.
+
+\hypertarget{struct_p_b_queue_a67d9c501515653db90eee366c6471782}{}\index{P\+B\+Queue@{P\+B\+Queue}!is\+\_\+not\+\_\+full@{is\+\_\+not\+\_\+full}}
+\index{is\+\_\+not\+\_\+full@{is\+\_\+not\+\_\+full}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{is\+\_\+not\+\_\+full}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+cond\+\_\+t$\ast$ is\+\_\+not\+\_\+full}\label{struct_p_b_queue_a67d9c501515653db90eee366c6471782}
+
+
+A new element may be added to the \hyperlink{struct_p_b_queue}{P\+B\+Queue}. 
+
+
+
+Definition at line 54 of file P\+B\+Queue.\+h.
+
+\hypertarget{struct_p_b_queue_af4728438dee601cb2554d9bf18d78a43}{}\index{P\+B\+Queue@{P\+B\+Queue}!max\+\_\+size@{max\+\_\+size}}
+\index{max\+\_\+size@{max\+\_\+size}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{max\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}size\+\_\+t max\+\_\+size}\label{struct_p_b_queue_af4728438dee601cb2554d9bf18d78a43}
+
+
+The maximum size of the queue if it is bounded. If it is unbounded it is 0. 
+
+
+
+Definition at line 52 of file P\+B\+Queue.\+h.
+
+\hypertarget{struct_p_b_queue_ad4e7ef20daed39b2cd453058b6fc4c63}{}\index{P\+B\+Queue@{P\+B\+Queue}!size@{size}}
+\index{size@{size}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}volatile size\+\_\+t size}\label{struct_p_b_queue_ad4e7ef20daed39b2cd453058b6fc4c63}
+
+
+Size of the current queue, meaning amount of elements currently in the queue. 
+
+
+
+Definition at line 50 of file P\+B\+Queue.\+h.
+
+\hypertarget{struct_p_b_queue_a40a7192117a39559e60255079a1134fb}{}\index{P\+B\+Queue@{P\+B\+Queue}!tail@{tail}}
+\index{tail@{tail}!P\+B\+Queue@{P\+B\+Queue}}
+\subsubsection[{tail}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\+B\+Q\+\_\+\+Node}$\ast$ tail}\label{struct_p_b_queue_a40a7192117a39559e60255079a1134fb}
+
+
+A pointer to the tail node. 
+
+
+
+Definition at line 46 of file P\+B\+Queue.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_p_b_queue_8h}{P\+B\+Queue.\+h}\end{DoxyCompactItemize}
