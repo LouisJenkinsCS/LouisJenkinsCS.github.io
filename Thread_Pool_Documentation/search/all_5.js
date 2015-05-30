@@ -1,9 +1,7 @@
 var searchData=
 [
-  ['increment',['INCREMENT',['../_thread___pool_8c.html#ac21b304e2788f1720a68da157f895184',1,'Thread_Pool.c']]],
-  ['init_5fcond',['INIT_COND',['../_thread___pool_8c.html#afb6e6fd026e8e393fa5545efd196fcf4',1,'Thread_Pool.c']]],
-  ['init_5fmutex',['INIT_MUTEX',['../_thread___pool_8c.html#ad53e9538fb2721d198ad5fa9199cc276',1,'Thread_Pool.c']]],
-  ['is_5ffinished',['is_finished',['../struct_task___queue.html#a5516e2d0cf00a5eeb4fb0ed563302577',1,'Task_Queue']]],
-  ['is_5fready',['is_ready',['../struct_result.html#a8f707934732f685f1b1b53a855de60d4',1,'Result']]],
-  ['item',['item',['../struct_result.html#aeeeae972d4d97226aa998aa9ca91346c',1,'Result']]]
+  ['next',['next',['../struct_task.html#afc791d22abed6d81e714bb3993c31223',1,'Task']]],
+  ['no_5fpause',['no_pause',['../struct_task.html#ac11c21efa7d7fd20a420bc7bb9636765',1,'Task']]],
+  ['no_5ftasks',['no_tasks',['../struct_thread___pool.html#a82c4f8c176f73a4611cfd93d8182047e',1,'Thread_Pool']]],
+  ['not_5fready',['not_ready',['../struct_result.html#a29a502fc8aca81df1310e7c10c3d99af',1,'Result']]]
 ];

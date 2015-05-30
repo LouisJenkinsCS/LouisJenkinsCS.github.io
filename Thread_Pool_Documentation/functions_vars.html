@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Thread_Pool: Data Fields - Variables</title>
+<title>Thread Pool: Data Fields - Variables</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Thread_Pool
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Thread Pool
+   &#160;<span id="projectnumber">1.1</span>
    </div>
-   <div id="projectbrief">Thread Pool for the C Programming Language.</div>
+   <div id="projectbrief">Thread Pool implementation for the C Programming Language.</div>
   </td>
  </tr>
  </tbody>
@@ -113,31 +113,28 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <div class="contents">
 &#160;<ul>
 <li>active_threads
-: <a class="el" href="struct_thread___pool.html#a5cb991a29ec47a426811c8e09f979a2e">Thread_Pool</a>
+: <a class="el" href="struct_thread___pool.html#af185a17406e07af53296afac2f2abd2e">Thread_Pool</a>
 </li>
-<li>adding_task
-: <a class="el" href="struct_task___queue.html#a45cc6cc8a880eb1ea2cd3bbbfa5ddae5">Task_Queue</a>
+<li>all_tasks_finished
+: <a class="el" href="struct_thread___pool.html#ae6ad6219d9d18c6ee81facfdcea985cc">Thread_Pool</a>
 </li>
 <li>args
 : <a class="el" href="struct_task.html#add0eb34e0cef9e763462cf9080f9be0a">Task</a>
 </li>
-<li>await_task
-: <a class="el" href="struct_task___queue.html#a9e5223ee99a4ba19be87c90bfd48663e">Task_Queue</a>
+<li>callback
+: <a class="el" href="struct_task.html#a59d2df9ef30fbe9c225b6422f2dfa07d">Task</a>
 </li>
-<li>being_processed
-: <a class="el" href="struct_task.html#a985c44ad446f8eb8a9ac6958682f28e0">Task</a>
+<li>delayed_pause
+: <a class="el" href="struct_task.html#a9a343e286620218fe1675a782196f647">Task</a>
 </li>
-<li>cb
-: <a class="el" href="struct_task.html#a70806280c684914c6f1e1b9eb1b248c4">Task</a>
-</li>
-<li>head
-: <a class="el" href="struct_task___queue.html#af5acea37bcf6ce1d8fcd3e164a93b37d">Task_Queue</a>
-</li>
-<li>is_finished
-: <a class="el" href="struct_task___queue.html#a5516e2d0cf00a5eeb4fb0ed563302577">Task_Queue</a>
+<li>is_paused
+: <a class="el" href="struct_thread___pool.html#a23ef75e4be23253924732dbbe0cb906c">Thread_Pool</a>
 </li>
 <li>is_ready
 : <a class="el" href="struct_result.html#a8f707934732f685f1b1b53a855de60d4">Result</a>
+</li>
+<li>is_setup
+: <a class="el" href="struct_worker.html#ae294086f45f8af167507131a38e07873">Worker</a>
 </li>
 <li>item
 : <a class="el" href="struct_result.html#aeeeae972d4d97226aa998aa9ca91346c">Result</a>
@@ -145,26 +142,26 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>keep_alive
 : <a class="el" href="struct_thread___pool.html#ac24a1c7364475077551efc2e48bda9d0">Thread_Pool</a>
 </li>
-<li>new_task
-: <a class="el" href="struct_task___queue.html#a246f0c6d74730bab84d4cf40d95b4bcd">Task_Queue</a>
-</li>
 <li>next
 : <a class="el" href="struct_task.html#afc791d22abed6d81e714bb3993c31223">Task</a>
 </li>
+<li>no_pause
+: <a class="el" href="struct_task.html#ac11c21efa7d7fd20a420bc7bb9636765">Task</a>
+</li>
 <li>no_tasks
-: <a class="el" href="struct_task___queue.html#a82c4f8c176f73a4611cfd93d8182047e">Task_Queue</a>
+: <a class="el" href="struct_thread___pool.html#a82c4f8c176f73a4611cfd93d8182047e">Thread_Pool</a>
 </li>
 <li>not_ready
 : <a class="el" href="struct_result.html#a29a502fc8aca81df1310e7c10c3d99af">Result</a>
 </li>
-<li>pause
-: <a class="el" href="struct_thread___pool.html#a851419414f86abe9a154628d00e5efb4">Thread_Pool</a>
-</li>
 <li>paused
 : <a class="el" href="struct_thread___pool.html#aa3a3ac301929dcdd75a29d985167d7fa">Thread_Pool</a>
 </li>
+<li>priority
+: <a class="el" href="struct_task.html#a417d879c9e171360ff9bcaef858fef6a">Task</a>
+</li>
 <li>queue
-: <a class="el" href="struct_thread___pool.html#ae83721ed927ae7124473880b3b14e3a7">Thread_Pool</a>
+: <a class="el" href="struct_thread___pool.html#a6eb567d0cc8a6098553d1f9d81ae053c">Thread_Pool</a>
 </li>
 <li>ready
 : <a class="el" href="struct_result.html#a7ad32217267e7e0144abffa4e782867c">Result</a>
@@ -175,20 +172,26 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <li>resume
 : <a class="el" href="struct_thread___pool.html#a08d1ddc052477bcca8d06a45f336f698">Thread_Pool</a>
 </li>
-<li>size
-: <a class="el" href="struct_task___queue.html#a854352f53b148adc24983a58a1866d66">Task_Queue</a>
+<li>seconds_to_pause
+: <a class="el" href="struct_thread___pool.html#aa3e740b7660eaea4b15fa0d53922fda9">Thread_Pool</a>
 </li>
-<li>tail
-: <a class="el" href="struct_task___queue.html#a5ecf97d7a2c4b562c68aaf5514691fc1">Task_Queue</a>
+<li>task
+: <a class="el" href="struct_worker.html#adac025b94121ea5ab5dd2a3a715ca778">Worker</a>
+</li>
+<li>thread
+: <a class="el" href="struct_worker.html#a6b67ec3785df1f36469a10e68b64ab6f">Worker</a>
 </li>
 <li>thread_count
-: <a class="el" href="struct_thread___pool.html#a5c106e0816fd7534cf350f800fdb52e0">Thread_Pool</a>
+: <a class="el" href="struct_thread___pool.html#a2a469ce06ddf913155542574fd51e40e">Thread_Pool</a>
 </li>
 <li>thread_count_change
 : <a class="el" href="struct_thread___pool.html#a701a0c5c72518f8f0f179142c671fe17">Thread_Pool</a>
 </li>
-<li>threads
-: <a class="el" href="struct_thread___pool.html#ad525884783bf7870b455a6d9f48b30bb">Thread_Pool</a>
+<li>thread_id
+: <a class="el" href="struct_worker.html#a720bccae6839fa7ee8161f77f337fc15">Worker</a>
+</li>
+<li>worker_threads
+: <a class="el" href="struct_thread___pool.html#afc031365b3e1598d6e6c422c03722120">Thread_Pool</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -196,7 +199,7 @@ $(document).ready(function(){initNavTree('functions_vars.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 22 2015 16:24:29 for Thread_Pool by
+    <li class="footer">Generated on Fri May 29 2015 19:53:57 for Thread Pool by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

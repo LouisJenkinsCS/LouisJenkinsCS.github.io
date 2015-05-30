@@ -1,16 +1,15 @@
 var NAVTREE =
 [
-  [ "Thread_Pool", "index.html", [
-    [ "Thread Pool", "index.html", [
-      [ "Summary", "index.html#list_summary", null ],
-      [ "Features", "index.html#list_features", [
-        [ "Get Results!", "index.html#results", null ],
-        [ "Pause all tasks to be resumed later!", "index.html#pause_and_resume", null ],
-        [ "Prioritize your tasks! (Future)", "index.html#priority", null ],
-        [ "Recovery from segmentation faults and errors (Future)", "index.html#recover", null ]
-      ] ],
-      [ "Notes and Disclaimers", "index.html#notes", null ]
+  [ "Thread Pool", "index.html", [
+    [ "Summary", "index.html#list_summary", null ],
+    [ "Features", "index.html#list_features", [
+      [ "Get Results!", "index.html#results", null ],
+      [ "Pause all tasks to be resumed later!", "index.html#pause_and_resume", null ],
+      [ "Prioritize your tasks!", "index.html#priority", null ],
+      [ "Recovery from segmentation faults and errors (Future)", "index.html#recover", null ],
+      [ "Dynamic parameters based on the flags you want!", "index.html#parameters", null ]
     ] ],
+    [ "Notes and Disclaimers", "index.html#notes", null ],
     [ "Data Structures", null, [
       [ "Data Structures", "annotated.html", "annotated" ],
       [ "Data Structure Index", "classes.html", null ],
@@ -25,6 +24,8 @@ var NAVTREE =
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
         [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]

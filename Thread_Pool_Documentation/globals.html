@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Thread_Pool: Globals</title>
+<title>Thread Pool: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Thread_Pool
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Thread Pool
+   &#160;<span id="projectnumber">1.1</span>
    </div>
-   <div id="projectbrief">Thread Pool for the C Programming Language.</div>
+   <div id="projectbrief">Thread Pool implementation for the C Programming Language.</div>
   </td>
  </tr>
  </tbody>
@@ -79,20 +79,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li class="current"><a href="globals.html"><span>All</span></a></li>
       <li><a href="globals_func.html"><span>Functions</span></a></li>
       <li><a href="globals_type.html"><span>Typedefs</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="globals_eval.html"><span>Enumerator</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
   <div id="navrow4" class="tabs3">
     <ul class="tablist">
-      <li><a href="#index_b"><span>b</span></a></li>
-      <li><a href="#index_d"><span>d</span></a></li>
-      <li><a href="#index_i"><span>i</span></a></li>
-      <li><a href="#index_l"><span>l</span></a></li>
       <li><a href="#index_p"><span>p</span></a></li>
       <li><a href="#index_r"><span>r</span></a></li>
       <li><a href="#index_s"><span>s</span></a></li>
       <li><a href="#index_t"><span>t</span></a></li>
-      <li><a href="#index_u"><span>u</span></a></li>
       <li class="current"><a href="#index_w"><span>w</span></a></li>
     </ul>
   </div>
@@ -128,49 +125,12 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <div class="contents">
 <div class="textblock">Here is a list of all functions, variables, defines, enums, and typedefs with links to the files they belong to:</div>
 
-<h3><a class="anchor" id="index_b"></a>- b -</h3><ul>
-<li>BROADCAST
-: <a class="el" href="_thread___pool_8c.html#a93954f8978d7d6964a369ecd6711276d">Thread_Pool.c</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_d"></a>- d -</h3><ul>
-<li>DECREMENT
-: <a class="el" href="_thread___pool_8c.html#a5bd378fc65168cd66c8af83a07bf384e">Thread_Pool.c</a>
-</li>
-<li>DESTROY_COND
-: <a class="el" href="_thread___pool_8c.html#aa6bb895a437a8ab3ed4c2f7fda6a1d0f">Thread_Pool.c</a>
-</li>
-<li>DESTROY_MUTEX
-: <a class="el" href="_thread___pool_8c.html#a94db4f5104511890355a08264793aad7">Thread_Pool.c</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_i"></a>- i -</h3><ul>
-<li>INCREMENT
-: <a class="el" href="_thread___pool_8c.html#ac21b304e2788f1720a68da157f895184">Thread_Pool.c</a>
-</li>
-<li>INIT_COND
-: <a class="el" href="_thread___pool_8c.html#afb6e6fd026e8e393fa5545efd196fcf4">Thread_Pool.c</a>
-</li>
-<li>INIT_MUTEX
-: <a class="el" href="_thread___pool_8c.html#ad53e9538fb2721d198ad5fa9199cc276">Thread_Pool.c</a>
-</li>
-</ul>
-
-
-<h3><a class="anchor" id="index_l"></a>- l -</h3><ul>
-<li>LOCK
-: <a class="el" href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">Thread_Pool.c</a>
-</li>
-</ul>
-
-
 <h3><a class="anchor" id="index_p"></a>- p -</h3><ul>
-<li>PAUSE
-: <a class="el" href="_thread___pool_8c.html#a70bf1bed622eea60920799da120e8692">Thread_Pool.c</a>
+<li>Pause_Preference
+: <a class="el" href="_thread___pool_8h.html#af051892be1d015cea11f6601cb46245a">Thread_Pool.h</a>
+</li>
+<li>Priority
+: <a class="el" href="_thread___pool_8h.html#af6030e60c7d8f9f8920ecaeb41ae4c31">Thread_Pool.h</a>
 </li>
 </ul>
 
@@ -183,9 +143,6 @@ $(document).ready(function(){initNavTree('globals.html','');});
 
 
 <h3><a class="anchor" id="index_s"></a>- s -</h3><ul>
-<li>SIGNAL
-: <a class="el" href="_thread___pool_8c.html#a65efb54c577f309e575327a48e3438a1">Thread_Pool.c</a>
-</li>
 <li>Sub_Process
 : <a class="el" href="_thread___pool_8h.html#a1bd93c36f127145cc8ff84518ea2f725">Thread_Pool.h</a>
 </li>
@@ -199,6 +156,9 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>Task_Queue
 : <a class="el" href="_thread___pool_8h.html#ac125810655ad383f23134196935efa21">Thread_Pool.h</a>
 </li>
+<li>Task_Status
+: <a class="el" href="_thread___pool_8h.html#ab545305a5a97a8c00909924ecdb8c7a7">Thread_Pool.h</a>
+</li>
 <li>thread_callback
 : <a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">Thread_Pool.h</a>
 </li>
@@ -206,8 +166,12 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="_thread___pool_8h.html#a17ec3400f2d607780951d99f4515119a">Thread_Pool.h</a>
 </li>
 <li>Thread_Pool_Add_Task()
-: <a class="el" href="_thread___pool_8c.html#a169ae10080b61eff9203ad6eae4dcb0f">Thread_Pool.c</a>
-, <a class="el" href="_thread___pool_8h.html#a169ae10080b61eff9203ad6eae4dcb0f">Thread_Pool.h</a>
+: <a class="el" href="_thread___pool_8c.html#a4a6a6b1695ced13ffeecc00d26e53be5">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#a4a6a6b1695ced13ffeecc00d26e53be5">Thread_Pool.h</a>
+</li>
+<li>Thread_Pool_Clear_Tasks()
+: <a class="el" href="_thread___pool_8c.html#a29eb8b4ac579d9f089d993462c5de25d">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#a29eb8b4ac579d9f089d993462c5de25d">Thread_Pool.h</a>
 </li>
 <li>Thread_Pool_Destroy()
 : <a class="el" href="_thread___pool_8c.html#a438a1443bdaa8e20bb71ea23c03d0df8">Thread_Pool.c</a>
@@ -233,13 +197,21 @@ $(document).ready(function(){initNavTree('globals.html','');});
 : <a class="el" href="_thread___pool_8c.html#a582d687c426ef6de27de7346c884a92d">Thread_Pool.c</a>
 , <a class="el" href="_thread___pool_8h.html#a582d687c426ef6de27de7346c884a92d">Thread_Pool.h</a>
 </li>
+<li>Thread_Pool_Timed_Obtain_Result()
+: <a class="el" href="_thread___pool_8c.html#af7eb70e15a5bae7ac74f3b7cca5190d8">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#af7eb70e15a5bae7ac74f3b7cca5190d8">Thread_Pool.h</a>
+</li>
 <li>Thread_Pool_Timed_Pause()
 : <a class="el" href="_thread___pool_8c.html#afb4e495587c622e9d7009639e2248d39">Thread_Pool.c</a>
 , <a class="el" href="_thread___pool_8h.html#afb4e495587c622e9d7009639e2248d39">Thread_Pool.h</a>
 </li>
+<li>Thread_Pool_Timed_Wait()
+: <a class="el" href="_thread___pool_8h.html#a413bf443639fd45f19406731225e0f3f">Thread_Pool.h</a>
+, <a class="el" href="_thread___pool_8c.html#a413bf443639fd45f19406731225e0f3f">Thread_Pool.c</a>
+</li>
 <li>Thread_Pool_Wait()
-: <a class="el" href="_thread___pool_8c.html#a74c59d87a024ea0a1df868023cbfb35a">Thread_Pool.c</a>
-, <a class="el" href="_thread___pool_8h.html#a74c59d87a024ea0a1df868023cbfb35a">Thread_Pool.h</a>
+: <a class="el" href="_thread___pool_8c.html#a5426a53a59d77f440705f43aae70c7ca">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#a5426a53a59d77f440705f43aae70c7ca">Thread_Pool.h</a>
 </li>
 <li>TP_DEBUG
 : <a class="el" href="_thread___pool_8c.html#a101eb1f242994c1c4db05d9df04fccc1">Thread_Pool.c</a>
@@ -250,22 +222,54 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <li>TP_DEBUG_PRINTF
 : <a class="el" href="_thread___pool_8c.html#ae717deb544d95eb9d1ab20080ef2ff72">Thread_Pool.c</a>
 </li>
-<li>TRYLOCK
-: <a class="el" href="_thread___pool_8c.html#a5126fc9133a1f3230ebb1f2be423f9d9">Thread_Pool.c</a>
+<li>TP_DECREMENT
+: <a class="el" href="_thread___pool_8c.html#ac3ebc6eb47177a56d9621a5f2fc58cb9">Thread_Pool.c</a>
 </li>
-</ul>
-
-
-<h3><a class="anchor" id="index_u"></a>- u -</h3><ul>
-<li>UNLOCK
-: <a class="el" href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">Thread_Pool.c</a>
+<li>TP_HIGH
+: <a class="el" href="_thread___pool_8h.html#a315655b1bb5848c063491adffde62b15a6f23345bad8f1c4dba743eda73cfecdb">Thread_Pool.h</a>
+</li>
+<li>TP_HIGH_PRIORITY
+: <a class="el" href="_thread___pool_8h.html#ae0ae23835ad9666061bdfccc968294ef">Thread_Pool.h</a>
+</li>
+<li>TP_HIGHEST
+: <a class="el" href="_thread___pool_8h.html#a315655b1bb5848c063491adffde62b15a716d21642437b5bc3ae68d27024fdecc">Thread_Pool.h</a>
+</li>
+<li>TP_HIGHEST_PRIORITY
+: <a class="el" href="_thread___pool_8h.html#a27d6240cb97bb08ec6e494324c9cc840">Thread_Pool.h</a>
+</li>
+<li>TP_INCREMENT
+: <a class="el" href="_thread___pool_8c.html#a20b4320760f2dd44c24e7c84529c4043">Thread_Pool.c</a>
+</li>
+<li>TP_LOW
+: <a class="el" href="_thread___pool_8h.html#a315655b1bb5848c063491adffde62b15a10f69780002557c01de36ebbfbb9292a">Thread_Pool.h</a>
+</li>
+<li>TP_LOW_PRIORITY
+: <a class="el" href="_thread___pool_8h.html#a419fbfa2de74636eb19ec793581c570f">Thread_Pool.h</a>
+</li>
+<li>TP_LOWEST
+: <a class="el" href="_thread___pool_8h.html#a315655b1bb5848c063491adffde62b15a5711bf8aba1d43bd5912bd026cc363e4">Thread_Pool.h</a>
+</li>
+<li>TP_LOWEST_PRIORITY
+: <a class="el" href="_thread___pool_8h.html#a9c324c79e5165e337d981c94b1031001">Thread_Pool.h</a>
+</li>
+<li>TP_MEDIUM
+: <a class="el" href="_thread___pool_8h.html#a315655b1bb5848c063491adffde62b15adf74cf4260a1c0b0f66d778515a422f5">Thread_Pool.h</a>
+</li>
+<li>TP_NO_PAUSE
+: <a class="el" href="_thread___pool_8h.html#aea7cceec445fa6f9ea7ebb1b543cb4b0">Thread_Pool.h</a>
+</li>
+<li>TP_NO_RESULT
+: <a class="el" href="_thread___pool_8h.html#a6aa9c224dd9330bc223cfe62c17b8c37">Thread_Pool.h</a>
+</li>
+<li>TP_NONE
+: <a class="el" href="_thread___pool_8h.html#abbe24d0089f8f5ab7655c445a87b778a">Thread_Pool.h</a>
 </li>
 </ul>
 
 
 <h3><a class="anchor" id="index_w"></a>- w -</h3><ul>
-<li>WAIT
-: <a class="el" href="_thread___pool_8c.html#a95a78f089f6a325394b0a7172997302e">Thread_Pool.c</a>
+<li>Worker
+: <a class="el" href="_thread___pool_8h.html#a93e032ebb710cab3f56e1932cecf8ee3">Thread_Pool.h</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -273,7 +277,7 @@ $(document).ready(function(){initNavTree('globals.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 22 2015 16:24:29 for Thread_Pool by
+    <li class="footer">Generated on Fri May 29 2015 19:53:57 for Thread Pool by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

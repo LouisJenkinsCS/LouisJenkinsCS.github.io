@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['new_5ftask',['new_task',['../struct_task___queue.html#a246f0c6d74730bab84d4cf40d95b4bcd',1,'Task_Queue']]],
-  ['next',['next',['../struct_task.html#afc791d22abed6d81e714bb3993c31223',1,'Task']]],
-  ['no_5ftasks',['no_tasks',['../struct_task___queue.html#a82c4f8c176f73a4611cfd93d8182047e',1,'Task_Queue']]],
-  ['not_5fready',['not_ready',['../struct_result.html#a29a502fc8aca81df1310e7c10c3d99af',1,'Result']]]
+  ['ready',['ready',['../struct_result.html#a7ad32217267e7e0144abffa4e782867c',1,'Result']]],
+  ['result',['Result',['../struct_result.html',1,'Result'],['../struct_task.html#a47963d2c7f557db21790fb71b8cd20d6',1,'Task::result()'],['../_thread___pool_8h.html#ade7e53b8ed7380705cbd1225db23cd5a',1,'Result():&#160;Thread_Pool.h']]],
+  ['resume',['resume',['../struct_thread___pool.html#a08d1ddc052477bcca8d06a45f336f698',1,'Thread_Pool']]]
 ];

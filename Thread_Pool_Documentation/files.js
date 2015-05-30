@@ -1,4 +1,5 @@
 var files =
 [
-    [ "Thread Pool", "dir_540d1d663e04e7f390679f9f9ead392b.html", "dir_540d1d663e04e7f390679f9f9ead392b" ]
+    [ "Thread_Pool.c", "_thread___pool_8c.html", "_thread___pool_8c" ],
+    [ "Thread_Pool.h", "_thread___pool_8h.html", "_thread___pool_8h" ]
 ];

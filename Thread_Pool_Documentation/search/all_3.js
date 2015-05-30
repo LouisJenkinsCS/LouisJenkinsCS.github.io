@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['decrement',['DECREMENT',['../_thread___pool_8c.html#a5bd378fc65168cd66c8af83a07bf384e',1,'Thread_Pool.c']]],
-  ['destroy_5fcond',['DESTROY_COND',['../_thread___pool_8c.html#aa6bb895a437a8ab3ed4c2f7fda6a1d0f',1,'Thread_Pool.c']]],
-  ['destroy_5fmutex',['DESTROY_MUTEX',['../_thread___pool_8c.html#a94db4f5104511890355a08264793aad7',1,'Thread_Pool.c']]]
+  ['is_5fpaused',['is_paused',['../struct_thread___pool.html#a23ef75e4be23253924732dbbe0cb906c',1,'Thread_Pool']]],
+  ['is_5fready',['is_ready',['../struct_result.html#a8f707934732f685f1b1b53a855de60d4',1,'Result']]],
+  ['is_5fsetup',['is_setup',['../struct_worker.html#ae294086f45f8af167507131a38e07873',1,'Worker']]],
+  ['item',['item',['../struct_result.html#aeeeae972d4d97226aa998aa9ca91346c',1,'Result']]]
 ];

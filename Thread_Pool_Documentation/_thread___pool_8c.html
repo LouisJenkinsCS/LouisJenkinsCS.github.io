@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Thread_Pool: Thread Pool/Code/Thread_Pool.c File Reference</title>
+<title>Thread Pool: Thread_Pool.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Thread_Pool
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Thread Pool
+   &#160;<span id="projectnumber">1.1</span>
    </div>
-   <div id="projectbrief">Thread Pool for the C Programming Language.</div>
+   <div id="projectbrief">Thread Pool implementation for the C Programming Language.</div>
   </td>
  </tr>
  </tbody>
@@ -115,50 +115,21 @@ $(document).ready(function(){initNavTree('_thread___pool_8c.html','');});
 <code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;pthread.h&gt;</code><br />
 <code>#include &lt;signal.h&gt;</code><br />
+<code>#include &lt;assert.h&gt;</code><br />
+<code>#include &lt;errno.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>&quot;</code><br />
-</div><table class="memberdecls">
+</div>
+<p><a href="_thread___pool_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:ac23aa31b2fd0a604ca601084a90bb800"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">LOCK</a>(mutex)&#160;&#160;&#160;pthread_mutex_lock(mutex)</td></tr>
-<tr class="memdesc:ac23aa31b2fd0a604ca601084a90bb800"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to lock the given mutex.  <a href="#ac23aa31b2fd0a604ca601084a90bb800">More...</a><br /></td></tr>
-<tr class="separator:ac23aa31b2fd0a604ca601084a90bb800"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5126fc9133a1f3230ebb1f2be423f9d9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a5126fc9133a1f3230ebb1f2be423f9d9">TRYLOCK</a>(mutex)&#160;&#160;&#160;pthread_mutex_trylock(mutex)</td></tr>
-<tr class="memdesc:a5126fc9133a1f3230ebb1f2be423f9d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to try to lock the mutex, returning immediately on failure.  <a href="#a5126fc9133a1f3230ebb1f2be423f9d9">More...</a><br /></td></tr>
-<tr class="separator:a5126fc9133a1f3230ebb1f2be423f9d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab75c4136289e7d71035be5153b19b5d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">UNLOCK</a>(mutex)&#160;&#160;&#160;pthread_mutex_unlock(mutex)</td></tr>
-<tr class="memdesc:aab75c4136289e7d71035be5153b19b5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to unlock the given mutex.  <a href="#aab75c4136289e7d71035be5153b19b5d">More...</a><br /></td></tr>
-<tr class="separator:aab75c4136289e7d71035be5153b19b5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95a78f089f6a325394b0a7172997302e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a95a78f089f6a325394b0a7172997302e">WAIT</a>(condition,  mutex)&#160;&#160;&#160;pthread_cond_wait(condition, mutex)</td></tr>
-<tr class="memdesc:a95a78f089f6a325394b0a7172997302e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Causes the current thread to wait for a signal to be sent.  <a href="#a95a78f089f6a325394b0a7172997302e">More...</a><br /></td></tr>
-<tr class="separator:a95a78f089f6a325394b0a7172997302e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a65efb54c577f309e575327a48e3438a1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a65efb54c577f309e575327a48e3438a1">SIGNAL</a>(condition)&#160;&#160;&#160;pthread_cond_signal(condition)</td></tr>
-<tr class="memdesc:a65efb54c577f309e575327a48e3438a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signals a thread waiting on the condition based on a default scheduler.  <a href="#a65efb54c577f309e575327a48e3438a1">More...</a><br /></td></tr>
-<tr class="separator:a65efb54c577f309e575327a48e3438a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93954f8978d7d6964a369ecd6711276d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a93954f8978d7d6964a369ecd6711276d">BROADCAST</a>(condition)&#160;&#160;&#160;pthread_cond_broadcast(condition)</td></tr>
-<tr class="memdesc:a93954f8978d7d6964a369ecd6711276d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to broadcast to all threads waiting on the condition variable.  <a href="#a93954f8978d7d6964a369ecd6711276d">More...</a><br /></td></tr>
-<tr class="separator:a93954f8978d7d6964a369ecd6711276d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70bf1bed622eea60920799da120e8692"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a70bf1bed622eea60920799da120e8692">PAUSE</a>(thread)&#160;&#160;&#160;pthread_kill(thread, SIGUSR1)</td></tr>
-<tr class="memdesc:a70bf1bed622eea60920799da120e8692"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro used to pause the thread, as the function name is very misleading. Sends SIGUSR1 signal.  <a href="#a70bf1bed622eea60920799da120e8692">More...</a><br /></td></tr>
-<tr class="separator:a70bf1bed622eea60920799da120e8692"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac21b304e2788f1720a68da157f895184"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#ac21b304e2788f1720a68da157f895184">INCREMENT</a>(var,  mutex)</td></tr>
-<tr class="memdesc:ac21b304e2788f1720a68da157f895184"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to atomically increment the variable.  <a href="#ac21b304e2788f1720a68da157f895184">More...</a><br /></td></tr>
-<tr class="separator:ac21b304e2788f1720a68da157f895184"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bd378fc65168cd66c8af83a07bf384e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a5bd378fc65168cd66c8af83a07bf384e">DECREMENT</a>(var,  mutex)</td></tr>
-<tr class="memdesc:a5bd378fc65168cd66c8af83a07bf384e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to atomically decrement the variable.  <a href="#a5bd378fc65168cd66c8af83a07bf384e">More...</a><br /></td></tr>
-<tr class="separator:a5bd378fc65168cd66c8af83a07bf384e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad53e9538fb2721d198ad5fa9199cc276"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#ad53e9538fb2721d198ad5fa9199cc276">INIT_MUTEX</a>(mutex,  attr)</td></tr>
-<tr class="memdesc:ad53e9538fb2721d198ad5fa9199cc276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to quickly initialize a mutex.  <a href="#ad53e9538fb2721d198ad5fa9199cc276">More...</a><br /></td></tr>
-<tr class="separator:ad53e9538fb2721d198ad5fa9199cc276"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb6e6fd026e8e393fa5545efd196fcf4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#afb6e6fd026e8e393fa5545efd196fcf4">INIT_COND</a>(cond,  attr)</td></tr>
-<tr class="memdesc:afb6e6fd026e8e393fa5545efd196fcf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to quickly initialize a condition variable.  <a href="#afb6e6fd026e8e393fa5545efd196fcf4">More...</a><br /></td></tr>
-<tr class="separator:afb6e6fd026e8e393fa5545efd196fcf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a94db4f5104511890355a08264793aad7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a94db4f5104511890355a08264793aad7">DESTROY_MUTEX</a>(mutex)</td></tr>
-<tr class="memdesc:a94db4f5104511890355a08264793aad7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the mutex.  <a href="#a94db4f5104511890355a08264793aad7">More...</a><br /></td></tr>
-<tr class="separator:a94db4f5104511890355a08264793aad7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6bb895a437a8ab3ed4c2f7fda6a1d0f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#aa6bb895a437a8ab3ed4c2f7fda6a1d0f">DESTROY_COND</a>(cond)</td></tr>
-<tr class="memdesc:aa6bb895a437a8ab3ed4c2f7fda6a1d0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Free the condition variable.  <a href="#aa6bb895a437a8ab3ed4c2f7fda6a1d0f">More...</a><br /></td></tr>
-<tr class="separator:aa6bb895a437a8ab3ed4c2f7fda6a1d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a101eb1f242994c1c4db05d9df04fccc1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a101eb1f242994c1c4db05d9df04fccc1">TP_DEBUG</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a20b4320760f2dd44c24e7c84529c4043"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a20b4320760f2dd44c24e7c84529c4043">TP_INCREMENT</a>(var,  mutex)</td></tr>
+<tr class="memdesc:a20b4320760f2dd44c24e7c84529c4043"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple macro to atomically increment an integer on a mutex.  <a href="#a20b4320760f2dd44c24e7c84529c4043">More...</a><br /></td></tr>
+<tr class="separator:a20b4320760f2dd44c24e7c84529c4043"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3ebc6eb47177a56d9621a5f2fc58cb9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#ac3ebc6eb47177a56d9621a5f2fc58cb9">TP_DECREMENT</a>(var,  mutex)</td></tr>
+<tr class="memdesc:ac3ebc6eb47177a56d9621a5f2fc58cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple macro to atomically decrement an integer on a mutex.  <a href="#ac3ebc6eb47177a56d9621a5f2fc58cb9">More...</a><br /></td></tr>
+<tr class="separator:ac3ebc6eb47177a56d9621a5f2fc58cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a101eb1f242994c1c4db05d9df04fccc1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a101eb1f242994c1c4db05d9df04fccc1">TP_DEBUG</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a101eb1f242994c1c4db05d9df04fccc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simple macro to enable debug.  <a href="#a101eb1f242994c1c4db05d9df04fccc1">More...</a><br /></td></tr>
 <tr class="separator:a101eb1f242994c1c4db05d9df04fccc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d77d27cfdf46dfc9ccd8254172ff78f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a1d77d27cfdf46dfc9ccd8254172ff78f">TP_DEBUG_PRINT</a>(str)&#160;&#160;&#160;(<a class="el" href="_thread___pool_8c.html#a101eb1f242994c1c4db05d9df04fccc1">TP_DEBUG</a> ? printf(str) : <a class="el" href="_thread___pool_8c.html#a101eb1f242994c1c4db05d9df04fccc1">TP_DEBUG</a>)</td></tr>
@@ -173,18 +144,27 @@ Functions</h2></td></tr>
 <tr class="memitem:a5c430cfa5dae83aa5fa640c1f0dc2172"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a5c430cfa5dae83aa5fa640c1f0dc2172">Thread_Pool_Init</a> (size_t number_of_threads)</td></tr>
 <tr class="memdesc:a5c430cfa5dae83aa5fa640c1f0dc2172"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for the thread pool, creating the requested amount of threads.  <a href="#a5c430cfa5dae83aa5fa640c1f0dc2172">More...</a><br /></td></tr>
 <tr class="separator:a5c430cfa5dae83aa5fa640c1f0dc2172"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a169ae10080b61eff9203ad6eae4dcb0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_result.html">Result</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a169ae10080b61eff9203ad6eae4dcb0f">Thread_Pool_Add_Task</a> (<a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">thread_callback</a> cb, void *args)</td></tr>
-<tr class="memdesc:a169ae10080b61eff9203ad6eae4dcb0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a task to the thread pool.  <a href="#a169ae10080b61eff9203ad6eae4dcb0f">More...</a><br /></td></tr>
-<tr class="separator:a169ae10080b61eff9203ad6eae4dcb0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a6a6b1695ced13ffeecc00d26e53be5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_result.html">Result</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a4a6a6b1695ced13ffeecc00d26e53be5">Thread_Pool_Add_Task</a> (<a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">thread_callback</a> callback, void *args, int flags)</td></tr>
+<tr class="memdesc:a4a6a6b1695ced13ffeecc00d26e53be5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a task to the thread pool.  <a href="#a4a6a6b1695ced13ffeecc00d26e53be5">More...</a><br /></td></tr>
+<tr class="separator:a4a6a6b1695ced13ffeecc00d26e53be5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29eb8b4ac579d9f089d993462c5de25d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a29eb8b4ac579d9f089d993462c5de25d">Thread_Pool_Clear_Tasks</a> (void)</td></tr>
+<tr class="memdesc:a29eb8b4ac579d9f089d993462c5de25d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all tasks in the task queue.  <a href="#a29eb8b4ac579d9f089d993462c5de25d">More...</a><br /></td></tr>
+<tr class="separator:a29eb8b4ac579d9f089d993462c5de25d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba0e69821afa14c4dbdef215bb94b775"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#aba0e69821afa14c4dbdef215bb94b775">Thread_Pool_Result_Destroy</a> (<a class="el" href="struct_result.html">Result</a> *result)</td></tr>
-<tr class="memdesc:aba0e69821afa14c4dbdef215bb94b775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will destroy the <a class="el" href="struct_result.html" title="The result returned when adding a new task to the task queue. ">Result</a> and set it's reference to NULL.  <a href="#aba0e69821afa14c4dbdef215bb94b775">More...</a><br /></td></tr>
+<tr class="memdesc:aba0e69821afa14c4dbdef215bb94b775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will destroy the <a class="el" href="struct_result.html">Result</a> and set it's reference to NULL.  <a href="#aba0e69821afa14c4dbdef215bb94b775">More...</a><br /></td></tr>
 <tr class="separator:aba0e69821afa14c4dbdef215bb94b775"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc0bf55f632012b472a02a2d618baf29"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#abc0bf55f632012b472a02a2d618baf29">Thread_Pool_Obtain_Result</a> (<a class="el" href="struct_result.html">Result</a> *result)</td></tr>
 <tr class="memdesc:abc0bf55f632012b472a02a2d618baf29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will block until result is ready.  <a href="#abc0bf55f632012b472a02a2d618baf29">More...</a><br /></td></tr>
 <tr class="separator:abc0bf55f632012b472a02a2d618baf29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74c59d87a024ea0a1df868023cbfb35a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a74c59d87a024ea0a1df868023cbfb35a">Thread_Pool_Wait</a> (void)</td></tr>
-<tr class="memdesc:a74c59d87a024ea0a1df868023cbfb35a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Blocks until all tasks in the thread pool are finished.  <a href="#a74c59d87a024ea0a1df868023cbfb35a">More...</a><br /></td></tr>
-<tr class="separator:a74c59d87a024ea0a1df868023cbfb35a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7eb70e15a5bae7ac74f3b7cca5190d8"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#af7eb70e15a5bae7ac74f3b7cca5190d8">Thread_Pool_Timed_Obtain_Result</a> (<a class="el" href="struct_result.html">Result</a> *result, unsigned int seconds)</td></tr>
+<tr class="memdesc:af7eb70e15a5bae7ac74f3b7cca5190d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will block until result is ready or time ellapses.  <a href="#af7eb70e15a5bae7ac74f3b7cca5190d8">More...</a><br /></td></tr>
+<tr class="separator:af7eb70e15a5bae7ac74f3b7cca5190d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5426a53a59d77f440705f43aae70c7ca"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a5426a53a59d77f440705f43aae70c7ca">Thread_Pool_Wait</a> (void)</td></tr>
+<tr class="memdesc:a5426a53a59d77f440705f43aae70c7ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will block until all tasks are finished.  <a href="#a5426a53a59d77f440705f43aae70c7ca">More...</a><br /></td></tr>
+<tr class="separator:a5426a53a59d77f440705f43aae70c7ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a413bf443639fd45f19406731225e0f3f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a413bf443639fd45f19406731225e0f3f">Thread_Pool_Timed_Wait</a> (unsigned int seconds)</td></tr>
+<tr class="memdesc:a413bf443639fd45f19406731225e0f3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Will block until all tasks are finished or time ellapses.  <a href="#a413bf443639fd45f19406731225e0f3f">More...</a><br /></td></tr>
+<tr class="separator:a413bf443639fd45f19406731225e0f3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a438a1443bdaa8e20bb71ea23c03d0df8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a438a1443bdaa8e20bb71ea23c03d0df8">Thread_Pool_Destroy</a> (void)</td></tr>
 <tr class="memdesc:a438a1443bdaa8e20bb71ea23c03d0df8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroys the current thread pool, waiting for the current tasks to be finished.  <a href="#a438a1443bdaa8e20bb71ea23c03d0df8">More...</a><br /></td></tr>
 <tr class="separator:a438a1443bdaa8e20bb71ea23c03d0df8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,273 +172,26 @@ Functions</h2></td></tr>
 <tr class="memdesc:ab1af9879b18427f7b5fa273649bf1ba4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause all operations in the task queue.  <a href="#ab1af9879b18427f7b5fa273649bf1ba4">More...</a><br /></td></tr>
 <tr class="separator:ab1af9879b18427f7b5fa273649bf1ba4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb4e495587c622e9d7009639e2248d39"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#afb4e495587c622e9d7009639e2248d39">Thread_Pool_Timed_Pause</a> (unsigned int seconds)</td></tr>
+<tr class="memdesc:afb4e495587c622e9d7009639e2248d39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pause the thread pool for the given amount of time or resumed.  <a href="#afb4e495587c622e9d7009639e2248d39">More...</a><br /></td></tr>
 <tr class="separator:afb4e495587c622e9d7009639e2248d39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a582d687c426ef6de27de7346c884a92d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_thread___pool_8c.html#a582d687c426ef6de27de7346c884a92d">Thread_Pool_Resume</a> (void)</td></tr>
 <tr class="memdesc:a582d687c426ef6de27de7346c884a92d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resume all worker threads that are paused.  <a href="#a582d687c426ef6de27de7346c884a92d">More...</a><br /></td></tr>
 <tr class="separator:a582d687c426ef6de27de7346c884a92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a class="anchor" id="a93954f8978d7d6964a369ecd6711276d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define BROADCAST</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">condition</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_cond_broadcast(condition)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to broadcast to all threads waiting on the condition variable. </p>
-
-</div>
-</div>
-<a class="anchor" id="a5bd378fc65168cd66c8af83a07bf384e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DECREMENT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">var, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">mutex&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { <a class="code" href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">\</a></div>
-<div class="line"><a class="code" href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">			LOCK</a>(mutex); \</div>
-<div class="line">            var--; <a class="code" href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">\</a></div>
-<div class="line"><a class="code" href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">			UNLOCK</a>(mutex); \</div>
-<div class="line">        } <span class="keywordflow">while</span>(0)</div>
-<div class="ttc" id="_thread___pool_8c_html_ac23aa31b2fd0a604ca601084a90bb800"><div class="ttname"><a href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">LOCK</a></div><div class="ttdeci">#define LOCK(mutex)</div><div class="ttdoc">Used to lock the given mutex. </div><div class="ttdef"><b>Definition:</b> Thread_Pool.c:10</div></div>
-<div class="ttc" id="_thread___pool_8c_html_aab75c4136289e7d71035be5153b19b5d"><div class="ttname"><a href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">UNLOCK</a></div><div class="ttdeci">#define UNLOCK(mutex)</div><div class="ttdoc">Used to unlock the given mutex. </div><div class="ttdef"><b>Definition:</b> Thread_Pool.c:14</div></div>
-</div><!-- fragment -->
-<p>Used to atomically decrement the variable. </p>
-
-</div>
-</div>
-<a class="anchor" id="aa6bb895a437a8ab3ed4c2f7fda6a1d0f"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DESTROY_COND</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">cond</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { \</div>
-<div class="line">                pthread_cond_destroy(cond); \</div>
-<div class="line">                free(cond); \</div>
-<div class="line">            } <span class="keywordflow">while</span>(0)</div>
-</div><!-- fragment -->
-<p>Free the condition variable. </p>
-
-</div>
-</div>
-<a class="anchor" id="a94db4f5104511890355a08264793aad7"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define DESTROY_MUTEX</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">mutex</td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { \</div>
-<div class="line">                pthread_mutex_destroy(mutex); \</div>
-<div class="line">                free(mutex); \</div>
-<div class="line">            } <span class="keywordflow">while</span>(0)</div>
-</div><!-- fragment -->
-<p>Free the mutex. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac21b304e2788f1720a68da157f895184"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INCREMENT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">var, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">mutex&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { <a class="code" href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">\</a></div>
-<div class="line"><a class="code" href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">			LOCK</a>(mutex); \</div>
-<div class="line">            var++; <a class="code" href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">\</a></div>
-<div class="line"><a class="code" href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">			UNLOCK</a>(mutex); \</div>
-<div class="line">        } <span class="keywordflow">while</span>(0)</div>
-<div class="ttc" id="_thread___pool_8c_html_ac23aa31b2fd0a604ca601084a90bb800"><div class="ttname"><a href="_thread___pool_8c.html#ac23aa31b2fd0a604ca601084a90bb800">LOCK</a></div><div class="ttdeci">#define LOCK(mutex)</div><div class="ttdoc">Used to lock the given mutex. </div><div class="ttdef"><b>Definition:</b> Thread_Pool.c:10</div></div>
-<div class="ttc" id="_thread___pool_8c_html_aab75c4136289e7d71035be5153b19b5d"><div class="ttname"><a href="_thread___pool_8c.html#aab75c4136289e7d71035be5153b19b5d">UNLOCK</a></div><div class="ttdeci">#define UNLOCK(mutex)</div><div class="ttdoc">Used to unlock the given mutex. </div><div class="ttdef"><b>Definition:</b> Thread_Pool.c:14</div></div>
-</div><!-- fragment -->
-<p>Used to atomically increment the variable. </p>
-
-</div>
-</div>
-<a class="anchor" id="afb6e6fd026e8e393fa5545efd196fcf4"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INIT_COND</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">cond, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">attr&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { \</div>
-<div class="line">               cond = malloc(<span class="keyword">sizeof</span>(pthread_cond_t)); \</div>
-<div class="line">               pthread_cond_init(cond, attr); \</div>
-<div class="line">            } <span class="keywordflow">while</span>(0)</div>
-</div><!-- fragment -->
-<p>Used to quickly initialize a condition variable. </p>
-
-</div>
-</div>
-<a class="anchor" id="ad53e9538fb2721d198ad5fa9199cc276"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define INIT_MUTEX</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">mutex, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">attr&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { \</div>
-<div class="line">               mutex = malloc(<span class="keyword">sizeof</span>(pthread_mutex_t)); \</div>
-<div class="line">               pthread_mutex_init(mutex, attr); \</div>
-<div class="line">            } <span class="keywordflow">while</span>(0)</div>
-</div><!-- fragment -->
-<p>Used to quickly initialize a mutex. </p>
-
-</div>
-</div>
-<a class="anchor" id="ac23aa31b2fd0a604ca601084a90bb800"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define LOCK</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_mutex_lock(mutex)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to lock the given mutex. </p>
-
-</div>
-</div>
-<a class="anchor" id="a70bf1bed622eea60920799da120e8692"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define PAUSE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">thread</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_kill(thread, SIGUSR1)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Macro used to pause the thread, as the function name is very misleading. Sends SIGUSR1 signal. </p>
-
-</div>
-</div>
-<a class="anchor" id="a65efb54c577f309e575327a48e3438a1"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SIGNAL</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">condition</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_cond_signal(condition)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Signals a thread waiting on the condition based on a default scheduler. </p>
-
-</div>
-</div>
 <a class="anchor" id="a101eb1f242994c1c4db05d9df04fccc1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TP_DEBUG&#160;&#160;&#160;0</td>
+          <td class="memname">#define TP_DEBUG&#160;&#160;&#160;1</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Simple macro to enable debug. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00026">26</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -477,6 +210,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Print a message if and only if TP_DEBUG is enabled. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00028">28</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -506,53 +241,19 @@ Functions</h2></td></tr>
 
 <p>Print a formatted message if and only if TP_DEBUG is enabled. </p>
 
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00030">30</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a5126fc9133a1f3230ebb1f2be423f9d9"></a>
+<a class="anchor" id="ac3ebc6eb47177a56d9621a5f2fc58cb9"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define TRYLOCK</td>
+          <td class="memname">#define TP_DECREMENT</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_mutex_trylock(mutex)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to try to lock the mutex, returning immediately on failure. </p>
-
-</div>
-</div>
-<a class="anchor" id="aab75c4136289e7d71035be5153b19b5d"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define UNLOCK</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">mutex</td><td>)</td>
-          <td>&#160;&#160;&#160;pthread_mutex_unlock(mutex)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Used to unlock the given mutex. </p>
-
-</div>
-</div>
-<a class="anchor" id="a95a78f089f6a325394b0a7172997302e"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define WAIT</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">condition, </td>
+          <td class="paramname">var, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -563,17 +264,59 @@ Functions</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;pthread_cond_wait(condition, mutex)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { \</div>
+<div class="line">    pthread_mutex_lock(mutex); \</div>
+<div class="line">    var--; \</div>
+<div class="line">    pthread_mutex_unlock(mutex); \</div>
+<div class="line">} <span class="keywordflow">while</span>(0)</div>
+</div><!-- fragment -->
+<p>Simple macro to atomically decrement an integer on a mutex. </p>
 
-<p>Causes the current thread to wait for a signal to be sent. </p>
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00019">19</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20b4320760f2dd44c24e7c84529c4043"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define TP_INCREMENT</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">var, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">mutex&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span> { \</div>
+<div class="line">    pthread_mutex_lock(mutex); \</div>
+<div class="line">    var++; \</div>
+<div class="line">    pthread_mutex_unlock(mutex); \</div>
+<div class="line">} <span class="keywordflow">while</span>(0)</div>
+</div><!-- fragment -->
+<p>Simple macro to atomically increment an integer on a mutex. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00012">12</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a169ae10080b61eff9203ad6eae4dcb0f"></a>
+<a class="anchor" id="a4a6a6b1695ced13ffeecc00d26e53be5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -581,13 +324,19 @@ Functions</h2></td></tr>
           <td class="memname"><a class="el" href="struct_result.html">Result</a>* Thread_Pool_Add_Task </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">thread_callback</a>&#160;</td>
-          <td class="paramname"><em>cb</em>, </td>
+          <td class="paramname"><em>callback</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>args</em>&#160;</td>
+          <td class="paramname"><em>args</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>flags</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -598,14 +347,38 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Adds a task to the thread pool. </p>
-<p>Callback must return a pointer * and arguments must also be a pointer. Alternatively, you can cast the function pointer to a void pointer like such: (void *)function; Doing so results in undefined behavior, but allows it to work if you do not really want the result. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>While it requires a void *(*callback)(void *args) function pointer, casting a function to void *, like (void *)function, will work but has undefined behavior. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cb</td><td>Callback function to be called as the task. </td></tr>
+    <tr><td class="paramname">callback</td><td>Callback function to be called as the task. </td></tr>
     <tr><td class="paramname">args</td><td>Arguments to pass to the thread pool. </td></tr>
+    <tr><td class="paramname">flags</td><td>TP_NONE | TP_LOWEST_PRIORITY | TP_LOW_PRIORITY | TP_HIGH_PRIORITY | TP_HIGHEST_PRIORITY | TP_NO_RESULT | TP_NO_PAUSE. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>The result from the task to be obtained later. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>The result from the task to be obtained later or NULL if TP_NO_RESULT. </dd></dl>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00213">213</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a29eb8b4ac579d9f089d993462c5de25d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Thread_Pool_Clear_Tasks </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Clear all tasks in the task queue. </p>
+<p>Note: Will not cancel currently run tasks. </p><dl class="section return"><dt>Returns</dt><dd>1 on success. </dd></dl>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00234">234</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -626,6 +399,8 @@ Functions</h2></td></tr>
 <p>Destroys the current thread pool, waiting for the current tasks to be finished. </p>
 <dl class="section return"><dt>Returns</dt><dd>1 on success. </dd></dl>
 
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00293">293</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a5c430cfa5dae83aa5fa640c1f0dc2172"></a>
@@ -643,13 +418,15 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Constructor for the thread pool, creating the requested amount of threads. </p>
-<p>Used to initialize the static variable in the source file, and should not be called (yet, no checks for if the thread pool currently exists are implemented yet) if one already exists, as it may result in undefined behavior. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>There can only be one thread pool instantiated at any given time, so this function will return 0 if there is another thread pool instantiated. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">number_of_threads</td><td>Amount of worker threads to initialize at startup. </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>1 on success. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 if the thread pool already exists. </dd></dl>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00176">176</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -668,7 +445,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Will block until result is ready. </p>
-<p>Obtain the result from a <a class="el" href="struct_result.html" title="The result returned when adding a new task to the task queue. ">Result</a>, blocking until it's ready. </p>
+<p>Obtain the result from a <a class="el" href="struct_result.html">Result</a>, blocking until it's ready. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00246">246</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -687,7 +466,9 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Pause all operations in the task queue. </p>
-<p>Warning: May be unstable if critical operations are being performed. </p><dl class="section return"><dt>Returns</dt><dd>1 on success, 0 if at least one thread is not able to pause. </dd></dl>
+<p>Even NO_PAUSE flagged tasks will enter the pause signal handler, to determine if it can return, but it will return immediately once it determines whether it is or not. Primitive blocking functions like sleep and select should return perfectly since SA_RESTART is flagged in sigaction. </p><dl class="section return"><dt>Returns</dt><dd>1 on success, 0 if at least one thread is not able to pause. </dd></dl>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00316">316</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -705,8 +486,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Will destroy the <a class="el" href="struct_result.html" title="The result returned when adding a new task to the task queue. ">Result</a> and set it's reference to NULL. </p>
-<p>Destroys the <a class="el" href="struct_result.html" title="The result returned when adding a new task to the task queue. ">Result</a> from a task. </p>
+<p>Will destroy the <a class="el" href="struct_result.html">Result</a> and set it's reference to NULL. </p>
+<p>Destroys the <a class="el" href="struct_result.html">Result</a> from a task. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00239">239</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -725,7 +508,40 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Resume all worker threads that are paused. </p>
-<p>If no threads are waiting, nothing happens. </p><dl class="section return"><dt>Returns</dt><dd>1 on success, 0 if at least one thread cannot be resumed. </dd></dl>
+<p>If the thread pool is not paused, or it is shutdown, it returns 0. </p><dl class="section return"><dt>Returns</dt><dd>1 on success, 0 if at least one thread cannot be resumed, thread pool is not paused or does not exist.. </dd></dl>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00332">332</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af7eb70e15a5bae7ac74f3b7cca5190d8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void* Thread_Pool_Timed_Obtain_Result </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="struct_result.html">Result</a> *&#160;</td>
+          <td class="paramname"><em>result</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>seconds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Will block until result is ready or time ellapses. </p>
+<p>Obtain the result from the task, blocking until it is ready or until the time elapses, in which it will return NULL. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00255">255</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -743,14 +559,46 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Pause the thread pool for the given amount of time or resumed. </p>
+<p>Note: See: Thread_Pool_Pause. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">seconds</td><td>Amount of time to pause for. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>1 on success, 0 if at least one thread cannot pause. </dd></dl>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00326">326</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a74c59d87a024ea0a1df868023cbfb35a"></a>
+<a class="anchor" id="a413bf443639fd45f19406731225e0f3f"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void Thread_Pool_Wait </td>
+          <td class="memname">int Thread_Pool_Timed_Wait </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>seconds</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Will block until all tasks are finished or time ellapses. </p>
+<p>Block until all tasks are finished or time elapses. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00279">279</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5426a53a59d77f440705f43aae70c7ca"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Thread_Pool_Wait </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
@@ -759,7 +607,10 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Blocks until all tasks in the thread pool are finished. </p>
+<p>Will block until all tasks are finished. </p>
+<p>Block until all tasks are finished. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8c_source.html#l00270">270</a> of file <a class="el" href="_thread___pool_8c_source.html">Thread_Pool.c</a>.</p>
 
 </div>
 </div>
@@ -768,8 +619,8 @@ Functions</h2></td></tr>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_540d1d663e04e7f390679f9f9ead392b.html">Thread Pool</a></li><li class="navelem"><a class="el" href="dir_8f0bb4c87ef0c14650d8c6d18257856f.html">Code</a></li><li class="navelem"><a class="el" href="_thread___pool_8c.html">Thread_Pool.c</a></li>
-    <li class="footer">Generated on Fri May 22 2015 16:24:29 for Thread_Pool by
+    <li class="navelem"><a class="el" href="_thread___pool_8c.html">Thread_Pool.c</a></li>
+    <li class="footer">Generated on Fri May 29 2015 19:53:57 for Thread Pool by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

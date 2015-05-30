@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Thread_Pool: Globals</title>
+<title>Thread Pool: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Thread_Pool
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Thread Pool
+   &#160;<span id="projectnumber">1.1</span>
    </div>
-   <div id="projectbrief">Thread Pool for the C Programming Language.</div>
+   <div id="projectbrief">Thread Pool implementation for the C Programming Language.</div>
   </td>
  </tr>
  </tbody>
@@ -79,6 +79,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="globals.html"><span>All</span></a></li>
       <li class="current"><a href="globals_func.html"><span>Functions</span></a></li>
       <li><a href="globals_type.html"><span>Typedefs</span></a></li>
+      <li><a href="globals_enum.html"><span>Enumerations</span></a></li>
+      <li><a href="globals_eval.html"><span>Enumerator</span></a></li>
       <li><a href="globals_defs.html"><span>Macros</span></a></li>
     </ul>
   </div>
@@ -114,20 +116,24 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 <div class="contents">
 &#160;<ul>
 <li>Thread_Pool_Add_Task()
-: <a class="el" href="_thread___pool_8c.html#a169ae10080b61eff9203ad6eae4dcb0f">Thread_Pool.c</a>
-, <a class="el" href="_thread___pool_8h.html#a169ae10080b61eff9203ad6eae4dcb0f">Thread_Pool.h</a>
+: <a class="el" href="_thread___pool_8c.html#a4a6a6b1695ced13ffeecc00d26e53be5">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#a4a6a6b1695ced13ffeecc00d26e53be5">Thread_Pool.h</a>
+</li>
+<li>Thread_Pool_Clear_Tasks()
+: <a class="el" href="_thread___pool_8h.html#a29eb8b4ac579d9f089d993462c5de25d">Thread_Pool.h</a>
+, <a class="el" href="_thread___pool_8c.html#a29eb8b4ac579d9f089d993462c5de25d">Thread_Pool.c</a>
 </li>
 <li>Thread_Pool_Destroy()
-: <a class="el" href="_thread___pool_8h.html#a438a1443bdaa8e20bb71ea23c03d0df8">Thread_Pool.h</a>
-, <a class="el" href="_thread___pool_8c.html#a438a1443bdaa8e20bb71ea23c03d0df8">Thread_Pool.c</a>
+: <a class="el" href="_thread___pool_8c.html#a438a1443bdaa8e20bb71ea23c03d0df8">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#a438a1443bdaa8e20bb71ea23c03d0df8">Thread_Pool.h</a>
 </li>
 <li>Thread_Pool_Init()
-: <a class="el" href="_thread___pool_8c.html#a5c430cfa5dae83aa5fa640c1f0dc2172">Thread_Pool.c</a>
-, <a class="el" href="_thread___pool_8h.html#a5c430cfa5dae83aa5fa640c1f0dc2172">Thread_Pool.h</a>
+: <a class="el" href="_thread___pool_8h.html#a5c430cfa5dae83aa5fa640c1f0dc2172">Thread_Pool.h</a>
+, <a class="el" href="_thread___pool_8c.html#a5c430cfa5dae83aa5fa640c1f0dc2172">Thread_Pool.c</a>
 </li>
 <li>Thread_Pool_Obtain_Result()
-: <a class="el" href="_thread___pool_8h.html#abc0bf55f632012b472a02a2d618baf29">Thread_Pool.h</a>
-, <a class="el" href="_thread___pool_8c.html#abc0bf55f632012b472a02a2d618baf29">Thread_Pool.c</a>
+: <a class="el" href="_thread___pool_8c.html#abc0bf55f632012b472a02a2d618baf29">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#abc0bf55f632012b472a02a2d618baf29">Thread_Pool.h</a>
 </li>
 <li>Thread_Pool_Pause()
 : <a class="el" href="_thread___pool_8c.html#ab1af9879b18427f7b5fa273649bf1ba4">Thread_Pool.c</a>
@@ -141,13 +147,21 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 : <a class="el" href="_thread___pool_8c.html#a582d687c426ef6de27de7346c884a92d">Thread_Pool.c</a>
 , <a class="el" href="_thread___pool_8h.html#a582d687c426ef6de27de7346c884a92d">Thread_Pool.h</a>
 </li>
+<li>Thread_Pool_Timed_Obtain_Result()
+: <a class="el" href="_thread___pool_8c.html#af7eb70e15a5bae7ac74f3b7cca5190d8">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#af7eb70e15a5bae7ac74f3b7cca5190d8">Thread_Pool.h</a>
+</li>
 <li>Thread_Pool_Timed_Pause()
-: <a class="el" href="_thread___pool_8h.html#afb4e495587c622e9d7009639e2248d39">Thread_Pool.h</a>
-, <a class="el" href="_thread___pool_8c.html#afb4e495587c622e9d7009639e2248d39">Thread_Pool.c</a>
+: <a class="el" href="_thread___pool_8c.html#afb4e495587c622e9d7009639e2248d39">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#afb4e495587c622e9d7009639e2248d39">Thread_Pool.h</a>
+</li>
+<li>Thread_Pool_Timed_Wait()
+: <a class="el" href="_thread___pool_8c.html#a413bf443639fd45f19406731225e0f3f">Thread_Pool.c</a>
+, <a class="el" href="_thread___pool_8h.html#a413bf443639fd45f19406731225e0f3f">Thread_Pool.h</a>
 </li>
 <li>Thread_Pool_Wait()
-: <a class="el" href="_thread___pool_8h.html#a74c59d87a024ea0a1df868023cbfb35a">Thread_Pool.h</a>
-, <a class="el" href="_thread___pool_8c.html#a74c59d87a024ea0a1df868023cbfb35a">Thread_Pool.c</a>
+: <a class="el" href="_thread___pool_8h.html#a5426a53a59d77f440705f43aae70c7ca">Thread_Pool.h</a>
+, <a class="el" href="_thread___pool_8c.html#a5426a53a59d77f440705f43aae70c7ca">Thread_Pool.c</a>
 </li>
 </ul>
 </div><!-- contents -->
@@ -155,7 +169,7 @@ $(document).ready(function(){initNavTree('globals_func.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Fri May 22 2015 16:24:29 for Thread_Pool by
+    <li class="footer">Generated on Fri May 29 2015 19:53:57 for Thread Pool by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>

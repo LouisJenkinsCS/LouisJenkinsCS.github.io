@@ -1,0 +1,76 @@
+\hypertarget{struct_worker}{}\section{Worker Struct Reference}
+\label{struct_worker}\index{Worker@{Worker}}
+
+
+{\ttfamily \#include $<$Thread\+\_\+\+Pool.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+pthread\+\_\+t $\ast$ \hyperlink{struct_worker_a6b67ec3785df1f36469a10e68b64ab6f}{thread}
+\begin{DoxyCompactList}\small\item\em The worker thread that does the work. \end{DoxyCompactList}\item 
+unsigned int \hyperlink{struct_worker_a720bccae6839fa7ee8161f77f337fc15}{thread\+\_\+id}
+\begin{DoxyCompactList}\small\item\em The worker thread id. \end{DoxyCompactList}\item 
+volatile unsigned char \hyperlink{struct_worker_ae294086f45f8af167507131a38e07873}{is\+\_\+setup}
+\begin{DoxyCompactList}\small\item\em Determines whether the thread is properly setup. \end{DoxyCompactList}\item 
+\hyperlink{struct_task}{Task} $\ast$ \hyperlink{struct_worker_adac025b94121ea5ab5dd2a3a715ca778}{task}
+\begin{DoxyCompactList}\small\item\em The current task being worked on. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 98 of file Thread\+\_\+\+Pool.\+h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{struct_worker_ae294086f45f8af167507131a38e07873}{}\index{Worker@{Worker}!is\+\_\+setup@{is\+\_\+setup}}
+\index{is\+\_\+setup@{is\+\_\+setup}!Worker@{Worker}}
+\subsubsection[{is\+\_\+setup}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned char is\+\_\+setup}\label{struct_worker_ae294086f45f8af167507131a38e07873}
+
+
+Determines whether the thread is properly setup. 
+
+
+
+Definition at line 104 of file Thread\+\_\+\+Pool.\+h.
+
+\hypertarget{struct_worker_adac025b94121ea5ab5dd2a3a715ca778}{}\index{Worker@{Worker}!task@{task}}
+\index{task@{task}!Worker@{Worker}}
+\subsubsection[{task}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Task}$\ast$ task}\label{struct_worker_adac025b94121ea5ab5dd2a3a715ca778}
+
+
+The current task being worked on. 
+
+
+
+Definition at line 106 of file Thread\+\_\+\+Pool.\+h.
+
+\hypertarget{struct_worker_a6b67ec3785df1f36469a10e68b64ab6f}{}\index{Worker@{Worker}!thread@{thread}}
+\index{thread@{thread}!Worker@{Worker}}
+\subsubsection[{thread}]{\setlength{\rightskip}{0pt plus 5cm}pthread\+\_\+t$\ast$ thread}\label{struct_worker_a6b67ec3785df1f36469a10e68b64ab6f}
+
+
+The worker thread that does the work. 
+
+
+
+Definition at line 100 of file Thread\+\_\+\+Pool.\+h.
+
+\hypertarget{struct_worker_a720bccae6839fa7ee8161f77f337fc15}{}\index{Worker@{Worker}!thread\+\_\+id@{thread\+\_\+id}}
+\index{thread\+\_\+id@{thread\+\_\+id}!Worker@{Worker}}
+\subsubsection[{thread\+\_\+id}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int thread\+\_\+id}\label{struct_worker_a720bccae6839fa7ee8161f77f337fc15}
+
+
+The worker thread id. 
+
+
+
+Definition at line 102 of file Thread\+\_\+\+Pool.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_thread___pool_8h}{Thread\+\_\+\+Pool.\+h}\end{DoxyCompactItemize}

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Thread_Pool: Task Struct Reference</title>
+<title>Thread Pool: Task Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -31,10 +31,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Thread_Pool
-   &#160;<span id="projectnumber">1.0</span>
+   <div id="projectname">Thread Pool
+   &#160;<span id="projectnumber">1.1</span>
    </div>
-   <div id="projectbrief">Thread Pool for the C Programming Language.</div>
+   <div id="projectbrief">Thread Pool implementation for the C Programming Language.</div>
   </td>
  </tr>
  </tbody>
@@ -112,32 +112,35 @@ $(document).ready(function(){initNavTree('struct_task.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Encompasses the task submitted by the user.  
- <a href="struct_task.html#details">More...</a></p>
-
 <p><code>#include &lt;<a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:a70806280c684914c6f1e1b9eb1b248c4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">thread_callback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#a70806280c684914c6f1e1b9eb1b248c4">cb</a></td></tr>
-<tr class="memdesc:a70806280c684914c6f1e1b9eb1b248c4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_task.html" title="Encompasses the task submitted by the user. ">Task</a> to be executed.  <a href="#a70806280c684914c6f1e1b9eb1b248c4">More...</a><br /></td></tr>
-<tr class="separator:a70806280c684914c6f1e1b9eb1b248c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59d2df9ef30fbe9c225b6422f2dfa07d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">thread_callback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#a59d2df9ef30fbe9c225b6422f2dfa07d">callback</a></td></tr>
+<tr class="memdesc:a59d2df9ef30fbe9c225b6422f2dfa07d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_task.html">Task</a> to be executed.  <a href="#a59d2df9ef30fbe9c225b6422f2dfa07d">More...</a><br /></td></tr>
+<tr class="separator:a59d2df9ef30fbe9c225b6422f2dfa07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add0eb34e0cef9e763462cf9080f9be0a"><td class="memItemLeft" align="right" valign="top">void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#add0eb34e0cef9e763462cf9080f9be0a">args</a></td></tr>
 <tr class="memdesc:add0eb34e0cef9e763462cf9080f9be0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Arguments to be passed to the task.  <a href="#add0eb34e0cef9e763462cf9080f9be0a">More...</a><br /></td></tr>
 <tr class="separator:add0eb34e0cef9e763462cf9080f9be0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc791d22abed6d81e714bb3993c31223"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_task.html">Task</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#afc791d22abed6d81e714bb3993c31223">next</a></td></tr>
 <tr class="memdesc:afc791d22abed6d81e714bb3993c31223"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointing to the next task in the queue.  <a href="#afc791d22abed6d81e714bb3993c31223">More...</a><br /></td></tr>
 <tr class="separator:afc791d22abed6d81e714bb3993c31223"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a985c44ad446f8eb8a9ac6958682f28e0"><td class="memItemLeft" align="right" valign="top">pthread_mutex_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#a985c44ad446f8eb8a9ac6958682f28e0">being_processed</a></td></tr>
-<tr class="memdesc:a985c44ad446f8eb8a9ac6958682f28e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mutex to ensure no other thread attempts to do this task.  <a href="#a985c44ad446f8eb8a9ac6958682f28e0">More...</a><br /></td></tr>
-<tr class="separator:a985c44ad446f8eb8a9ac6958682f28e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47963d2c7f557db21790fb71b8cd20d6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_result.html">Result</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#a47963d2c7f557db21790fb71b8cd20d6">result</a></td></tr>
-<tr class="memdesc:a47963d2c7f557db21790fb71b8cd20d6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_result.html" title="The result returned when adding a new task to the task queue. ">Result</a> from the <a class="el" href="struct_task.html" title="Encompasses the task submitted by the user. ">Task</a>.  <a href="#a47963d2c7f557db21790fb71b8cd20d6">More...</a><br /></td></tr>
+<tr class="memdesc:a47963d2c7f557db21790fb71b8cd20d6"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="struct_result.html">Result</a> from the <a class="el" href="struct_task.html">Task</a>.  <a href="#a47963d2c7f557db21790fb71b8cd20d6">More...</a><br /></td></tr>
 <tr class="separator:a47963d2c7f557db21790fb71b8cd20d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a417d879c9e171360ff9bcaef858fef6a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_thread___pool_8h.html#a315655b1bb5848c063491adffde62b15">Priority</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#a417d879c9e171360ff9bcaef858fef6a">priority</a></td></tr>
+<tr class="memdesc:a417d879c9e171360ff9bcaef858fef6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Priority of task.  <a href="#a417d879c9e171360ff9bcaef858fef6a">More...</a><br /></td></tr>
+<tr class="separator:a417d879c9e171360ff9bcaef858fef6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac11c21efa7d7fd20a420bc7bb9636765"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#ac11c21efa7d7fd20a420bc7bb9636765">no_pause</a></td></tr>
+<tr class="memdesc:ac11c21efa7d7fd20a420bc7bb9636765"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether or not this task can be paused midway.  <a href="#ac11c21efa7d7fd20a420bc7bb9636765">More...</a><br /></td></tr>
+<tr class="separator:ac11c21efa7d7fd20a420bc7bb9636765"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a343e286620218fe1675a782196f647"><td class="memItemLeft" align="right" valign="top">unsigned char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_task.html#a9a343e286620218fe1675a782196f647">delayed_pause</a></td></tr>
+<tr class="memdesc:a9a343e286620218fe1675a782196f647"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether or not the thread that runs this task should pause after.  <a href="#a9a343e286620218fe1675a782196f647">More...</a><br /></td></tr>
+<tr class="separator:a9a343e286620218fe1675a782196f647"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Encompasses the task submitted by the user. </p>
-<p>Contains the result of the task as well. </p>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00147">147</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
 <a class="anchor" id="add0eb34e0cef9e763462cf9080f9be0a"></a>
 <div class="memitem">
@@ -151,33 +154,39 @@ Data Fields</h2></td></tr>
 
 <p>Arguments to be passed to the task. </p>
 
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00151">151</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="a985c44ad446f8eb8a9ac6958682f28e0"></a>
+<a class="anchor" id="a59d2df9ef30fbe9c225b6422f2dfa07d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">pthread_mutex_t* being_processed</td>
+          <td class="memname"><a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">thread_callback</a> callback</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Mutex to ensure no other thread attempts to do this task. </p>
+<p><a class="el" href="struct_task.html">Task</a> to be executed. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00149">149</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="a70806280c684914c6f1e1b9eb1b248c4"></a>
+<a class="anchor" id="a9a343e286620218fe1675a782196f647"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_thread___pool_8h.html#a6020f0ebe47b326c900080b168c40b53">thread_callback</a> cb</td>
+          <td class="memname">unsigned char delayed_pause</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="struct_task.html" title="Encompasses the task submitted by the user. ">Task</a> to be executed. </p>
+<p>Determines whether or not the thread that runs this task should pause after. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00161">161</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
 
 </div>
 </div>
@@ -193,6 +202,40 @@ Data Fields</h2></td></tr>
 
 <p>Pointing to the next task in the queue. </p>
 
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00153">153</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac11c21efa7d7fd20a420bc7bb9636765"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">unsigned char no_pause</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Determines whether or not this task can be paused midway. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00159">159</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a417d879c9e171360ff9bcaef858fef6a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_thread___pool_8h.html#a315655b1bb5848c063491adffde62b15">Priority</a> priority</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Priority of task. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00157">157</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a47963d2c7f557db21790fb71b8cd20d6"></a>
@@ -205,12 +248,14 @@ Data Fields</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><a class="el" href="struct_result.html" title="The result returned when adding a new task to the task queue. ">Result</a> from the <a class="el" href="struct_task.html" title="Encompasses the task submitted by the user. ">Task</a>. </p>
+<p><a class="el" href="struct_result.html">Result</a> from the <a class="el" href="struct_task.html">Task</a>. </p>
+
+<p>Definition at line <a class="el" href="_thread___pool_8h_source.html#l00155">155</a> of file <a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>Thread Pool/Code/<a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a></li>
+<li><a class="el" href="_thread___pool_8h_source.html">Thread_Pool.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -218,7 +263,7 @@ Data Fields</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="struct_task.html">Task</a></li>
-    <li class="footer">Generated on Fri May 22 2015 16:24:29 for Thread_Pool by
+    <li class="footer">Generated on Fri May 29 2015 19:53:57 for Thread Pool by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.9.1 </li>
   </ul>
