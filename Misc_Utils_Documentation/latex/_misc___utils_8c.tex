@@ -1,0 +1,152 @@
+\hypertarget{_misc___utils_8c}{}\section{Misc\+\_\+\+Utils.\+c File Reference}
+\label{_misc___utils_8c}\index{Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}}
+{\ttfamily \#include \char`\"{}Misc\+\_\+\+Utils.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{_misc___utils_8c_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp} (void)
+\begin{DoxyCompactList}\small\item\em Obtain the current timestamp in Hours\+:\+Minutes\+:Seconds A\+M/\+P\+M. \end{DoxyCompactList}\item 
+\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$ \hyperlink{_misc___utils_8c_a2e3119bfa695c82fb8eb4ed4283ad518}{Timer\+\_\+\+Init} (int start)
+\begin{DoxyCompactList}\small\item\em Creates a new \hyperlink{struct_timer__t}{Timer\+\_\+t} struct with an option to start it on initialization. \end{DoxyCompactList}\item 
+int \hyperlink{_misc___utils_8c_a16cbdea74287dc68f2319408cee852a3}{Timer\+\_\+\+Start} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Start the timer. \end{DoxyCompactList}\item 
+int \hyperlink{_misc___utils_8c_a607eb351b7f540f901ef18655e099c2f}{Timer\+\_\+\+Stop} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Stops the timer. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_misc___utils_8c_aa251e594ded860e8be8a1b7ea59f9edf}{Timer\+\_\+\+To\+\_\+\+String} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Returns the total time in Hours\+:\+Minutes\+:Seconds. \end{DoxyCompactList}\item 
+void \hyperlink{_misc___utils_8c_a466579377cb07c3d47e2fb74d0dc42a8}{Timer\+\_\+\+Destroy} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Destroys the passed timer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_misc___utils_8c_a62b8e1f489e1a52f8e77b9cb7e47e648}{}\index{Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}!Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp@{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp}}
+\index{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp@{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp}!Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}}
+\subsubsection[{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8c_a62b8e1f489e1a52f8e77b9cb7e47e648}
+
+
+Obtain the current timestamp in Hours\+:\+Minutes\+:Seconds A\+M/\+P\+M. 
+
+(I.\+E 11\+:45\+:30 A\+M) \begin{DoxyReturn}{Returns}
+Formatted timestamp. 
+\end{DoxyReturn}
+
+
+Definition at line 5 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8c_a466579377cb07c3d47e2fb74d0dc42a8}{}\index{Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}!Timer\+\_\+\+Destroy@{Timer\+\_\+\+Destroy}}
+\index{Timer\+\_\+\+Destroy@{Timer\+\_\+\+Destroy}!Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}}
+\subsubsection[{Timer\+\_\+\+Destroy}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8c_a466579377cb07c3d47e2fb74d0dc42a8}
+
+
+Destroys the passed timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to be destroyed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 52 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8c_a2e3119bfa695c82fb8eb4ed4283ad518}{}\index{Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}!Timer\+\_\+\+Init@{Timer\+\_\+\+Init}}
+\index{Timer\+\_\+\+Init@{Timer\+\_\+\+Init}!Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}}
+\subsubsection[{Timer\+\_\+\+Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timer\+\_\+t}$\ast$ Timer\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{int}]{start}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8c_a2e3119bfa695c82fb8eb4ed4283ad518}
+
+
+Creates a new \hyperlink{struct_timer__t}{Timer\+\_\+t} struct with an option to start it on initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & If 1, starts the timer on initialization. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialized \hyperlink{struct_timer__t}{Timer\+\_\+t} struct. 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8c_a16cbdea74287dc68f2319408cee852a3}{}\index{Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}!Timer\+\_\+\+Start@{Timer\+\_\+\+Start}}
+\index{Timer\+\_\+\+Start@{Timer\+\_\+\+Start}!Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}}
+\subsubsection[{Timer\+\_\+\+Start}]{\setlength{\rightskip}{0pt plus 5cm}int Timer\+\_\+\+Start (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8c_a16cbdea74287dc68f2319408cee852a3}
+
+
+Start the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to start. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8c_a607eb351b7f540f901ef18655e099c2f}{}\index{Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}!Timer\+\_\+\+Stop@{Timer\+\_\+\+Stop}}
+\index{Timer\+\_\+\+Stop@{Timer\+\_\+\+Stop}!Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}}
+\subsubsection[{Timer\+\_\+\+Stop}]{\setlength{\rightskip}{0pt plus 5cm}int Timer\+\_\+\+Stop (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8c_a607eb351b7f540f901ef18655e099c2f}
+
+
+Stops the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to stop. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8c_aa251e594ded860e8be8a1b7ea59f9edf}{}\index{Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}!Timer\+\_\+\+To\+\_\+\+String@{Timer\+\_\+\+To\+\_\+\+String}}
+\index{Timer\+\_\+\+To\+\_\+\+String@{Timer\+\_\+\+To\+\_\+\+String}!Misc\+\_\+\+Utils.\+c@{Misc\+\_\+\+Utils.\+c}}
+\subsubsection[{Timer\+\_\+\+To\+\_\+\+String}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Timer\+\_\+\+To\+\_\+\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8c_aa251e594ded860e8be8a1b7ea59f9edf}
+
+
+Returns the total time in Hours\+:\+Minutes\+:Seconds. 
+
+(I.\+E 00\+:04\+:30) Note\+: If you do not stop the timer, it will produce undefined behavior. 
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to obtain the total time of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Formatted total time. 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file Misc\+\_\+\+Utils.\+c.
+

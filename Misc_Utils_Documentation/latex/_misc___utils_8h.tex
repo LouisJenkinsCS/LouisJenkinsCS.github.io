@@ -1,0 +1,365 @@
+\hypertarget{_misc___utils_8h}{}\section{Misc\+\_\+\+Utils.\+h File Reference}
+\label{_misc___utils_8h}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$time.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_timer__t}{Timer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}{M\+U\+\_\+\+D\+E\+B\+U\+G}(message, ...)
+\begin{DoxyCompactList}\small\item\em Prints a debug message, along with it\textquotesingle{}s timestamp, file and line of code it\textquotesingle{}s on. \end{DoxyCompactList}\item 
+\#define \hyperlink{_misc___utils_8h_a350a5252bea6984a6588cab289545c57}{M\+U\+\_\+\+A\+S\+S\+E\+R\+T}(condition,  file)
+\begin{DoxyCompactList}\small\item\em An assertion which prints to stderr, the logfile and also shows the file and line that triggered it as well as timestamp. \end{DoxyCompactList}\item 
+\#define \hyperlink{_misc___utils_8h_aad43fd669c36d0ee5103761fa7765f40}{M\+U\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+R\+E\+T\+U\+R\+N}(condition,  file,  retval)
+\begin{DoxyCompactList}\small\item\em An assertion which prints to stderr, the logfile and returns. \end{DoxyCompactList}\item 
+\#define \hyperlink{_misc___utils_8h_a2abeb941987fa7586142887888945544}{M\+U\+\_\+\+L\+O\+G\+\_\+\+E\+R\+R\+O\+R}(file,  message, ...)
+\begin{DoxyCompactList}\small\item\em Log an error message along with timestamp, file and line of code. \end{DoxyCompactList}\item 
+\#define \hyperlink{_misc___utils_8h_a61dc30d8219e37468d56efca48ab7ad4}{M\+U\+\_\+\+L\+O\+G\+\_\+\+W\+A\+R\+N\+I\+N\+G}(file,  message, ...)
+\begin{DoxyCompactList}\small\item\em Log a warning message along with timestamp, file and line of code. \end{DoxyCompactList}\item 
+\#define \hyperlink{_misc___utils_8h_a43adc897f5b3d105f372f5688d0d45bf}{M\+U\+\_\+\+L\+O\+G\+\_\+\+I\+N\+F\+O}(file,  message, ...)
+\begin{DoxyCompactList}\small\item\em Log an info message along with timestamp, file and line of code. \end{DoxyCompactList}\item 
+\#define \hyperlink{_misc___utils_8h_a88f7296cfd5ee0326f9e0e90bc8d21de}{M\+U\+\_\+\+C\+H\+E\+C\+K}(obj,  retval,  message, ...)
+\begin{DoxyCompactList}\small\item\em Checks if a variable is true, otherwise will return. Will not log to file. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$ \hyperlink{_misc___utils_8h_a2e3119bfa695c82fb8eb4ed4283ad518}{Timer\+\_\+\+Init} (int start)
+\begin{DoxyCompactList}\small\item\em Creates a new \hyperlink{struct_timer__t}{Timer\+\_\+t} struct with an option to start it on initialization. \end{DoxyCompactList}\item 
+int \hyperlink{_misc___utils_8h_a16cbdea74287dc68f2319408cee852a3}{Timer\+\_\+\+Start} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Start the timer. \end{DoxyCompactList}\item 
+int \hyperlink{_misc___utils_8h_a607eb351b7f540f901ef18655e099c2f}{Timer\+\_\+\+Stop} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Stops the timer. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_misc___utils_8h_aa251e594ded860e8be8a1b7ea59f9edf}{Timer\+\_\+\+To\+\_\+\+String} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Returns the total time in Hours\+:\+Minutes\+:Seconds. \end{DoxyCompactList}\item 
+void \hyperlink{_misc___utils_8h_a466579377cb07c3d47e2fb74d0dc42a8}{Timer\+\_\+\+Destroy} (\hyperlink{struct_timer__t}{Timer\+\_\+t} $\ast$timer)
+\begin{DoxyCompactList}\small\item\em Destroys the passed timer. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp} (void)
+\begin{DoxyCompactList}\small\item\em Obtain the current timestamp in Hours\+:\+Minutes\+:Seconds A\+M/\+P\+M. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_misc___utils_8h_a350a5252bea6984a6588cab289545c57}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!M\+U\+\_\+\+A\+S\+S\+E\+R\+T@{M\+U\+\_\+\+A\+S\+S\+E\+R\+T}}
+\index{M\+U\+\_\+\+A\+S\+S\+E\+R\+T@{M\+U\+\_\+\+A\+S\+S\+E\+R\+T}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{M\+U\+\_\+\+A\+S\+S\+E\+R\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+\_\+\+A\+S\+S\+E\+R\+T(
+\begin{DoxyParamCaption}
+\item[{}]{condition, }
+\item[{}]{file}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a350a5252bea6984a6588cab289545c57}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+    if(!(condition))\{ \(\backslash\)
+        char *timestamp = \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(); \hyperlink{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}{\(\backslash\)}
+\hyperlink{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}{        MU\_DEBUG}(\textcolor{stringliteral}{"Assertion Failed! See log!\(\backslash\)n"}); \(\backslash\)
+        fprintf(file, \textcolor{stringliteral}{"%s: [ASSERT](%s:%d) An Assertion for '"} #condition \textcolor{stringliteral}{"' has failed!\(\backslash\)n"}, 
+      \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(), \_\_FILE\_\_, \_\_LINE\_\_); \(\backslash\)
+        fflush(file); \(\backslash\)
+        free(timestamp); \(\backslash\)
+        exit(EXIT\_FAILURE); \(\backslash\)
+    \} \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+An assertion which prints to stderr, the logfile and also shows the file and line that triggered it as well as timestamp. 
+
+
+
+Definition at line 32 of file Misc\+\_\+\+Utils.\+h.
+
+\hypertarget{_misc___utils_8h_aad43fd669c36d0ee5103761fa7765f40}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!M\+U\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+R\+E\+T\+U\+R\+N@{M\+U\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+R\+E\+T\+U\+R\+N}}
+\index{M\+U\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+R\+E\+T\+U\+R\+N@{M\+U\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+R\+E\+T\+U\+R\+N}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{M\+U\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+R\+E\+T\+U\+R\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+\_\+\+A\+S\+S\+E\+R\+T\+\_\+\+R\+E\+T\+U\+R\+N(
+\begin{DoxyParamCaption}
+\item[{}]{condition, }
+\item[{}]{file, }
+\item[{}]{retval}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_aad43fd669c36d0ee5103761fa7765f40}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+    if(!(condition))\{ \(\backslash\)
+        char *timestamp = \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(); \hyperlink{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}{\(\backslash\)}
+\hyperlink{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}{        MU\_DEBUG}(\textcolor{stringliteral}{"Assertion Failed! See log!\(\backslash\)n"}); \(\backslash\)
+        fprintf(file, \textcolor{stringliteral}{"%s: [ASSERT](%s:%d) An Assertion for '"} #condition \textcolor{stringliteral}{"' has failed!\(\backslash\)n"}, 
+      \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(), \_\_FILE\_\_, \_\_LINE\_\_); \(\backslash\)
+        fflush(file); \(\backslash\)
+        free(timestamp); \(\backslash\)
+        return retval; \(\backslash\)
+    \} \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+An assertion which prints to stderr, the logfile and returns. 
+
+
+
+Definition at line 43 of file Misc\+\_\+\+Utils.\+h.
+
+\hypertarget{_misc___utils_8h_a88f7296cfd5ee0326f9e0e90bc8d21de}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!M\+U\+\_\+\+C\+H\+E\+C\+K@{M\+U\+\_\+\+C\+H\+E\+C\+K}}
+\index{M\+U\+\_\+\+C\+H\+E\+C\+K@{M\+U\+\_\+\+C\+H\+E\+C\+K}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{M\+U\+\_\+\+C\+H\+E\+C\+K}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+\_\+\+C\+H\+E\+C\+K(
+\begin{DoxyParamCaption}
+\item[{}]{obj, }
+\item[{}]{retval, }
+\item[{}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a88f7296cfd5ee0326f9e0e90bc8d21de}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+    if(!(obj)) \hyperlink{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}{MU\_DEBUG}(message, \textcolor{preprocessor}{##\_\_VA\_ARGS\_\_); \(\backslash\)}
+\textcolor{preprocessor}{    return retval; \(\backslash\)}
+\textcolor{preprocessor}{\} while(0)}
+\end{DoxyCode}
+
+
+Checks if a variable is true, otherwise will return. Will not log to file. 
+
+
+
+Definition at line 75 of file Misc\+\_\+\+Utils.\+h.
+
+\hypertarget{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!M\+U\+\_\+\+D\+E\+B\+U\+G@{M\+U\+\_\+\+D\+E\+B\+U\+G}}
+\index{M\+U\+\_\+\+D\+E\+B\+U\+G@{M\+U\+\_\+\+D\+E\+B\+U\+G}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{M\+U\+\_\+\+D\+E\+B\+U\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+\_\+\+D\+E\+B\+U\+G(
+\begin{DoxyParamCaption}
+\item[{}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a9521cf0ba0a9a1b9c18b8952b63ff9b7}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+    char *timestamp = \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(); \(\backslash\)
+    fprintf(stderr, \textcolor{stringliteral}{"%s: [DEBUG]: "} message \textcolor{stringliteral}{"\(\backslash\)n"}, timestamp, ##\_\_VA\_ARGS\_\_); \(\backslash\)
+    free(timestamp); \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Prints a debug message, along with it\textquotesingle{}s timestamp, file and line of code it\textquotesingle{}s on. 
+
+
+
+Definition at line 25 of file Misc\+\_\+\+Utils.\+h.
+
+\hypertarget{_misc___utils_8h_a2abeb941987fa7586142887888945544}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!M\+U\+\_\+\+L\+O\+G\+\_\+\+E\+R\+R\+O\+R@{M\+U\+\_\+\+L\+O\+G\+\_\+\+E\+R\+R\+O\+R}}
+\index{M\+U\+\_\+\+L\+O\+G\+\_\+\+E\+R\+R\+O\+R@{M\+U\+\_\+\+L\+O\+G\+\_\+\+E\+R\+R\+O\+R}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{M\+U\+\_\+\+L\+O\+G\+\_\+\+E\+R\+R\+O\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+\_\+\+L\+O\+G\+\_\+\+E\+R\+R\+O\+R(
+\begin{DoxyParamCaption}
+\item[{}]{file, }
+\item[{}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a2abeb941987fa7586142887888945544}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+    char *timestamp = \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(); \(\backslash\)
+    fprintf(file, \textcolor{stringliteral}{"%s: [ERROR](%s:%d) "} message \textcolor{stringliteral}{"\(\backslash\)n"}, timestamp, \_\_FILE\_\_, \_\_LINE\_\_, ##\_\_VA\_ARGS\_\_); \(\backslash\)
+    fflush(file); \(\backslash\)
+    free(timestamp); \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Log an error message along with timestamp, file and line of code. 
+
+
+
+Definition at line 54 of file Misc\+\_\+\+Utils.\+h.
+
+\hypertarget{_misc___utils_8h_a43adc897f5b3d105f372f5688d0d45bf}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!M\+U\+\_\+\+L\+O\+G\+\_\+\+I\+N\+F\+O@{M\+U\+\_\+\+L\+O\+G\+\_\+\+I\+N\+F\+O}}
+\index{M\+U\+\_\+\+L\+O\+G\+\_\+\+I\+N\+F\+O@{M\+U\+\_\+\+L\+O\+G\+\_\+\+I\+N\+F\+O}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{M\+U\+\_\+\+L\+O\+G\+\_\+\+I\+N\+F\+O}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+\_\+\+L\+O\+G\+\_\+\+I\+N\+F\+O(
+\begin{DoxyParamCaption}
+\item[{}]{file, }
+\item[{}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a43adc897f5b3d105f372f5688d0d45bf}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+    char *timestamp = \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(); \(\backslash\)
+    fprintf(file, \textcolor{stringliteral}{"%s: [INFO](%s:%d) "} message \textcolor{stringliteral}{"\(\backslash\)n"}, timestamp, \_\_FILE\_\_, \_\_LINE\_\_, ##\_\_VA\_ARGS\_\_); \(\backslash\)
+    fflush(file); \(\backslash\)
+    free(timestamp); \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Log an info message along with timestamp, file and line of code. 
+
+
+
+Definition at line 68 of file Misc\+\_\+\+Utils.\+h.
+
+\hypertarget{_misc___utils_8h_a61dc30d8219e37468d56efca48ab7ad4}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!M\+U\+\_\+\+L\+O\+G\+\_\+\+W\+A\+R\+N\+I\+N\+G@{M\+U\+\_\+\+L\+O\+G\+\_\+\+W\+A\+R\+N\+I\+N\+G}}
+\index{M\+U\+\_\+\+L\+O\+G\+\_\+\+W\+A\+R\+N\+I\+N\+G@{M\+U\+\_\+\+L\+O\+G\+\_\+\+W\+A\+R\+N\+I\+N\+G}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{M\+U\+\_\+\+L\+O\+G\+\_\+\+W\+A\+R\+N\+I\+N\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+U\+\_\+\+L\+O\+G\+\_\+\+W\+A\+R\+N\+I\+N\+G(
+\begin{DoxyParamCaption}
+\item[{}]{file, }
+\item[{}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a61dc30d8219e37468d56efca48ab7ad4}
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{ \(\backslash\)
+    char *timestamp = \hyperlink{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{Misc\_Utils\_Get\_Timestamp}(); \(\backslash\)
+    fprintf(file, \textcolor{stringliteral}{"%s: [WARNING](%s:%d) "} message \textcolor{stringliteral}{"\(\backslash\)n"}, timestamp, \_\_FILE\_\_, \_\_LINE\_\_, ##\_\_VA\_ARGS\_\_); \(\backslash\)
+    fflush(file); \(\backslash\)
+    free(timestamp); \(\backslash\)
+\} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+Log a warning message along with timestamp, file and line of code. 
+
+
+
+Definition at line 61 of file Misc\+\_\+\+Utils.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp@{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp}}
+\index{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp@{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Misc\+\_\+\+Utils\+\_\+\+Get\+\_\+\+Timestamp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a62b8e1f489e1a52f8e77b9cb7e47e648}
+
+
+Obtain the current timestamp in Hours\+:\+Minutes\+:Seconds A\+M/\+P\+M. 
+
+(I.\+E 11\+:45\+:30 A\+M) \begin{DoxyReturn}{Returns}
+Formatted timestamp. 
+\end{DoxyReturn}
+
+
+Definition at line 5 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8h_a466579377cb07c3d47e2fb74d0dc42a8}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!Timer\+\_\+\+Destroy@{Timer\+\_\+\+Destroy}}
+\index{Timer\+\_\+\+Destroy@{Timer\+\_\+\+Destroy}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{Timer\+\_\+\+Destroy}]{\setlength{\rightskip}{0pt plus 5cm}void Timer\+\_\+\+Destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a466579377cb07c3d47e2fb74d0dc42a8}
+
+
+Destroys the passed timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to be destroyed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 52 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8h_a2e3119bfa695c82fb8eb4ed4283ad518}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!Timer\+\_\+\+Init@{Timer\+\_\+\+Init}}
+\index{Timer\+\_\+\+Init@{Timer\+\_\+\+Init}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{Timer\+\_\+\+Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Timer\+\_\+t}$\ast$ Timer\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{int}]{start}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a2e3119bfa695c82fb8eb4ed4283ad518}
+
+
+Creates a new \hyperlink{struct_timer__t}{Timer\+\_\+t} struct with an option to start it on initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & If 1, starts the timer on initialization. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Initialized \hyperlink{struct_timer__t}{Timer\+\_\+t} struct. 
+\end{DoxyReturn}
+
+
+Definition at line 14 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8h_a16cbdea74287dc68f2319408cee852a3}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!Timer\+\_\+\+Start@{Timer\+\_\+\+Start}}
+\index{Timer\+\_\+\+Start@{Timer\+\_\+\+Start}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{Timer\+\_\+\+Start}]{\setlength{\rightskip}{0pt plus 5cm}int Timer\+\_\+\+Start (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a16cbdea74287dc68f2319408cee852a3}
+
+
+Start the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to start. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 22 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8h_a607eb351b7f540f901ef18655e099c2f}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!Timer\+\_\+\+Stop@{Timer\+\_\+\+Stop}}
+\index{Timer\+\_\+\+Stop@{Timer\+\_\+\+Stop}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{Timer\+\_\+\+Stop}]{\setlength{\rightskip}{0pt plus 5cm}int Timer\+\_\+\+Stop (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_a607eb351b7f540f901ef18655e099c2f}
+
+
+Stops the timer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to stop. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success. 
+\end{DoxyReturn}
+
+
+Definition at line 27 of file Misc\+\_\+\+Utils.\+c.
+
+\hypertarget{_misc___utils_8h_aa251e594ded860e8be8a1b7ea59f9edf}{}\index{Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}!Timer\+\_\+\+To\+\_\+\+String@{Timer\+\_\+\+To\+\_\+\+String}}
+\index{Timer\+\_\+\+To\+\_\+\+String@{Timer\+\_\+\+To\+\_\+\+String}!Misc\+\_\+\+Utils.\+h@{Misc\+\_\+\+Utils.\+h}}
+\subsubsection[{Timer\+\_\+\+To\+\_\+\+String}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Timer\+\_\+\+To\+\_\+\+String (
+\begin{DoxyParamCaption}
+\item[{{\bf Timer\+\_\+t} $\ast$}]{timer}
+\end{DoxyParamCaption}
+)}\label{_misc___utils_8h_aa251e594ded860e8be8a1b7ea59f9edf}
+
+
+Returns the total time in Hours\+:\+Minutes\+:Seconds. 
+
+(I.\+E 00\+:04\+:30) Note\+: If you do not stop the timer, it will produce undefined behavior. 
+\begin{DoxyParams}{Parameters}
+{\em timer} & Timer to obtain the total time of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Formatted total time. 
+\end{DoxyReturn}
+
+
+Definition at line 32 of file Misc\+\_\+\+Utils.\+c.
+
