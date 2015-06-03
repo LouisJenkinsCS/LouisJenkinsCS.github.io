@@ -1,17 +1,11 @@
 var NAVTREE =
 [
   [ "String_Utils", "index.html", [
-    [ "Introduction", "index.html#intro", null ],
-    [ "What is String_Utils?", "index.html#summary", [
-      [ "Features of String_Utils", "index.html#features", null ],
-      [ "Author's Notes", "index.html#misc", null ]
-    ] ],
-    [ "Data Structures", null, [
-      [ "Data Structures", "annotated.html", "annotated" ],
-      [ "Data Structure Index", "classes.html", null ],
-      [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+    [ "String Utilities for the C Programming Language", "index.html", [
+      [ "Summary", "index.html#list_summary", null ],
+      [ "Features", "index.html#list_features", [
+        [ "Pass multiple flags to tailor your string how you want it!", "index.html#tailor", null ],
+        [ "Very small library!", "index.html#small", null ]
       ] ]
     ] ],
     [ "Files", null, [
@@ -19,8 +13,6 @@ var NAVTREE =
       [ "Globals", "globals.html", [
         [ "All", "globals.html", null ],
         [ "Functions", "globals_func.html", null ],
-        [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ],
         [ "Macros", "globals_defs.html", null ]
       ] ]
     ] ]

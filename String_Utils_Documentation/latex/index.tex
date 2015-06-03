@@ -1,0 +1,17 @@
+\begin{DoxyAuthor}{Author}
+Louis Jenkins 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+2
+\end{DoxyVersion}
+\hypertarget{index_list_summary}{}\section{Summary}\label{index_list_summary}
+String\+\_\+\+Utils is a string library based off of Java\textquotesingle{}s own String library, except the library works on char $\ast$ over a string object (or struct). It is a lightweight, relatively speedy library which relies upon the libc and glibc.
+
+String\+\_\+\+Utils also features passing flags with the \textquotesingle{}$\vert$\textquotesingle{} operator, for example, S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E$\vert$\+S\+U\+\_\+\+L\+A\+S\+T does exactly as it says, ignore case for string comparison, and return the last string that matches the criteria. For default behavior, you pass S\+U\+\_\+\+N\+O\+N\+E flag instead.
+
+Some functions require passing the address of the string (\&) for possible modification of the original string, as String\+\_\+\+Utils never modifies the string passed, by default, so it is safe to use string literals unless passing S\+U\+\_\+\+M\+O\+D\+I\+F\+Y flag.\hypertarget{index_list_features}{}\section{Features}\label{index_list_features}
+\hypertarget{index_tailor}{}\subsection{Pass multiple flags to tailor your string how you want it!}\label{index_tailor}
+String\+\_\+\+Utils allows you to specify how you want your string to be operated on. The currently implemented parameters are the following\+:
+
+S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y $\vert$ S\+U\+\_\+\+L\+A\+S\+T\hypertarget{index_small}{}\subsection{Very small library!}\label{index_small}
+String\+\_\+\+Utils, unlike the others, is condense into one header file and source file, making compiling easier. It is also small in Lo\+C, only 350+ Lines of Code, and 25 tested functions. 

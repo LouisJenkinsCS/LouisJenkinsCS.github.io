@@ -1,0 +1,815 @@
+\hypertarget{_string___utils_8h}{}\section{String\+\_\+\+Utils.\+h File Reference}
+\label{_string___utils_8h}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$assert.\+h$>$}\\*
+{\ttfamily \#include $<$ctype.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_string___utils_8h_aa1efd1932ef96980cd39538ab5065fc2}{S\+U\+\_\+\+N\+O\+N\+E}~1 $<$$<$ 0
+\begin{DoxyCompactList}\small\item\em Default behavior for a function. \end{DoxyCompactList}\item 
+\#define \hyperlink{_string___utils_8h_ac2f5b4b17534766eaf6794c130ff0f41}{S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E}~1 $<$$<$ 1
+\begin{DoxyCompactList}\small\item\em Ignores case for string comparison. \end{DoxyCompactList}\item 
+\#define \hyperlink{_string___utils_8h_a6c1ef630f455469eafd028db84bfd950}{S\+U\+\_\+\+M\+O\+D\+I\+F\+Y}~1 $<$$<$ 2
+\begin{DoxyCompactList}\small\item\em Modifies the original string passed to it, A.\+K.\+A the one you pass the address of. \end{DoxyCompactList}\item 
+\#define \hyperlink{_string___utils_8h_a7094c6ae4113f5f4e6bcc962fb215578}{S\+U\+\_\+\+L\+A\+S\+T}~1 $<$$<$ 3
+\begin{DoxyCompactList}\small\item\em Returns the last string or substring for the function. \end{DoxyCompactList}\item 
+\#define \hyperlink{_string___utils_8h_a10bed19ceedeb2c12c5aad6de1d3b1a1}{T\+E\+M\+P}~\+\_\+\+\_\+attribute\+\_\+\+\_\+ ((\+\_\+\+\_\+cleanup\+\_\+\+\_\+(\hyperlink{_string___utils_8h_a4ba5699ccde1f4d733809ce2b61752e7}{String\+\_\+\+Utils\+\_\+destroy})))
+\begin{DoxyCompactList}\small\item\em Uses G\+C\+C attributes to cleanup strings after leaving the scope of the function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_string___utils_8h_aec7d795c087df6f893109e473cb86e84}{String\+\_\+\+Utils\+\_\+compare} (const char $\ast$string\+\_\+one, const char $\ast$string\+\_\+two, int flagss)
+\begin{DoxyCompactList}\small\item\em Compares two strings. \end{DoxyCompactList}\item 
+int \hyperlink{_string___utils_8h_af6852da450888ded74728adf9184ca9b}{String\+\_\+\+Utils\+\_\+contains} (const char $\ast$string, const char $\ast$search, int flagss)
+\begin{DoxyCompactList}\small\item\em Checks to see if the string contains the substring. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a92d185172bcc3f1ad27a34d106d5d35b}{String\+\_\+\+Utils\+\_\+to\+\_\+lowercase} (char $\ast$$\ast$string, int flags)
+\begin{DoxyCompactList}\small\item\em Creates a copy of the string and converts it to lowercase. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a6bcc38249d93485110afe41f83797c01}{String\+\_\+\+Utils\+\_\+to\+\_\+uppercase} (char $\ast$$\ast$string, int flags)
+\begin{DoxyCompactList}\small\item\em Creates a copy of the string and converts it to uppercase. \end{DoxyCompactList}\item 
+char \hyperlink{_string___utils_8h_aa6f8635cf4ca62e97c3416431f2e9170}{String\+\_\+\+Utils\+\_\+char\+\_\+at} (const char $\ast$string, unsigned int index)
+\begin{DoxyCompactList}\small\item\em Returns the char at the position. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a22ac56ab6f77c9791a0061a60433f0b4}{String\+\_\+\+Utils\+\_\+concat} (char $\ast$$\ast$string\+\_\+one, const char $\ast$string\+\_\+two, int flagss)
+\begin{DoxyCompactList}\small\item\em Concatenates two strings together. \end{DoxyCompactList}\item 
+int \hyperlink{_string___utils_8h_abd6449f005ad85d96bb7bfa3c8be5992}{String\+\_\+\+Utils\+\_\+equals} (const char $\ast$string\+\_\+one, const char $\ast$string\+\_\+two, int flags)
+\begin{DoxyCompactList}\small\item\em Checks to see if two strings are equal. \end{DoxyCompactList}\item 
+char $\ast$$\ast$ \hyperlink{_string___utils_8h_a6d92bbac5d02731e9018191573c83593}{String\+\_\+\+Utils\+\_\+split} (const char $\ast$string, const char $\ast$delimiter, size\+\_\+t $\ast$size)
+\begin{DoxyCompactList}\small\item\em Splits a string into an array of strings based on delimiter passed. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a6937e9d0bd4b0d362c0692ecc7b894da}{String\+\_\+\+Utils\+\_\+from} (char $\ast$$\ast$string, unsigned int index, int flags)
+\begin{DoxyCompactList}\small\item\em Returns a copy of the string from the given index. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_aa1445a350fd35f611834ea9f46b85349}{String\+\_\+\+Utils\+\_\+from\+\_\+token} (char $\ast$$\ast$string, const char $\ast$substring, int flags)
+\begin{DoxyCompactList}\small\item\em Returns a copy of the string from the first (or last) substring is found. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_ac866bee854e780306fdb537351d7ce0f}{String\+\_\+\+Utils\+\_\+concat\+\_\+all} (int flags, size\+\_\+t amount, char $\ast$$\ast$string,...)
+\begin{DoxyCompactList}\small\item\em Concatenates all strings passed to it. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_ac3162a3c9226d9f4cc5d0640afea7f46}{String\+\_\+\+Utils\+\_\+set} (char $\ast$$\ast$string\+\_\+one, const char $\ast$string\+\_\+two)
+\begin{DoxyCompactList}\small\item\em Sets one equal to another string. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a791a6c73af9fdd737c2f148c1c783c64}{String\+\_\+\+Utils\+\_\+reverse} (char $\ast$$\ast$string, int flags)
+\begin{DoxyCompactList}\small\item\em Reverses the given string. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a3c960a4830b62537ccad2e9e9cfa2b11}{String\+\_\+\+Utils\+\_\+join} (const char $\ast$$\ast$array\+\_\+of\+\_\+strings, const char $\ast$delimiter, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Joins an array of strings together into one big string with the delimiter prepended to each string after the first. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a69d5e5a23cd470140d2f072be18024ff}{String\+\_\+\+Utils\+\_\+replace} (char $\ast$$\ast$string, char old\+\_\+char, char new\+\_\+char, int flags)
+\begin{DoxyCompactList}\small\item\em Replaces all of one character in a string with another character. \end{DoxyCompactList}\item 
+int \hyperlink{_string___utils_8h_a224b10b2a31bf67d1d26ffd7cb3fe9b2}{String\+\_\+\+Utils\+\_\+starts\+\_\+with} (const char $\ast$string, const char $\ast$find, int flags)
+\begin{DoxyCompactList}\small\item\em Checks to see if a string starts with a substring. \end{DoxyCompactList}\item 
+int \hyperlink{_string___utils_8h_a4ba0bc861224e2dfe1b5d736d649d1c7}{String\+\_\+\+Utils\+\_\+ends\+\_\+with} (const char $\ast$string, const char $\ast$find, int flags)
+\begin{DoxyCompactList}\small\item\em Checks to see if a string ends with a substring. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_ae7355306b566560a161844fdaf83ad88}{String\+\_\+\+Utils\+\_\+substring} (char $\ast$$\ast$string, unsigned int begin, unsigned int end, int flags)
+\begin{DoxyCompactList}\small\item\em Returns a substring of the string. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a239048802f06b46b52f818ae3223d6e1}{String\+\_\+\+Utils\+\_\+capitalize} (char $\ast$$\ast$string, int flags)
+\begin{DoxyCompactList}\small\item\em Capitalizes the first character in the string. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_aa9317a8a1bd4cd4bfb50d54790fff0e7}{String\+\_\+\+Utils\+\_\+trim} (char $\ast$$\ast$string, int flags)
+\begin{DoxyCompactList}\small\item\em Trims the string of all leading and trailing spaces. \end{DoxyCompactList}\item 
+int \hyperlink{_string___utils_8h_a2b6395fcd65de8a9d2bac5df620cb915}{String\+\_\+\+Utils\+\_\+index\+\_\+of} (const char $\ast$string, const char $\ast$substring, int flags)
+\begin{DoxyCompactList}\small\item\em Finds the index of the first or the last index of a given substring. \end{DoxyCompactList}\item 
+int \hyperlink{_string___utils_8h_a27b0152d2833cdef28d7ca5ca2e077e5}{String\+\_\+\+Utils\+\_\+count} (const char $\ast$string, const char $\ast$substring, int flags)
+\begin{DoxyCompactList}\small\item\em Counts occurrences that the delimiter (or substring) occurs in a string. \end{DoxyCompactList}\item 
+char $\ast$ \hyperlink{_string___utils_8h_a1fa50eed14bd6321b80eba101d97a154}{String\+\_\+\+Utils\+\_\+between} (const char $\ast$string, const char $\ast$start, const char $\ast$end, int flags)
+\begin{DoxyCompactList}\small\item\em Returns a substring from between a start and end substring or delimiter in a string. \end{DoxyCompactList}\item 
+void \hyperlink{_string___utils_8h_a4ba5699ccde1f4d733809ce2b61752e7}{String\+\_\+\+Utils\+\_\+destroy} (char $\ast$$\ast$string)
+\begin{DoxyCompactList}\small\item\em Callback function for G\+C\+C attribute cleanup. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_string___utils_8h_ac2f5b4b17534766eaf6794c130ff0f41}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E@{S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E}}
+\index{S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E@{S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E~1 $<$$<$ 1}\label{_string___utils_8h_ac2f5b4b17534766eaf6794c130ff0f41}
+
+
+Ignores case for string comparison. 
+
+
+
+Definition at line 30 of file String\+\_\+\+Utils.\+h.
+
+\hypertarget{_string___utils_8h_a7094c6ae4113f5f4e6bcc962fb215578}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!S\+U\+\_\+\+L\+A\+S\+T@{S\+U\+\_\+\+L\+A\+S\+T}}
+\index{S\+U\+\_\+\+L\+A\+S\+T@{S\+U\+\_\+\+L\+A\+S\+T}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{S\+U\+\_\+\+L\+A\+S\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+\_\+\+L\+A\+S\+T~1 $<$$<$ 3}\label{_string___utils_8h_a7094c6ae4113f5f4e6bcc962fb215578}
+
+
+Returns the last string or substring for the function. 
+
+
+
+Definition at line 42 of file String\+\_\+\+Utils.\+h.
+
+\hypertarget{_string___utils_8h_a6c1ef630f455469eafd028db84bfd950}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!S\+U\+\_\+\+M\+O\+D\+I\+F\+Y@{S\+U\+\_\+\+M\+O\+D\+I\+F\+Y}}
+\index{S\+U\+\_\+\+M\+O\+D\+I\+F\+Y@{S\+U\+\_\+\+M\+O\+D\+I\+F\+Y}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{S\+U\+\_\+\+M\+O\+D\+I\+F\+Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+\_\+\+M\+O\+D\+I\+F\+Y~1 $<$$<$ 2}\label{_string___utils_8h_a6c1ef630f455469eafd028db84bfd950}
+
+
+Modifies the original string passed to it, A.\+K.\+A the one you pass the address of. 
+
+Note that S\+U\+\_\+\+M\+O\+D\+I\+F\+Y frees the original string, so string literals will cause a segmentation fault. 
+
+Definition at line 37 of file String\+\_\+\+Utils.\+h.
+
+\hypertarget{_string___utils_8h_aa1efd1932ef96980cd39538ab5065fc2}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!S\+U\+\_\+\+N\+O\+N\+E@{S\+U\+\_\+\+N\+O\+N\+E}}
+\index{S\+U\+\_\+\+N\+O\+N\+E@{S\+U\+\_\+\+N\+O\+N\+E}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{S\+U\+\_\+\+N\+O\+N\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+\_\+\+N\+O\+N\+E~1 $<$$<$ 0}\label{_string___utils_8h_aa1efd1932ef96980cd39538ab5065fc2}
+
+
+Default behavior for a function. 
+
+
+
+Definition at line 25 of file String\+\_\+\+Utils.\+h.
+
+\hypertarget{_string___utils_8h_a10bed19ceedeb2c12c5aad6de1d3b1a1}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!T\+E\+M\+P@{T\+E\+M\+P}}
+\index{T\+E\+M\+P@{T\+E\+M\+P}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{T\+E\+M\+P}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+E\+M\+P~\+\_\+\+\_\+attribute\+\_\+\+\_\+ ((\+\_\+\+\_\+cleanup\+\_\+\+\_\+({\bf String\+\_\+\+Utils\+\_\+destroy})))}\label{_string___utils_8h_a10bed19ceedeb2c12c5aad6de1d3b1a1}
+
+
+Uses G\+C\+C attributes to cleanup strings after leaving the scope of the function. 
+
+Used as a \char`\"{}feature\char`\"{}, it\textquotesingle{}s available without String\+\_\+\+Utils, and requires G\+C\+C, but it is a nice enough feature. To use it, declare a string like so\+:
+
+char $\ast$string T\+E\+M\+P = \char`\"{}\+Example String\char`\"{};
+
+When the scope of the variable is left, it will call the cleanup function, String\+\_\+\+Utils\+\_\+\+Destroy, and handle everything for you. 
+
+Definition at line 53 of file String\+\_\+\+Utils.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_string___utils_8h_a1fa50eed14bd6321b80eba101d97a154}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+between@{String\+\_\+\+Utils\+\_\+between}}
+\index{String\+\_\+\+Utils\+\_\+between@{String\+\_\+\+Utils\+\_\+between}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+between}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+between (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{const char $\ast$}]{start, }
+\item[{const char $\ast$}]{end, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a1fa50eed14bd6321b80eba101d97a154}
+
+
+Returns a substring from between a start and end substring or delimiter in a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to be searched. \\
+\hline
+{\em start} & The first substring or delimiter to search for \\
+\hline
+{\em end} & The last substring or delimiter to search for. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The substring of what is between start and end, or N\+U\+L\+L if N\+U\+L\+L string is passed. 
+\end{DoxyReturn}
+
+
+Definition at line 330 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a239048802f06b46b52f818ae3223d6e1}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+capitalize@{String\+\_\+\+Utils\+\_\+capitalize}}
+\index{String\+\_\+\+Utils\+\_\+capitalize@{String\+\_\+\+Utils\+\_\+capitalize}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+capitalize}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+capitalize (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a239048802f06b46b52f818ae3223d6e1}
+
+
+Capitalizes the first character in the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the string to capitalize. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The capitalized string. 
+\end{DoxyReturn}
+
+
+Definition at line 248 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_aa6f8635cf4ca62e97c3416431f2e9170}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+char\+\_\+at@{String\+\_\+\+Utils\+\_\+char\+\_\+at}}
+\index{String\+\_\+\+Utils\+\_\+char\+\_\+at@{String\+\_\+\+Utils\+\_\+char\+\_\+at}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+char\+\_\+at}]{\setlength{\rightskip}{0pt plus 5cm}char String\+\_\+\+Utils\+\_\+char\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{unsigned int}]{index}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_aa6f8635cf4ca62e97c3416431f2e9170}
+
+
+Returns the char at the position. 
+
+If the index is greater than the overall length of the string, the last character in the string is returned instead. 
+\begin{DoxyParams}{Parameters}
+{\em string} & String to retrieve character from. \\
+\hline
+{\em index} & Index of the char. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The character at the index of the string, or the last character if overflow. 
+\end{DoxyReturn}
+
+
+Definition at line 43 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_aec7d795c087df6f893109e473cb86e84}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+compare@{String\+\_\+\+Utils\+\_\+compare}}
+\index{String\+\_\+\+Utils\+\_\+compare@{String\+\_\+\+Utils\+\_\+compare}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+compare}]{\setlength{\rightskip}{0pt plus 5cm}int String\+\_\+\+Utils\+\_\+compare (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string\+\_\+one, }
+\item[{const char $\ast$}]{string\+\_\+two, }
+\item[{int}]{flagss}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_aec7d795c087df6f893109e473cb86e84}
+
+
+Compares two strings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+\_\+one} & First string. \\
+\hline
+{\em string\+\_\+two} & Second string. \\
+\hline
+{\em flagss} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+(string\+\_\+one -\/ string\+\_\+two). 
+\end{DoxyReturn}
+
+
+Definition at line 37 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a22ac56ab6f77c9791a0061a60433f0b4}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+concat@{String\+\_\+\+Utils\+\_\+concat}}
+\index{String\+\_\+\+Utils\+\_\+concat@{String\+\_\+\+Utils\+\_\+concat}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+concat}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+concat (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string\+\_\+one, }
+\item[{const char $\ast$}]{string\+\_\+two, }
+\item[{int}]{flagss}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a22ac56ab6f77c9791a0061a60433f0b4}
+
+
+Concatenates two strings together. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+\_\+one} & Pointer to the The first string. \\
+\hline
+{\em string\+\_\+two} & The second string. \\
+\hline
+{\em flagss} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the concatenated string. 
+\end{DoxyReturn}
+
+
+Definition at line 23 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_ac866bee854e780306fdb537351d7ce0f}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+concat\+\_\+all@{String\+\_\+\+Utils\+\_\+concat\+\_\+all}}
+\index{String\+\_\+\+Utils\+\_\+concat\+\_\+all@{String\+\_\+\+Utils\+\_\+concat\+\_\+all}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+concat\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+concat\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{int}]{flags, }
+\item[{size\+\_\+t}]{amount, }
+\item[{char $\ast$$\ast$}]{string, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_ac866bee854e780306fdb537351d7ce0f}
+
+
+Concatenates all strings passed to it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flags} & N\+O\+N\+E $\vert$ M\+O\+D\+I\+F\+Y \\
+\hline
+{\em amount} & Amount of strings to be concatenated \\
+\hline
+{\em string} & Pointer to the The first string to be passed to it \\
+\hline
+{\em ...} & The rest of the strings to be passed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The concatenated string. 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_af6852da450888ded74728adf9184ca9b}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+contains@{String\+\_\+\+Utils\+\_\+contains}}
+\index{String\+\_\+\+Utils\+\_\+contains@{String\+\_\+\+Utils\+\_\+contains}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+contains}]{\setlength{\rightskip}{0pt plus 5cm}int String\+\_\+\+Utils\+\_\+contains (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{const char $\ast$}]{search, }
+\item[{int}]{flagss}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_af6852da450888ded74728adf9184ca9b}
+
+
+Checks to see if the string contains the substring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The string \\
+\hline
+{\em search} & Substring to find \\
+\hline
+{\em flagss} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if found, 0 if not found. 
+\end{DoxyReturn}
+
+
+Definition at line 48 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a27b0152d2833cdef28d7ca5ca2e077e5}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+count@{String\+\_\+\+Utils\+\_\+count}}
+\index{String\+\_\+\+Utils\+\_\+count@{String\+\_\+\+Utils\+\_\+count}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+count}]{\setlength{\rightskip}{0pt plus 5cm}int String\+\_\+\+Utils\+\_\+count (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{const char $\ast$}]{substring, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a27b0152d2833cdef28d7ca5ca2e077e5}
+
+
+Counts occurrences that the delimiter (or substring) occurs in a string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to search \\
+\hline
+{\em delimiter} & Delimiter or Substring to search for \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Amount of times the delimiter appears in your string, or 0 if N\+U\+L\+L string passed 
+\end{DoxyReturn}
+
+
+Definition at line 316 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a4ba5699ccde1f4d733809ce2b61752e7}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+destroy@{String\+\_\+\+Utils\+\_\+destroy}}
+\index{String\+\_\+\+Utils\+\_\+destroy@{String\+\_\+\+Utils\+\_\+destroy}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+destroy}]{\setlength{\rightskip}{0pt plus 5cm}void String\+\_\+\+Utils\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a4ba5699ccde1f4d733809ce2b61752e7}
+
+
+Callback function for G\+C\+C attribute cleanup. 
+
+Called when the string leaves the scope of the function. 
+\begin{DoxyParams}{Parameters}
+{\em string} & String to be freed. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 347 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a4ba0bc861224e2dfe1b5d736d649d1c7}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+ends\+\_\+with@{String\+\_\+\+Utils\+\_\+ends\+\_\+with}}
+\index{String\+\_\+\+Utils\+\_\+ends\+\_\+with@{String\+\_\+\+Utils\+\_\+ends\+\_\+with}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+ends\+\_\+with}]{\setlength{\rightskip}{0pt plus 5cm}int String\+\_\+\+Utils\+\_\+ends\+\_\+with (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{const char $\ast$}]{find, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a4ba0bc861224e2dfe1b5d736d649d1c7}
+
+
+Checks to see if a string ends with a substring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & The string to check. \\
+\hline
+{\em find} & The substring to check for. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if true, 0 if false. 
+\end{DoxyReturn}
+
+
+Definition at line 236 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_abd6449f005ad85d96bb7bfa3c8be5992}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+equals@{String\+\_\+\+Utils\+\_\+equals}}
+\index{String\+\_\+\+Utils\+\_\+equals@{String\+\_\+\+Utils\+\_\+equals}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+equals}]{\setlength{\rightskip}{0pt plus 5cm}int String\+\_\+\+Utils\+\_\+equals (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string\+\_\+one, }
+\item[{const char $\ast$}]{string\+\_\+two, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_abd6449f005ad85d96bb7bfa3c8be5992}
+
+
+Checks to see if two strings are equal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+\_\+one} & First string to compare \\
+\hline
+{\em string\+\_\+two} & Second string to compare \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if equal, 0 if not. 
+\end{DoxyReturn}
+
+
+Definition at line 84 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a6937e9d0bd4b0d362c0692ecc7b894da}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+from@{String\+\_\+\+Utils\+\_\+from}}
+\index{String\+\_\+\+Utils\+\_\+from@{String\+\_\+\+Utils\+\_\+from}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+from}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+from (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{unsigned int}]{index, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a6937e9d0bd4b0d362c0692ecc7b894da}
+
+
+Returns a copy of the string from the given index. 
+
+Index must be less than the size of the string, else will return N\+U\+L\+L to prevent overflow. 
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the String to be operated on. \\
+\hline
+{\em index} & The start of where in the string you want return. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A copy of the string starting at the position, or N\+U\+L\+L if potential overflow. 
+\end{DoxyReturn}
+
+
+Definition at line 90 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_aa1445a350fd35f611834ea9f46b85349}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+from\+\_\+token@{String\+\_\+\+Utils\+\_\+from\+\_\+token}}
+\index{String\+\_\+\+Utils\+\_\+from\+\_\+token@{String\+\_\+\+Utils\+\_\+from\+\_\+token}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+from\+\_\+token}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+from\+\_\+token (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{const char $\ast$}]{substring, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_aa1445a350fd35f611834ea9f46b85349}
+
+
+Returns a copy of the string from the first (or last) substring is found. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the String to search \\
+\hline
+{\em substring} & Substring to search for \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y $\vert$ S\+U\+\_\+\+L\+A\+S\+T \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A copy of the string from where the substring is found, N\+U\+L\+L if not found. 
+\end{DoxyReturn}
+
+
+Definition at line 106 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a2b6395fcd65de8a9d2bac5df620cb915}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+index\+\_\+of@{String\+\_\+\+Utils\+\_\+index\+\_\+of}}
+\index{String\+\_\+\+Utils\+\_\+index\+\_\+of@{String\+\_\+\+Utils\+\_\+index\+\_\+of}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+index\+\_\+of}]{\setlength{\rightskip}{0pt plus 5cm}int String\+\_\+\+Utils\+\_\+index\+\_\+of (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{const char $\ast$}]{substring, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a2b6395fcd65de8a9d2bac5df620cb915}
+
+
+Finds the index of the first or the last index of a given substring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to be searched for \\
+\hline
+{\em substring} & Substring to be searched for. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E $\vert$ S\+U\+\_\+\+L\+A\+S\+T \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Index of the starting position of the found substring. 
+\end{DoxyReturn}
+
+
+Definition at line 295 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a3c960a4830b62537ccad2e9e9cfa2b11}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+join@{String\+\_\+\+Utils\+\_\+join}}
+\index{String\+\_\+\+Utils\+\_\+join@{String\+\_\+\+Utils\+\_\+join}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+join}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+join (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$$\ast$}]{array\+\_\+of\+\_\+strings, }
+\item[{const char $\ast$}]{delimiter, }
+\item[{size\+\_\+t}]{size}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a3c960a4830b62537ccad2e9e9cfa2b11}
+
+
+Joins an array of strings together into one big string with the delimiter prepended to each string after the first. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em array\+\_\+of\+\_\+strings} & The array of strings to be joined. \\
+\hline
+{\em delimiter} & Delimiter to be prepended to each string after the first \\
+\hline
+{\em size} & The size of the array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new string that was joined. 
+\end{DoxyReturn}
+
+
+Definition at line 213 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a69d5e5a23cd470140d2f072be18024ff}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+replace@{String\+\_\+\+Utils\+\_\+replace}}
+\index{String\+\_\+\+Utils\+\_\+replace@{String\+\_\+\+Utils\+\_\+replace}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+replace}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+replace (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{char}]{old\+\_\+char, }
+\item[{char}]{new\+\_\+char, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a69d5e5a23cd470140d2f072be18024ff}
+
+
+Replaces all of one character in a string with another character. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the The string the characters are to be replaced \\
+\hline
+{\em old\+\_\+char} & The characters to be found \\
+\hline
+{\em new\+\_\+char} & The characters that will replace the old\+\_\+char \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The new string with replaced characters. 
+\end{DoxyReturn}
+
+
+Definition at line 197 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a791a6c73af9fdd737c2f148c1c783c64}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+reverse@{String\+\_\+\+Utils\+\_\+reverse}}
+\index{String\+\_\+\+Utils\+\_\+reverse@{String\+\_\+\+Utils\+\_\+reverse}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+reverse}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+reverse (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a791a6c73af9fdd737c2f148c1c783c64}
+
+
+Reverses the given string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the String to be operated on. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The reversed string. 
+\end{DoxyReturn}
+
+
+Definition at line 183 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_ac3162a3c9226d9f4cc5d0640afea7f46}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+set@{String\+\_\+\+Utils\+\_\+set}}
+\index{String\+\_\+\+Utils\+\_\+set@{String\+\_\+\+Utils\+\_\+set}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+set}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+set (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string\+\_\+one, }
+\item[{const char $\ast$}]{string\+\_\+two}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_ac3162a3c9226d9f4cc5d0640afea7f46}
+
+
+Sets one equal to another string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string\+\_\+one} & The reference to the string to be changed (Use \& operator) \\
+\hline
+{\em string\+\_\+two} & The second string it is going be set to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string\+\_\+one which it sets. 
+\end{DoxyReturn}
+
+
+Definition at line 154 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a6d92bbac5d02731e9018191573c83593}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+split@{String\+\_\+\+Utils\+\_\+split}}
+\index{String\+\_\+\+Utils\+\_\+split@{String\+\_\+\+Utils\+\_\+split}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+split}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$$\ast$ String\+\_\+\+Utils\+\_\+split (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{const char $\ast$}]{delimiter, }
+\item[{size\+\_\+t $\ast$}]{size}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a6d92bbac5d02731e9018191573c83593}
+
+
+Splits a string into an array of strings based on delimiter passed. 
+
+It should be noted that size must be initialized, because the size of the new string array is recorded in the passed size\+\_\+t pointer. 
+\begin{DoxyParams}{Parameters}
+{\em string} & String to be split. \\
+\hline
+{\em delimiter} & Delimiter to look for when splitting. \\
+\hline
+{\em size} & Records size of the string array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The array of strings, plus sets size to record the size of the array. 
+\end{DoxyReturn}
+
+
+Definition at line 130 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a224b10b2a31bf67d1d26ffd7cb3fe9b2}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+starts\+\_\+with@{String\+\_\+\+Utils\+\_\+starts\+\_\+with}}
+\index{String\+\_\+\+Utils\+\_\+starts\+\_\+with@{String\+\_\+\+Utils\+\_\+starts\+\_\+with}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+starts\+\_\+with}]{\setlength{\rightskip}{0pt plus 5cm}int String\+\_\+\+Utils\+\_\+starts\+\_\+with (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{const char $\ast$}]{find, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a224b10b2a31bf67d1d26ffd7cb3fe9b2}
+
+
+Checks to see if a string starts with a substring. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & he string to check. \\
+\hline
+{\em find} & The substring to check for. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+I\+G\+N\+O\+R\+E\+\_\+\+C\+A\+S\+E \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if true, 0 if false. 
+\end{DoxyReturn}
+
+
+Definition at line 225 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_ae7355306b566560a161844fdaf83ad88}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+substring@{String\+\_\+\+Utils\+\_\+substring}}
+\index{String\+\_\+\+Utils\+\_\+substring@{String\+\_\+\+Utils\+\_\+substring}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+substring}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+substring (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{unsigned int}]{begin, }
+\item[{unsigned int}]{end, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_ae7355306b566560a161844fdaf83ad88}
+
+
+Returns a substring of the string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the String to get a substring of. \\
+\hline
+{\em begin} & The beginning index. \\
+\hline
+{\em end} & The end index. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The substring of the string. 
+\end{DoxyReturn}
+
+
+Definition at line 276 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a92d185172bcc3f1ad27a34d106d5d35b}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+to\+\_\+lowercase@{String\+\_\+\+Utils\+\_\+to\+\_\+lowercase}}
+\index{String\+\_\+\+Utils\+\_\+to\+\_\+lowercase@{String\+\_\+\+Utils\+\_\+to\+\_\+lowercase}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+to\+\_\+lowercase}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+to\+\_\+lowercase (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a92d185172bcc3f1ad27a34d106d5d35b}
+
+
+Creates a copy of the string and converts it to lowercase. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the String to be manipulated \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Lowercase string. 
+\end{DoxyReturn}
+
+
+Definition at line 54 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_a6bcc38249d93485110afe41f83797c01}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+to\+\_\+uppercase@{String\+\_\+\+Utils\+\_\+to\+\_\+uppercase}}
+\index{String\+\_\+\+Utils\+\_\+to\+\_\+uppercase@{String\+\_\+\+Utils\+\_\+to\+\_\+uppercase}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+to\+\_\+uppercase}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+to\+\_\+uppercase (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_a6bcc38249d93485110afe41f83797c01}
+
+
+Creates a copy of the string and converts it to uppercase. 
+
+Either returns the copy or modifies the original string depending on the flags passed. 
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the String to be modified \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Uppercase string. 
+\end{DoxyReturn}
+
+
+Definition at line 69 of file String\+\_\+\+Utils.\+c.
+
+\hypertarget{_string___utils_8h_aa9317a8a1bd4cd4bfb50d54790fff0e7}{}\index{String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}!String\+\_\+\+Utils\+\_\+trim@{String\+\_\+\+Utils\+\_\+trim}}
+\index{String\+\_\+\+Utils\+\_\+trim@{String\+\_\+\+Utils\+\_\+trim}!String\+\_\+\+Utils.\+h@{String\+\_\+\+Utils.\+h}}
+\subsubsection[{String\+\_\+\+Utils\+\_\+trim}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ String\+\_\+\+Utils\+\_\+trim (
+\begin{DoxyParamCaption}
+\item[{char $\ast$$\ast$}]{string, }
+\item[{int}]{flags}
+\end{DoxyParamCaption}
+)}\label{_string___utils_8h_aa9317a8a1bd4cd4bfb50d54790fff0e7}
+
+
+Trims the string of all leading and trailing spaces. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & Pointer to the String to be trimmed. \\
+\hline
+{\em flags} & S\+U\+\_\+\+N\+O\+N\+E $\vert$ S\+U\+\_\+\+M\+O\+D\+I\+F\+Y \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Trimmed string. 
+\end{DoxyReturn}
+
+
+Definition at line 260 of file String\+\_\+\+Utils.\+c.
+
