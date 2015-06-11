@@ -1,0 +1,613 @@
+\hypertarget{_linked___list_8h}{}\section{Linked\+\_\+\+List.\+h File Reference}
+\label{_linked___list_8h}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+{\ttfamily \#include $<$pthread.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_node__t}{Node\+\_\+t}
+\item 
+struct \hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{struct_node__t}{Node\+\_\+t} \hyperlink{_linked___list_8h_a8b3dcee5f502d75f808228b368f59678}{Node\+\_\+t}
+\item 
+typedef struct \hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} \hyperlink{_linked___list_8h_a7c98a32fb5951596a19dbd2696c55dca}{Linked\+\_\+\+List\+\_\+t}
+\item 
+typedef void($\ast$ \hyperlink{_linked___list_8h_a900815008ac1fe25c2e53a7ef1c59464}{Linked\+\_\+\+List\+\_\+\+Delete}) (void $\ast$item)
+\begin{DoxyCompactList}\small\item\em Callback used on an item to ensure proper deletion. \end{DoxyCompactList}\item 
+typedef int($\ast$ \hyperlink{_linked___list_8h_a1cfe5b2d04ade31e40ed3910b097912e}{Linked\+\_\+\+List\+\_\+\+Compare}) (void $\ast$item\+\_\+one, void $\ast$item\+\_\+two)
+\begin{DoxyCompactList}\small\item\em This should be used on two items to compare the two, for sorting. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$ \hyperlink{_linked___list_8h_aa3e5b07a3a8062f415a2cfaec3c6884b}{Linked\+\_\+\+List\+\_\+create} (void)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a new empty Linked List. \end{DoxyCompactList}\item 
+\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$ \hyperlink{_linked___list_8h_a221df95575e078f482a16e5ee52d8eea}{Linked\+\_\+\+List\+\_\+create\+\_\+from} (void $\ast$$\ast$array, size\+\_\+t size, \hyperlink{_linked___list_8h_a1cfe5b2d04ade31e40ed3910b097912e}{Linked\+\_\+\+List\+\_\+\+Compare} compare)
+\begin{DoxyCompactList}\small\item\em Allocates and initializes a Linked List with the elements from the passed array. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_ab171794ad2421d9420ea6293a4ca01e7}{Linked\+\_\+\+List\+\_\+get\+\_\+at} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, unsigned int index)
+\begin{DoxyCompactList}\small\item\em Retrieves the element at the requested index if in bounds. \end{DoxyCompactList}\item 
+int \hyperlink{_linked___list_8h_a8c7b356c1367137d302836a7f15a22d6}{Linked\+\_\+\+List\+\_\+sort} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, \hyperlink{_linked___list_8h_a1cfe5b2d04ade31e40ed3910b097912e}{Linked\+\_\+\+List\+\_\+\+Compare} compare)
+\begin{DoxyCompactList}\small\item\em Sort the Linked List relative to the passed comparator. \end{DoxyCompactList}\item 
+int \hyperlink{_linked___list_8h_a726a764268a11b01b55c9fd02dac671f}{Linked\+\_\+\+List\+\_\+remove\+\_\+item} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, void $\ast$item, \hyperlink{_linked___list_8h_a900815008ac1fe25c2e53a7ef1c59464}{Linked\+\_\+\+List\+\_\+\+Delete} delete\+\_\+item)
+\begin{DoxyCompactList}\small\item\em Removes the item from the list if it is found, along with the node associated with it. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_ab8bf149fcdcdd1b9d4d2f6bcbde8b951}{Linked\+\_\+\+List\+\_\+remove\+\_\+at} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, unsigned int index, \hyperlink{_linked___list_8h_a900815008ac1fe25c2e53a7ef1c59464}{Linked\+\_\+\+List\+\_\+\+Delete} delete\+\_\+item)
+\begin{DoxyCompactList}\small\item\em Removes the item at the given index if it is in bounds. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_acf253d20cffaf7b9cd828992dfebb01f}{Linked\+\_\+\+List\+\_\+next} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Advances the Linked List\textquotesingle{}s iterator forward by one if applicable. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_ab900b1a08399b1009f9ccab50ae069a9}{Linked\+\_\+\+List\+\_\+previous} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Moves the Linked List\textquotesingle{}s iterator back by one if applicable. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_a822326d00b32c5263823a9feca059956}{Linked\+\_\+\+List\+\_\+tail} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Moves the Linked List\textquotesingle{}s iterator to the tail of the list if applicable. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_a063d1cbba4eb5c8a9f936ced140746b3}{Linked\+\_\+\+List\+\_\+head} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Moves the Linked List\textquotesingle{}s iterator to the head of the list if applicable. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_ae1a065e03743cad2aa10ae8e1f366a76}{Linked\+\_\+\+List\+\_\+remove\+\_\+current} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, \hyperlink{_linked___list_8h_a900815008ac1fe25c2e53a7ef1c59464}{Linked\+\_\+\+List\+\_\+\+Delete} delete\+\_\+item)
+\begin{DoxyCompactList}\small\item\em Remove the current node from the linked list, calling the callback on the node\textquotesingle{}s item if not N\+U\+L\+L. \end{DoxyCompactList}\item 
+int \hyperlink{_linked___list_8h_a5634f057767026f4d134cf32cf4a0d17}{Linked\+\_\+\+List\+\_\+add\+\_\+after} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, void $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds the requested item after the current node in the list. \end{DoxyCompactList}\item 
+int \hyperlink{_linked___list_8h_a30bf90c9610395ba520752beb6f1cd42}{Linked\+\_\+\+List\+\_\+add\+\_\+before} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, void $\ast$item)
+\begin{DoxyCompactList}\small\item\em Adds the requested item before the current node in the list. \end{DoxyCompactList}\item 
+int \hyperlink{_linked___list_8h_a3745d412e7edaa83604b92e98db12dfa}{Linked\+\_\+\+List\+\_\+add} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, void $\ast$item, \hyperlink{_linked___list_8h_a1cfe5b2d04ade31e40ed3910b097912e}{Linked\+\_\+\+List\+\_\+\+Compare} compare)
+\begin{DoxyCompactList}\small\item\em Adds the item to the list, in sorted order if the callback is not N\+U\+L\+L, or at the tail if it is. \end{DoxyCompactList}\item 
+void $\ast$$\ast$ \hyperlink{_linked___list_8h_ad24ca80a9a7284d1af7770322f2c44b0}{Linked\+\_\+\+List\+\_\+to\+\_\+array} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, size\+\_\+t $\ast$array\+\_\+size)
+\begin{DoxyCompactList}\small\item\em Returns an array of items inside of the Linked List, setting the array\+\_\+size parameter to the size of the array returned. \end{DoxyCompactList}\item 
+int \hyperlink{_linked___list_8h_a2f5c5278486ddf8bf22128208c701a10}{Linked\+\_\+\+List\+\_\+for\+\_\+each} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, void($\ast$callback)(void $\ast$item))
+\begin{DoxyCompactList}\small\item\em Calls the passed callback on all items in the linked list. \end{DoxyCompactList}\item 
+void \hyperlink{_linked___list_8h_a91ef4f793856454af5624005c4385879}{Linked\+\_\+\+List\+\_\+print\+\_\+all} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, F\+I\+L\+E $\ast$file, char $\ast$($\ast$to\+\_\+string)(void $\ast$item))
+\begin{DoxyCompactList}\small\item\em Prints all items in a formatted, bracketed and comma separated way based on the to\+\_\+string callback passed. \end{DoxyCompactList}\item 
+int \hyperlink{_linked___list_8h_a1086ae444470cea80fb825fe917e6142}{Linked\+\_\+\+List\+\_\+contains} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, void $\ast$item)
+\begin{DoxyCompactList}\small\item\em Returns whether or not the list contains the given item. \end{DoxyCompactList}\item 
+void $\ast$ \hyperlink{_linked___list_8h_a89d50aba7c7c6f395c4f60dbea80d112}{Linked\+\_\+\+List\+\_\+get\+\_\+current} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em Returns the current node\textquotesingle{}s item in the iterator. \end{DoxyCompactList}\item 
+void \hyperlink{_linked___list_8h_aeccf343a8f19f9e8f7d8a81f19b46a43}{Linked\+\_\+\+List\+\_\+destroy} (\hyperlink{struct_linked___list__t}{Linked\+\_\+\+List\+\_\+t} $\ast$list, \hyperlink{_linked___list_8h_a900815008ac1fe25c2e53a7ef1c59464}{Linked\+\_\+\+List\+\_\+\+Delete} delete\+\_\+item)
+\begin{DoxyCompactList}\small\item\em Destroys the passed linked list, freeing and destroying any of it\textquotesingle{}s members, as well as freeing the list pointer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_linked___list_8h_a1cfe5b2d04ade31e40ed3910b097912e}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+\+Compare@{Linked\+\_\+\+List\+\_\+\+Compare}}
+\index{Linked\+\_\+\+List\+\_\+\+Compare@{Linked\+\_\+\+List\+\_\+\+Compare}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+\+Compare}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ Linked\+\_\+\+List\+\_\+\+Compare) (void $\ast$item\+\_\+one, void $\ast$item\+\_\+two)}\label{_linked___list_8h_a1cfe5b2d04ade31e40ed3910b097912e}
+
+
+This should be used on two items to compare the two, for sorting. 
+
+
+
+Definition at line 55 of file Linked\+\_\+\+List.\+h.
+
+\hypertarget{_linked___list_8h_a900815008ac1fe25c2e53a7ef1c59464}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+\+Delete@{Linked\+\_\+\+List\+\_\+\+Delete}}
+\index{Linked\+\_\+\+List\+\_\+\+Delete@{Linked\+\_\+\+List\+\_\+\+Delete}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+\+Delete}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ Linked\+\_\+\+List\+\_\+\+Delete) (void $\ast$item)}\label{_linked___list_8h_a900815008ac1fe25c2e53a7ef1c59464}
+
+
+Callback used on an item to ensure proper deletion. 
+
+
+
+Definition at line 53 of file Linked\+\_\+\+List.\+h.
+
+\hypertarget{_linked___list_8h_a7c98a32fb5951596a19dbd2696c55dca}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+t@{Linked\+\_\+\+List\+\_\+t}}
+\index{Linked\+\_\+\+List\+\_\+t@{Linked\+\_\+\+List\+\_\+t}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Linked\+\_\+\+List\+\_\+t} {\bf Linked\+\_\+\+List\+\_\+t}}\label{_linked___list_8h_a7c98a32fb5951596a19dbd2696c55dca}
+
+
+Definition at line 46 of file Linked\+\_\+\+List.\+h.
+
+\hypertarget{_linked___list_8h_a8b3dcee5f502d75f808228b368f59678}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Node\+\_\+t@{Node\+\_\+t}}
+\index{Node\+\_\+t@{Node\+\_\+t}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Node\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf Node\+\_\+t} {\bf Node\+\_\+t}}\label{_linked___list_8h_a8b3dcee5f502d75f808228b368f59678}
+
+
+Definition at line 45 of file Linked\+\_\+\+List.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_linked___list_8h_a3745d412e7edaa83604b92e98db12dfa}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+add@{Linked\+\_\+\+List\+\_\+add}}
+\index{Linked\+\_\+\+List\+\_\+add@{Linked\+\_\+\+List\+\_\+add}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+add}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\+\_\+\+List\+\_\+add (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item, }
+\item[{{\bf Linked\+\_\+\+List\+\_\+\+Compare}}]{compare}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a3745d412e7edaa83604b92e98db12dfa}
+
+
+Adds the item to the list, in sorted order if the callback is not N\+U\+L\+L, or at the tail if it is. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & List to add the item to. \\
+\hline
+{\em item} & Item to add. \\
+\hline
+{\em compare} & Comparator to add the item sorted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 upon success, 0 if the list is N\+U\+L\+L. 
+\end{DoxyReturn}
+
+
+Definition at line 321 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a5634f057767026f4d134cf32cf4a0d17}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+add\+\_\+after@{Linked\+\_\+\+List\+\_\+add\+\_\+after}}
+\index{Linked\+\_\+\+List\+\_\+add\+\_\+after@{Linked\+\_\+\+List\+\_\+add\+\_\+after}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+add\+\_\+after}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\+\_\+\+List\+\_\+add\+\_\+after (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a5634f057767026f4d134cf32cf4a0d17}
+
+
+Adds the requested item after the current node in the list. 
+
+Note\+: This flags the list as being unsorted, regardless of whether you take the care to insert it sorted yourself. 
+\begin{DoxyParams}{Parameters}
+{\em list} & List to add the item to. \\
+\hline
+{\em item} & Item to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if the passed list is N\+U\+L\+L or if the list is empty. 
+\end{DoxyReturn}
+
+
+Definition at line 340 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a30bf90c9610395ba520752beb6f1cd42}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+add\+\_\+before@{Linked\+\_\+\+List\+\_\+add\+\_\+before}}
+\index{Linked\+\_\+\+List\+\_\+add\+\_\+before@{Linked\+\_\+\+List\+\_\+add\+\_\+before}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+add\+\_\+before}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\+\_\+\+List\+\_\+add\+\_\+before (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a30bf90c9610395ba520752beb6f1cd42}
+
+
+Adds the requested item before the current node in the list. 
+
+Note\+: This flags the list as being unsorted, regardless of whether you take the care to insert it sorted yourself. 
+\begin{DoxyParams}{Parameters}
+{\em list} & List to add the item to. \\
+\hline
+{\em item} & Item to be added. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if the passed list is N\+U\+L\+L or if the list is empty. 
+\end{DoxyReturn}
+
+
+Definition at line 360 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a1086ae444470cea80fb825fe917e6142}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+contains@{Linked\+\_\+\+List\+\_\+contains}}
+\index{Linked\+\_\+\+List\+\_\+contains@{Linked\+\_\+\+List\+\_\+contains}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+contains}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\+\_\+\+List\+\_\+contains (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a1086ae444470cea80fb825fe917e6142}
+
+
+Returns whether or not the list contains the given item. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & List to search. \\
+\hline
+{\em item} & Item to search for. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if it does contain the item, 0 if the list is N\+U\+L\+L or it doesn\textquotesingle{}t exist in the list. 
+\end{DoxyReturn}
+
+
+Definition at line 511 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_aa3e5b07a3a8062f415a2cfaec3c6884b}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+create@{Linked\+\_\+\+List\+\_\+create}}
+\index{Linked\+\_\+\+List\+\_\+create@{Linked\+\_\+\+List\+\_\+create}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\+\_\+\+List\+\_\+t}$\ast$ Linked\+\_\+\+List\+\_\+create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_aa3e5b07a3a8062f415a2cfaec3c6884b}
+
+
+Allocates and initializes a new empty Linked List. 
+
+\begin{DoxyReturn}{Returns}
+Empty Linked\+\_\+\+List or N\+U\+L\+L if out of memory error. 
+\end{DoxyReturn}
+
+
+Definition at line 267 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a221df95575e078f482a16e5ee52d8eea}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+create\+\_\+from@{Linked\+\_\+\+List\+\_\+create\+\_\+from}}
+\index{Linked\+\_\+\+List\+\_\+create\+\_\+from@{Linked\+\_\+\+List\+\_\+create\+\_\+from}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+create\+\_\+from}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Linked\+\_\+\+List\+\_\+t}$\ast$ Linked\+\_\+\+List\+\_\+create\+\_\+from (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{array, }
+\item[{size\+\_\+t}]{size, }
+\item[{{\bf Linked\+\_\+\+List\+\_\+\+Compare}}]{compare}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a221df95575e078f482a16e5ee52d8eea}
+
+
+Allocates and initializes a Linked List with the elements from the passed array. 
+
+Only adds up to the size passed, hence it is vulnerable to overflows if invalid value is passed. If a comparator is passed, it everything will be added in ascending order relative to the comparator used; if the comparator is N\+U\+L\+L, it will be added unsorted. 
+\begin{DoxyParams}{Parameters}
+{\em array} & Array of elements to be initialized to the linked list. \\
+\hline
+{\em size} & The size of the array; the amount of the array to be read up to. \\
+\hline
+{\em compare} & Used to add sorted, if not N\+U\+L\+L, otherwise added unsorted. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An initialized Linked\+\_\+\+List with all elements, or N\+U\+L\+L if out of memory error. 
+\end{DoxyReturn}
+
+
+Definition at line 297 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_aeccf343a8f19f9e8f7d8a81f19b46a43}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+destroy@{Linked\+\_\+\+List\+\_\+destroy}}
+\index{Linked\+\_\+\+List\+\_\+destroy@{Linked\+\_\+\+List\+\_\+destroy}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+destroy}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\+\_\+\+List\+\_\+destroy (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{{\bf Linked\+\_\+\+List\+\_\+\+Delete}}]{delete\+\_\+item}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_aeccf343a8f19f9e8f7d8a81f19b46a43}
+
+
+Destroys the passed linked list, freeing and destroying any of it\textquotesingle{}s members, as well as freeing the list pointer. 
+
+Note that operations on a linked list should cease before calling this function, as it destroys any and all locks, which may cause deadlocks on threads trying to operate on it. If the delete\+\_\+item callback is not N\+U\+L\+L, or it will be called on every item during deletion, ideally so free can be passed. 
+\begin{DoxyParams}{Parameters}
+{\em list} & List to destroy. \\
+\hline
+{\em delete\+\_\+item} & Callback used on each item. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 305 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a2f5c5278486ddf8bf22128208c701a10}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+for\+\_\+each@{Linked\+\_\+\+List\+\_\+for\+\_\+each}}
+\index{Linked\+\_\+\+List\+\_\+for\+\_\+each@{Linked\+\_\+\+List\+\_\+for\+\_\+each}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+for\+\_\+each}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\+\_\+\+List\+\_\+for\+\_\+each (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{void($\ast$)(void $\ast$item)}]{callback}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a2f5c5278486ddf8bf22128208c701a10}
+
+
+Calls the passed callback on all items in the linked list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & List to execute the callback on. \\
+\hline
+{\em callback} & Callback to manipulate the item in the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if list or callback is N\+U\+L\+L. 
+\end{DoxyReturn}
+
+
+Definition at line 495 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_ab171794ad2421d9420ea6293a4ca01e7}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+get\+\_\+at@{Linked\+\_\+\+List\+\_\+get\+\_\+at}}
+\index{Linked\+\_\+\+List\+\_\+get\+\_\+at@{Linked\+\_\+\+List\+\_\+get\+\_\+at}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+get\+\_\+at}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+get\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{unsigned int}]{index}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_ab171794ad2421d9420ea6293a4ca01e7}
+
+
+Retrieves the element at the requested index if in bounds. 
+
+If it is out of bounds, N\+U\+L\+L will be returned instead. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to retrieve the element from. \\
+\hline
+{\em index} & The index of the element to retrieve. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The element at the requested index, or N\+U\+L\+L if out of bounds or if list is N\+U\+L\+L. 
+\end{DoxyReturn}
+
+
+Definition at line 526 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a89d50aba7c7c6f395c4f60dbea80d112}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+get\+\_\+current@{Linked\+\_\+\+List\+\_\+get\+\_\+current}}
+\index{Linked\+\_\+\+List\+\_\+get\+\_\+current@{Linked\+\_\+\+List\+\_\+get\+\_\+current}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+get\+\_\+current}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+get\+\_\+current (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a89d50aba7c7c6f395c4f60dbea80d112}
+
+
+Returns the current node\textquotesingle{}s item in the iterator. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & List to obtain the current element of. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current item, or N\+U\+L\+L if the list passed is N\+U\+L\+L or if the list is empty. 
+\end{DoxyReturn}
+
+
+Definition at line 478 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a063d1cbba4eb5c8a9f936ced140746b3}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+head@{Linked\+\_\+\+List\+\_\+head}}
+\index{Linked\+\_\+\+List\+\_\+head@{Linked\+\_\+\+List\+\_\+head}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+head}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+head (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a063d1cbba4eb5c8a9f936ced140746b3}
+
+
+Moves the Linked List\textquotesingle{}s iterator to the head of the list if applicable. 
+
+If the list is empty, N\+U\+L\+L will be returned instead and the iterator will not go back. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to advance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item at the head node, or N\+U\+L\+L if the list is N\+U\+L\+L or is empty. 
+\end{DoxyReturn}
+
+
+Definition at line 463 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_acf253d20cffaf7b9cd828992dfebb01f}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+next@{Linked\+\_\+\+List\+\_\+next}}
+\index{Linked\+\_\+\+List\+\_\+next@{Linked\+\_\+\+List\+\_\+next}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+next}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+next (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_acf253d20cffaf7b9cd828992dfebb01f}
+
+
+Advances the Linked List\textquotesingle{}s iterator forward by one if applicable. 
+
+If the next node is N\+U\+L\+L, N\+U\+L\+L will be returned instead and the iterator will not be advanced. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to advance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item at the next node, or N\+U\+L\+L if list is N\+U\+L\+L or there is no next node in the list. 
+\end{DoxyReturn}
+
+
+Definition at line 418 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_ab900b1a08399b1009f9ccab50ae069a9}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+previous@{Linked\+\_\+\+List\+\_\+previous}}
+\index{Linked\+\_\+\+List\+\_\+previous@{Linked\+\_\+\+List\+\_\+previous}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+previous}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+previous (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_ab900b1a08399b1009f9ccab50ae069a9}
+
+
+Moves the Linked List\textquotesingle{}s iterator back by one if applicable. 
+
+If the previous node is N\+U\+L\+L, N\+U\+L\+L will be returned instead and the iterator will not go back. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to advance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item at the previous node, or N\+U\+L\+L if the list is N\+U\+L\+L or there is no previous node. 
+\end{DoxyReturn}
+
+
+Definition at line 433 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a91ef4f793856454af5624005c4385879}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+print\+\_\+all@{Linked\+\_\+\+List\+\_\+print\+\_\+all}}
+\index{Linked\+\_\+\+List\+\_\+print\+\_\+all@{Linked\+\_\+\+List\+\_\+print\+\_\+all}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+print\+\_\+all}]{\setlength{\rightskip}{0pt plus 5cm}void Linked\+\_\+\+List\+\_\+print\+\_\+all (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{F\+I\+L\+E $\ast$}]{file, }
+\item[{char $\ast$($\ast$)(void $\ast$item)}]{to\+\_\+string}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a91ef4f793856454af5624005c4385879}
+
+
+Prints all items in a formatted, bracketed and comma separated way based on the to\+\_\+string callback passed. 
+
+The items in the list will be represented as such\+: \{ item\+\_\+one, item\+\_\+two, item\+\_\+three, ... , item\+\_\+n \} size\+: n 
+\begin{DoxyParams}{Parameters}
+{\em list} & List to print all elements from. \\
+\hline
+{\em file} & The file to print to, I.\+E stdio or an actual F\+I\+L\+E. \\
+\hline
+{\em to\+\_\+string} & Callback to obtain a string representation of each item in the list. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 519 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_ab8bf149fcdcdd1b9d4d2f6bcbde8b951}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+remove\+\_\+at@{Linked\+\_\+\+List\+\_\+remove\+\_\+at}}
+\index{Linked\+\_\+\+List\+\_\+remove\+\_\+at@{Linked\+\_\+\+List\+\_\+remove\+\_\+at}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+remove\+\_\+at}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+remove\+\_\+at (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{unsigned int}]{index, }
+\item[{{\bf Linked\+\_\+\+List\+\_\+\+Delete}}]{delete\+\_\+item}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_ab8bf149fcdcdd1b9d4d2f6bcbde8b951}
+
+
+Removes the item at the given index if it is in bounds. 
+
+If delete\+\_\+item is N\+U\+L\+L, the item removed will not be freed. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to remove the element from. \\
+\hline
+{\em index} & The index of the node to be removed from the list. \\
+\hline
+{\em delete\+\_\+item} & Callback used to free the item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item at the given index, whether or not delete\+\_\+item is passed, or N\+U\+L\+L list is N\+U\+L\+L or out of bounds. 
+\end{DoxyReturn}
+
+
+Definition at line 392 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_ae1a065e03743cad2aa10ae8e1f366a76}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+remove\+\_\+current@{Linked\+\_\+\+List\+\_\+remove\+\_\+current}}
+\index{Linked\+\_\+\+List\+\_\+remove\+\_\+current@{Linked\+\_\+\+List\+\_\+remove\+\_\+current}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+remove\+\_\+current}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+remove\+\_\+current (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{{\bf Linked\+\_\+\+List\+\_\+\+Delete}}]{delete\+\_\+item}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_ae1a065e03743cad2aa10ae8e1f366a76}
+
+
+Remove the current node from the linked list, calling the callback on the node\textquotesingle{}s item if not N\+U\+L\+L. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to remove the current node from. \\
+\hline
+{\em delete\+\_\+item} & The callback to call on the node\textquotesingle{}s item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item at the current node, or N\+U\+L\+L if the list is empty or the list passed is N\+U\+L\+L. 
+\end{DoxyReturn}
+
+
+Definition at line 407 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a726a764268a11b01b55c9fd02dac671f}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+remove\+\_\+item@{Linked\+\_\+\+List\+\_\+remove\+\_\+item}}
+\index{Linked\+\_\+\+List\+\_\+remove\+\_\+item@{Linked\+\_\+\+List\+\_\+remove\+\_\+item}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+remove\+\_\+item}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\+\_\+\+List\+\_\+remove\+\_\+item (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item, }
+\item[{{\bf Linked\+\_\+\+List\+\_\+\+Delete}}]{delete\+\_\+item}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a726a764268a11b01b55c9fd02dac671f}
+
+
+Removes the item from the list if it is found, along with the node associated with it. 
+
+If delete\+\_\+item is N\+U\+L\+L, the item removed will not be freed. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to remove the element from. \\
+\hline
+{\em item} & The item to be searched for. \\
+\hline
+{\em delete\+\_\+item} & Callback used to free the item. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if list is N\+U\+L\+L, or if the item is not found in the list. 
+\end{DoxyReturn}
+
+
+Definition at line 382 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a8c7b356c1367137d302836a7f15a22d6}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+sort@{Linked\+\_\+\+List\+\_\+sort}}
+\index{Linked\+\_\+\+List\+\_\+sort@{Linked\+\_\+\+List\+\_\+sort}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+sort}]{\setlength{\rightskip}{0pt plus 5cm}int Linked\+\_\+\+List\+\_\+sort (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{{\bf Linked\+\_\+\+List\+\_\+\+Compare}}]{compare}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a8c7b356c1367137d302836a7f15a22d6}
+
+
+Sort the Linked List relative to the passed comparator. 
+
+If no comparator is passed, N\+U\+L\+L is returned. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to sort. \\
+\hline
+{\em compare} & The comparator used to sort the list. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 on success, 0 if list or compare is N\+U\+L\+L. 
+\end{DoxyReturn}
+
+
+Definition at line 503 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_a822326d00b32c5263823a9feca059956}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+tail@{Linked\+\_\+\+List\+\_\+tail}}
+\index{Linked\+\_\+\+List\+\_\+tail@{Linked\+\_\+\+List\+\_\+tail}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+tail}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ Linked\+\_\+\+List\+\_\+tail (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_a822326d00b32c5263823a9feca059956}
+
+
+Moves the Linked List\textquotesingle{}s iterator to the tail of the list if applicable. 
+
+If the list is empty, N\+U\+L\+L will be returned instead and the iterator will not go back. 
+\begin{DoxyParams}{Parameters}
+{\em list} & The list to advance. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The item at the tail node, or N\+U\+L\+L if the list is N\+U\+L\+L or is empty. 
+\end{DoxyReturn}
+
+
+Definition at line 448 of file Linked\+\_\+\+List.\+c.
+
+\hypertarget{_linked___list_8h_ad24ca80a9a7284d1af7770322f2c44b0}{}\index{Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}!Linked\+\_\+\+List\+\_\+to\+\_\+array@{Linked\+\_\+\+List\+\_\+to\+\_\+array}}
+\index{Linked\+\_\+\+List\+\_\+to\+\_\+array@{Linked\+\_\+\+List\+\_\+to\+\_\+array}!Linked\+\_\+\+List.\+h@{Linked\+\_\+\+List.\+h}}
+\subsubsection[{Linked\+\_\+\+List\+\_\+to\+\_\+array}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$$\ast$ Linked\+\_\+\+List\+\_\+to\+\_\+array (
+\begin{DoxyParamCaption}
+\item[{{\bf Linked\+\_\+\+List\+\_\+t} $\ast$}]{list, }
+\item[{size\+\_\+t $\ast$}]{array\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{_linked___list_8h_ad24ca80a9a7284d1af7770322f2c44b0}
+
+
+Returns an array of items inside of the Linked List, setting the array\+\_\+size parameter to the size of the array returned. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & List to convert to an array. \\
+\hline
+{\em array\+\_\+size} & Used to return the size of the array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Array of items, or N\+U\+L\+L if list or array\+\_\+size is N\+U\+L\+L. 
+\end{DoxyReturn}
+
+
+Definition at line 536 of file Linked\+\_\+\+List.\+c.
+
