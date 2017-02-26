@@ -4,12 +4,8 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+I am a current Computer Science undergraduate student with ambitions to obtain my Ph.D.
+My interests float towards the theory side of Computer Science, such as systems programming,
+concurrent and parallel processing, and compiler and runtime systems design. With so many
+fascinating areas of Computer Science, it's hard to have an actual favorite, and this list
+most likely will change with time.
