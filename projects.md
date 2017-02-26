@@ -53,9 +53,9 @@ and free, but unfortunately it has died due to never being complete.
 
 ![Screenshot](https://raw.githubusercontent.com/LouisJenkinsCS/Code-Glosser/master/screenshots/CG_MoltarOS_C_Final.png)
 
-![Video Demo]([![Code-Glosser Demo](https://img.youtube.com/vi/FailmQ7r73s/0.jpg)](https://www.youtube.com/watch?v=FailmQ7r73s))
+[Video Demo](https://www.youtube.com/watch?v=FailmQ7r73s)
 
-[Presentation](({{ site.baseurl }}/presentations/Code-Glosser.pdf)
+[Presentation]({{ site.baseurl }}/presentations/Code-Glosser.pdf)
 
 [Department Seminar Flier]({{ site.baseurl }}/presentations/Code-Glosser_Flyer.pdf)
 
@@ -83,4 +83,8 @@ even Scala (with some issues) that used bytecode implemented. Was a very fun pro
 
 [Source](https://github.com/LouisJenkinsCS/C_Utils)
 
-My very first project, which still holds a place in my heart to this day.
+My very first project, which still holds a place in my heart to this day, the amount of times I've tried 'revising' it is reflected in the absurd number of
+commits. The project itself is defunct and I wouldn't use it for any project like it was intended to be, but it was my first GitHub repository. It was my
+literal playground to teach myself C and as much theory as I wanted. There, I've created a thread pool, lock-free data structures (Stack and Queue using
+Hazard Pointers, defined [here](http://web.cecs.pdx.edu/~walpole/class/cs510/papers/11.pdf)), abstractions for memory management and reference counting,
+and much more. I've learned so much from it, and put so much work into it that it deserves to be listed here.
