@@ -17,7 +17,7 @@ Following this award, I was featured in an article for Bloomsburg University, se
 
 ### Picture (Framed)
 
-![Peer's Choice for Outstanding Project](images/PeersChoiceAward.jpg)
+![Peer's Choice for Outstanding Project]({{ site.baseurl }}/images/PeersChoiceAward.jpg)
 
 ## Honorable Mention for the 2017 Outstanding Undergraduate Researchers Award
 
@@ -27,12 +27,12 @@ Princeton, and others for Computer Science research. 2017's awards was sponsored
 
 ### Picture (Unframed)
 
-![CRA's Award](images/CRA_Award.jpg)
+![CRA's Award]({{ site.baseurl }}/images/CRA_Award.jpg)
 
 ### Sponsor
 
-![Microsoft Research](images/CRA_Sponsor.JPG)
+![Microsoft Research]({{ site.baseurl }}/images/CRA_Sponsor.JPG)
 
 ### Highlighted
 
-![Highlighted](images/CRA_Highlighted.PNG)
+![Highlighted]({{ site.baseurl }}/images/CRA_Highlighted.PNG)
