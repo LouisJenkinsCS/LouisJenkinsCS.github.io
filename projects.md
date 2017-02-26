@@ -8,7 +8,7 @@ permalink: /projects/
 
 [Source](https://github.com/LouisJenkinsCS/Go_With_Concurrent_Map_Builtin)
 
-[Presentation](({{ site.baseurl }}/presentations/go_concurrent_map.pdf)
+[Presentation]({{ site.baseurl }}/presentations/go_concurrent_map.pdf)
 
 Originally titled "A Scalable Built-in Hash-Table for the Go Programming Language", this is the fruits of my labor for
 all of my effort during the "Smart Spaces" R.E.U (for the awards, check the awards section [here]({{ site.baseurl }}/awards)).
@@ -33,11 +33,11 @@ System Calls, etc. This could take years, but it wouldn't be worth it if it was 
 
 [Source](https://github.com/LouisJenkinsCS/S.A.K-Overlay)
 
-![Screenshot](https://raw.githubusercontent.com/LouisJenkinsCS/S.A.K-Overlay/master/S.A.K-Overlay_Screenshot.png)
-
 [Presentation]({{ site.baseurl }}/presentations/sak_overlay.pdf)
 
 [Summary Report]({{ site.baseurl }}/presentations/SAK_Overlay_Report.pdf)
+
+![Screenshot](https://raw.githubusercontent.com/LouisJenkinsCS/S.A.K-Overlay/master/S.A.K-Overlay_Screenshot.png)
 
 My one and only Android Application I've ever wrote. When I wrote it, I had the idea that it would be my playground:
 Anything I wanted to do, anything I wanted to learn, could be done in a single application, which gave it it's name,
@@ -51,13 +51,13 @@ and free, but unfortunately it has died due to never being complete.
 
 [Source](https://github.com/LouisJenkinsCS/Code-Glosser)
 
-![Screenshot](https://raw.githubusercontent.com/LouisJenkinsCS/Code-Glosser/master/screenshots/CG_MoltarOS_C_Final.png)
-
 [Video Demo](https://www.youtube.com/watch?v=FailmQ7r73s)
 
 [Presentation]({{ site.baseurl }}/presentations/Code-Glosser.pdf)
 
 [Department Seminar Flier]({{ site.baseurl }}/presentations/Code-Glosser_Flyer.pdf)
+
+![Screenshot](https://raw.githubusercontent.com/LouisJenkinsCS/Code-Glosser/master/screenshots/CG_MoltarOS_C_Final.png)
 
 For an "independent study", which meant me creating software for credits to make it easier for the professor to grade homework assignments,
 I developed "Code-Glosser", an academic enrichment tool with the sole purpose to make giving feedback effortless. Code-Glosser pretty much allows
