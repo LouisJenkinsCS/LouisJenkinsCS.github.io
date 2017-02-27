@@ -6,15 +6,7 @@ permalink: /publications/
 
 ## Concurrent Map for Go
 
-### Status: Under Revision
-
-Originally submitted to the International Symposium on Code Generation and Optimization (CGO).
-
-Due to conflicts in schedule, the paper is still under revision but will be revised entirely to focus
-more on the data structure (in which Michael believes it is competitive enough to hold it's own weight
-without relying on being implementation in Go). The original compared againsted a lock-free Go implementation of
-the [Split-Ordered Lists Hash Map](http://www.cs.ucf.edu/~dcm/Teaching/COT4810-Spring2011/Literature/SplitOrderedLists.pdf). The planned revision end result would be one which has compares
-against Yujie Liu's [Dynamic-Sized Nonblocking Hash Tables](http://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=61ACCEA75A096144B4087FCBB2BFDCE8?doi=10.1.1.711.8782&rep=rep1&type=pdf).
+### Status: In Preparation
 
 ### Authors: Louis Jenkins, Michael F. Spear
 
