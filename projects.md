@@ -10,7 +10,7 @@ permalink: /projects/
 
 [Presentation]({{ site.baseurl }}/presentations/go_concurrent_map.pdf)
 
-Originally titled "A Scalable Built-in Hash-Table for the Go Programming Language", this is the fruits of my labor for
+Originally titled "A Concurrent and Scalable Built-in Hash-Table for the Go Programming Language", this is the fruits of my labor for
 all of my effort during the "Smart Spaces" R.E.U (for the awards, check the awards section [here]({{ site.baseurl }}/awards)).
 It also shows a specialized version of the "Interlocked Hash Table" for the Go runtime. The concurrent map implementation can be seen
 [here](https://github.com/LouisJenkinsCS/Go_With_Concurrent_Map_Builtin/blob/master/src/runtime/concurrent_map.go).

@@ -6,8 +6,8 @@ permalink: /awards/
 
 ## Peer's Choice for Outstanding Project Award
 
-Awarded for my excellent work on the project "A Scalable Built-in Hash-Table for the Go Programming Language",
-detailed [here](/projects/#go_map). This award was award from Lehigh University's "Smart Spaces", an
+Awarded for my excellent work on the project "A Concurrent and Scalable Built-in Hash-Table for the Go Programming Language",
+detailed [here]({{ site.baseurl }}/projects/#go_map). This award was award from Lehigh University's "Smart Spaces", an
 N.S.F (National Science Foundation) sponsored R.E.U (Research Experience for Undergraduates), where I had
 competed against and outperformed other selected students from more prestigious universities, and alone vs groups
 of 2s and 3s at that. It is something I am very proud of, and has formed a valuable connection with my
