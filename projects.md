@@ -4,7 +4,7 @@ title: Projects
 permalink: /projects/
 ---
 
-## Go with Concurrent Map
+## Concurrent and Scalable Built-in Hash-Table for the Go Programming Language
 
 [Source](https://github.com/LouisJenkinsCS/Go_With_Concurrent_Map_Builtin)
 
