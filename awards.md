@@ -10,8 +10,6 @@ Awarded for my [project]({{ site.baseurl }}/projects/#go_map) during Lehigh Univ
 N.S.F sponsored R.E.U. I was also featured in an [article](http://bloomsburgu.tumblr.com/post/150972457332/louis-jenkinss-internship-with-lehigh)
 for Bloomsburg University.
 
-
-
 #### Certificate
 
 ![Peer's Choice for Outstanding Project]({{ site.baseurl }}/images/PeersChoiceAward.jpg)
