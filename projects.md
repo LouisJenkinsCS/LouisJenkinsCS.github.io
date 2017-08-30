@@ -15,7 +15,7 @@ Deque, outperforming by ~100x, and an unordered Bag (Multiset) that outperformed
 by ~500x. Both are the first of their kind, and are a result of experimentation
 and taking the best ideas from various publication, even [my own]({{ site.baseurl }}/publications/PACT2017.pdf).
 
-### [Concurrent and Scalable Built-in Hash-Table for the Go Programming Language]((https://github.com/LouisJenkinsCS/Go_With_Concurrent_Map_Builtin))
+### [Concurrent and Scalable Built-in Hash-Table for the Go Programming Language](https://github.com/LouisJenkinsCS/Go_With_Concurrent_Map_Builtin)
 
 For the summer of 2016, I was 1 of 12 selected for Lehigh University's R.E.U program.
 For my project, I was tasked with something that even my advisor, Michael Spear
