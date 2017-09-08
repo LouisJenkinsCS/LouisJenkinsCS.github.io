@@ -17,6 +17,8 @@ and taking the best ideas from various publication, even [my own]({{ site.baseur
 
 ### [Concurrent and Scalable Built-in Hash-Table for the Go Programming Language](https://github.com/LouisJenkinsCS/Go_With_Concurrent_Map_Builtin)
 
+[Presentation]({{ site.baseurl }}/presentations/go_concurrent_map.pdf)
+
 For the summer of 2016, I was 1 of 12 selected for Lehigh University's R.E.U program.
 For my project, I was tasked with something that even my advisor, Michael Spear
 (corresponding athor of our [publication]({{ site.baseurl }}/publications/PACT2017.pdf)),
@@ -35,6 +37,23 @@ of my rivals were in groups of 2, one even in a group of 3, and even though they
 given the bias of having more time to present, not only did I outperform them, but
 I garnered enough of their respect to receive a majority vote. The version of the
 concurrent map can be seen [here](https://github.com/LouisJenkinsCS/Go_With_Concurrent_Map_Builtin/blob/master/src/runtime/concurrent_map.go).
+
+### [DSL (Turing-Complete Language)](https://github.com/LouisJenkinsCS/DSL)
+
+[Presentation (Video)](https://youtu.be/g5BtMgjmV_g)
+
+[Presentation (PDF)]({{ site.baseurl }}/presentations/ToC_Presentation.pdf)
+
+![Screenshot](https://raw.githubusercontent.com/LouisJenkinsCS/DSL/master/screenshots/ast.png)
+
+DSL is a very minimal domain specific language written for a Theory of Computation
+course. For my final project, I decided to make it interesting by taking the
+opportunity to learn more about how languages are made, and how else then by making
+one yourself. In this project, I used YACC and Bison (in this case, a particular
+extension for Java) to teach myself the basics of compiler design (as my school
+no longer offers this). The DSL also came with a very-minimal text editor that
+showed not only the output of execution, but the Abstract Syntax Tree and the
+Control Flow Graph of the program itself.
 
 
 ### [MoltarOS](https://github.com/LouisJenkinsCS/MoltarOS)
