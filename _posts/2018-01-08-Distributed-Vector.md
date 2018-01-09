@@ -48,6 +48,42 @@ domains as well as arrays. The implementation of domains are as complicated
 (if not more so) than the arrays themselves. Note that since this problem includes
 domains, we must handle domains distributed across an entire cluster as well as
 sparse domains. Without needing to say much, any coarse-grained synchronization
-over the domain and array itself isn't much of a solution.
+over the domain and array itself isn't much of a solution, and fine-grained synchronization
+can come with its own set of problems such as deadlock, livelock, priority inversion,
+only to name a few. To approach a problem that has never been solved, a novel
+solution must be devised.
 
-**TODO**  
+### Distributed Read-Copy-Update (RCU)
+
+While different granularities of synchronization each come with their own set
+of problems, it is needed to some extent. I have devised a something similar to
+RCU, a synchronization technique that allow for concurrent readers *during* a write.
+It should be noted that RCU differs from a reader-writer lock in that a reader-writer
+lock requires full mutual exclusion for writers, while RCU does not; this comes
+at the expense of writes becoming extremely expensive, likely having to clone parts
+or the entirety of the data it is protecting, updating the clone, atomically setting
+the cloned instance, and then adding on the cost of waiting for concurrent readers
+using the original to finish before disposing of it. To give a more pseudo-code
+look at what RCU looks like...
+
+```chpl
+// Read
+var instance = getCurrentInstance();
+// Copy
+var newInstance = clone(instance);
+// Update
+modify(newInstance);
+updateCurrentInstance(newInstance);
+```
+
+The above assumes that `getCurrentInstance` and `updateCurrentInstance` are
+atomic. This algorithm, while trivial, comes with its own set of problems, most
+importantly: "What happens to the old instance?". In a garbage collected language
+this is simple as "the garbage collector collects it", but as this is Chapel, we
+must perform the painstaking task of memory management ourselves. As well, unlike
+other RCU implementations, we are targeting distributed architectures here, with
+possible heterogeneity, and as such we need to have our memory management be as
+abstract as possible, far from hardware and kernel-level barriers; we must create
+a distributed barrier that both readers and writers respect.
+
+**TODO**
