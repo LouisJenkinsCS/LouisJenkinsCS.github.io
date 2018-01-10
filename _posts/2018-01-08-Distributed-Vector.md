@@ -86,4 +86,63 @@ possible heterogeneity, and as such we need to have our memory management be as
 abstract as possible, far from hardware and kernel-level barriers; we must create
 a distributed barrier that both readers and writers respect.
 
+#### Ensuring Data Integrity
+
+Before discussing the intricate details of barriers, we must remember that we are
+designing this, not solely for the sake of implementing a Distributed RCU algorithm,
+but to solve a problem. Our problem is creating a distributed container that
+allows indexing (read) while being resizable (write); while this may seem obvious,
+it should be noted that indexing can return a non-constant reference that can
+be written to. To provide an example of a problem that this can cause...
+
+```
+     Reader              |     Writer
+   --------------------- | ------------------
+1.  acquireRead()        | acquireWrite()
+2.  var instance = ...   | var instance = ...
+3.                       | var newInstance = clone(instance)
+4.  data[idx] = elem     | modify(newInstance)
+5.  releaseRead()        | updateCurrentInstance(newInstance)
+```
+
+On line 1 and 2, our reader obtains the current instance around the time our
+writer has acquired his rights to perform it's update. On line 3, we assume that
+the clone is sufficient enough to provide a perfect duplicate of the instance.
+Now the first issue occurs on line 4, where the reader performs their update
+through the reference returned from the data structure; note again that this is
+still a read, as the reader's update is being performed through a reference, not
+by updating the actual structure itself. The writer's clone is now differs from
+the original, potentially even before it performs its own modifications. Now,
+on line 5, the reader releases their reader privileges and the writer atomically
+updates the current instance with an inaccurate copy.
+
+This problem is the sole reason we must design not only the Distributed RCU
+algorithm, but an entirely new container; had we used Chapel arrays, distributed
+or even locally, we would experience this problem. In fact, any data structure
+or algorithm that copies data by-value is subject to this issue. Our solution to
+this problem will be discussed later.
+
+#### A Tale of Two Instances
+
+TODO
+
+#### Read and Write Barriers
+
+So what do we mean by 'barrier'? The term barrier is rather ambiguous,
+referring to anything from synchronization primitives, to memory ordering,
+to even Garbage Collection. In our case, it is similar to the 'write barrier'
+of a Garbage Collector, in that it is code that must be executed before proceeding.
+In a way, it is a 'barrier' in that it prevents advancing, but in some conditional
+way like "you may only advance after performing some task". In our case, we have
+two barriers, a 'read' and a 'write' barrier.
+
+The 'read' barrier is one in which must be the least expensive and must be
+non-blocking. Our 'read' barrier performs one simple task: incrementing some counter.
+For each node, we manage a set of two read counters (the reasoning behind having
+two will be made clear later), which each reader will increment.
+
+### Performance
+
+![RCU vs Synchronization]({{ site.baseurl }}/images/RCUvsSyncArray.png).
+
 **TODO**
