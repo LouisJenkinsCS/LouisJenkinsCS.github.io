@@ -7,7 +7,7 @@ title: "Designing a distributed, resizable, and indexable container for Chapel"
 A large part of my Google Summer of Code experience has been solving problems
 in areas others either aren't interested in solving or weren't able to solve,
 and a big one is the problem of distributed arrays and resizing. Currently,
-Chapel's arrays, distributed or not, are extremely complicated (and that is
+Chapel's arrays, distributed or not, are extremely complex (and that is
 no exaggeration) and focused on providing the most performance for common
 use-cases, which is entirely fair and the smartest thing to do; unfortunately
 my use-cases are anything but 'common', and in fact are for very niche and
@@ -44,7 +44,7 @@ mind is that if we wanted to resize `arr1`, we would have to resize `dom` which
 will consequently resize `arr2`. Now this is easily remedied by giving each array
 its own distinct domain, but there is another issue. If a domain is resized, the
 arrays using said domains become unsafe, so this becomes an issue for resizable
-domains as well as arrays. The implementation of domains are as complicated
+domains as well as arrays. The implementation of domains are as complex
 (if not more so) than the arrays themselves. Note that since this problem includes
 domains, we must handle domains distributed across an entire cluster as well as
 sparse domains. Without needing to say much, any coarse-grained synchronization
@@ -141,12 +141,12 @@ although this does not come without its own set of problems.
 
 #### Ensuring Data Integrity
 
-Before discussing the intricate details of barriers, we must remember that we are
-designing this, not solely for the sake of implementing a Distributed RCU algorithm,
-but to solve a problem. Our problem is creating a distributed container that
-allows indexing (read) while being resizable (write); while this may seem obvious,
-it should be noted that indexing can return a non-constant reference that can
-be written to. To provide an example of a problem that this can cause...
+As a reminder we are designing this, not solely for the sake of implementing
+a Distributed RCU algorithm, but to solve a problem. Our problem is creating a
+distributed container that allows indexing (read) while being resizable (write);
+while this may seem obvious, it should be noted that indexing can return a
+non-constant reference that can be written to. To provide an example of a problem
+that this can cause, imagine we have a reader and writer operating concurrently.
 
 ```
      Reader              |     Writer
@@ -154,7 +154,7 @@ be written to. To provide an example of a problem that this can cause...
 1.  acquireRead()        | acquireWrite()
 2.  var instance = ...   | var instance = ...
 3.                       | var newInstance = clone(instance)
-4.  data[idx] = elem     | modify(newInstance)
+4.  instance[idx] = elem | modify(newInstance)
 5.  releaseRead()        | updateCurrentInstance(newInstance)
 ```
 
@@ -172,14 +172,47 @@ updates the current instance with an inaccurate copy.
 This problem is the sole reason we must design not only the Distributed RCU
 algorithm, but an entirely new container; had we used Chapel arrays, distributed
 or even locally, we would experience this problem. In fact, any data structure
-or algorithm that copies data by-value is subject to this issue. Our solution to
-this problem will be discussed later.
+or algorithm that copies data by-value is subject to this issue.
 
-TODO
+##### Recycled Instances, Recycled Memory
 
+Like the instances themselves, the memory that they are composed of are also
+recycled. We accomplish this by allocating data in chunks of a specific size.
+Chunks are allocated in a round-robin fashion, where each privatized instance
+maintains a wide-pointer to each chunk in the same exact order. For example,
+if we have 4 nodes with a chunk size of 1024 elements, allocating 1M elements
+would result in 256 chunks for each node, similar to block-cyclic distribution.
+By maintaining the ordering of each chunk, indexing will be deterministic across
+the entire cluster, and by having all privatized instances use pointers to the
+chunks rather than embed the chunks of data themselves, we make it easy to clone
+them when it is time to perform the update. Furthermore, this optimization comes
+with the added benefit of having one less round-trip, as a chunk can be directly
+accessed through any given privatized instance. One further optimization that is
+not yet employed but in theory will yield further improvements, is to use a wide-pointer
+to the chunk and utilizing Chapel's low-level 'array_get' and 'array_put' primitives
+instead of class fields.
 
 ### Performance
 
+Below we present our performance for a simple benchmark. Our goal is merely to provide
+resizing and indexing in a way that is thread-safe and scalable, and so its design
+is much less complex than that of Chapel's array and domains. In our benchmark,
+we allocate enough space for 1 million elements prior to beginning, and we only
+test indexing into random places in the array. The benchmark makes use of a framework
+based off of Go's, where it will start small and increase until a certain time elapses.
+Below is the result in operation per second. We compare our RCU-like array
+to both a coarse-grained synchronized and an unsynchronized Chapel distributed array.
+The synchronized emulates cases, albeit naive cases, where we acquire a lock for each access,
+such as when the domain can be resized by other concurrent tasks. The unsynchronized
+emulates cases we know that we only perform indexing without concern for resizing.
+
 ![RCU vs Synchronization]({{ site.baseurl }}/images/RCUvsSyncArray.png).
 
-**TODO**
+Surprisingly, the RCU array actually won, even over the unsynchronized. This is
+due to implementation of the data structure, as the RCU-like array only supports
+a single operation (indexing) while resizing. The synchronized array requires
+mutual exclusion on a single lock that *all* nodes share, and is extremely
+*naive*, and so the result is of no surprise.
+
+**Note:** To reiterate, I am not saying my data structure is better or faster
+than Chapel's array in all cases, it is just specialized for a single task.
