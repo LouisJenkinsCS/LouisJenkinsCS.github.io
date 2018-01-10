@@ -86,6 +86,59 @@ possible heterogeneity, and as such we need to have our memory management be as
 abstract as possible, far from hardware and kernel-level barriers; we must create
 a distributed barrier that both readers and writers respect.
 
+#### A Tale of Two Instances
+
+We make a rather crucial optimization here, where it's benefits will become clearer
+later. So long as we have a single writer at any given time, readers can be
+reading only one of two instances, the 'old' original instance or the 'new'
+instance that a writer installed during their update. As we know that there can
+be at most two instances, we maintain a set of two instances where one is the 'old'
+instance, which will later be recycled becoming the 'new' instance during the next
+write operation. Furthermore, each instance is privatized in a way described later,
+so that each node maintains their own set of instances without requiring extra
+communication. This little optimization actually goes a long way, as will become apparent soon.
+
+#### Read and Write Barriers
+
+So what do we mean by 'barrier'? The term barrier is rather ambiguous,
+referring to anything from synchronization primitives, to memory ordering,
+to even Garbage Collection. In our case, it is similar to the 'write barrier'
+of a Garbage Collector, in that it is code that must be executed before proceeding.
+In a way, it is a 'barrier' in that it prevents advancing, but in some conditional
+way like "you may only advance after performing some task". In our case, we have
+two barriers, a 'read' and a 'write' barrier.
+
+The 'read' barrier is one in which must be the least expensive and must be
+non-blocking. Our 'read' barrier performs one simple task: incrementing some counter.
+For each node, we manage a set of two read counters, one for each instance, that
+describes the current number of readers accessing that data. So long as the reader
+count is positive, a writer is not allowed to finish their operation, since if
+they were it would become possible that another writer could begin their update
+while readers are still accessing the older instance. Readers must keep track of
+which reader counter they have incremented, either tangibly or through some kind
+of Task-Local Storage (currently unavailable in Chapel) as they are required to
+decrement the appropriate counter when finished. This follows the constraint that
+readers must never cause writers to starve, as the writer will only wait on
+readers using the older instance and not readers working on the newer instance.
+Finally, it should be emphasized that the reader count is privatized in a way that
+each node has their own reader counter, hence readers do not cause inter-node
+communications.
+
+The 'write' barrier is not only expensive, being a blocking operation, but it
+is also IO-bound as it handles the communications that readers get to ignore. There
+can be only a single writer at any given time, and so requires mutual exclusion,
+not just with respect to their node but the entire cluster. Furthermore, as readers
+update privatized reader counts and avoid communications, and the fact that each
+node has their own set of privatized instances, writers are given the daunting
+task of performing communication to make up for it. The writer must perform the
+RCU update for each individual node; this is safe as it is valid for readers to
+read and use either one of the instances in their set. The writer must then wait
+for each node's reader count for the older instance to become zero to finally
+return. This makes writes not only expensive, but unfeasible if writes are used
+even remotely frequently, but it gives readers almost zero overhead. This is
+why we allow readers who index into the map to perform updates via reference,
+although this does not come without its own set of problems.
+
 #### Ensuring Data Integrity
 
 Before discussing the intricate details of barriers, we must remember that we are
@@ -122,24 +175,8 @@ or even locally, we would experience this problem. In fact, any data structure
 or algorithm that copies data by-value is subject to this issue. Our solution to
 this problem will be discussed later.
 
-#### A Tale of Two Instances
-
 TODO
 
-#### Read and Write Barriers
-
-So what do we mean by 'barrier'? The term barrier is rather ambiguous,
-referring to anything from synchronization primitives, to memory ordering,
-to even Garbage Collection. In our case, it is similar to the 'write barrier'
-of a Garbage Collector, in that it is code that must be executed before proceeding.
-In a way, it is a 'barrier' in that it prevents advancing, but in some conditional
-way like "you may only advance after performing some task". In our case, we have
-two barriers, a 'read' and a 'write' barrier.
-
-The 'read' barrier is one in which must be the least expensive and must be
-non-blocking. Our 'read' barrier performs one simple task: incrementing some counter.
-For each node, we manage a set of two read counters (the reasoning behind having
-two will be made clear later), which each reader will increment.
 
 ### Performance
 
