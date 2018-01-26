@@ -4,9 +4,9 @@ title: Publications
 permalink: /publications/
 ---
 
-### [Redesigning Go’s Built-In Map to Support Concurrent Operations]({{ site.baseurl }}/publications/PACT2017.pdf)
+## Published
 
-#### Status: Published
+### [Redesigning Go’s Built-In Map to Support Concurrent Operations]({{ site.baseurl }}/publications/PACT2017.pdf)
 
 #### Venue: PACT 2017
 
@@ -33,3 +33,28 @@ semantics. In experimentation in both Java and Go, the IHT performs well, reachi
 up to 7× the performance of the state of the art in Go at 24 threads. In Java, the
 IHT performs on par with the best Java maps in the research literature, while providing
 iteration and other features absent from other maps.
+
+## Manuscript
+
+### [RCUArray: An RCU-like Parallel-Safe Distributed Resizable Array]({{ site.baseurl }}/publications/RCUArray.pdf)
+
+#### Status: Submitted
+
+#### Venue: CHIUW 2018 (IPDPS)
+
+#### Authors: Louis Jenkins
+
+#### Abstract
+
+I present RCUArray, a parallel-safe distributed
+array that allows for read and update operations to occur
+concurrently with a resize. As Chapel lacks thread-local and
+task-local storage, I also present a novel extension to the ReadCopy-Update
+synchronization strategy that functions without
+the need for either. At 32-nodes with 44-cores per node the
+RCUArray’s relative performance to an unsynchronized Chapel
+block distributed array is as little as 20% for read and update
+operations, but with runtime support for zero-overhead RCU
+and thread-local or task-local storage it has the potential to be
+near-equivalent; relative performance for resize operations is as
+much as 3600% due to the novel design.
