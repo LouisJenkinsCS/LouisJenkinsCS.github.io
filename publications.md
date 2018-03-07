@@ -38,7 +38,7 @@ iteration and other features absent from other maps.
 
 ### [RCUArray: An RCU-like Parallel-Safe Distributed Resizable Array]({{ site.baseurl }}/publications/RCUArray.pdf)
 
-#### Status: Submitted
+#### Status: To Appear
 
 #### Venue: CHIUW 2018 (IPDPS)
 
