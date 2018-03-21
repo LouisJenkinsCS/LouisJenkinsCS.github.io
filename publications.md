@@ -38,7 +38,7 @@ iteration and other features absent from other maps.
 
 ### [RCUArray: An RCU-like Parallel-Safe Distributed Resizable Array]({{ site.baseurl }}/publications/RCUArray.pdf)
 
-#### Status: To Appear
+#### Status: Accepted
 
 #### Venue: CHIUW 2018 (IPDPS)
 
@@ -46,15 +46,14 @@ iteration and other features absent from other maps.
 
 #### Abstract
 
-I present RCUArray, a parallel-safe distributed
-array that allows for read and update operations to occur
-concurrently with a resize. As Chapel lacks thread-local and
-task-local storage, I also present a novel extension to the ReadCopy-Update
-synchronization strategy that functions without
-the need for either. At 32-nodes with 44-cores per node the
-RCUArray’s relative performance to an unsynchronized Chapel
-block distributed array is as little as 20% for read and update
-operations, but with runtime support for zero-overhead RCU
-and thread-local or task-local storage it has the potential to be
-near-equivalent; relative performance for resize operations is as
-much as 3600% due to the novel design.
+Presented in this work is RCUArray, a parallel-safe distributed array that
+allows for read and update operations to occur concurrently with a resize via
+Read-Copy-Update. Also presented is a novel extension to Epoch-Based Reclamation
+(EBR) that functions without the requirement for either Task-Local or
+Thread-Local storage, as the Chapel language currently lacks a notion of either.
+Also presented is an extension to Quiescent State-Based Reclamation (QSBR) that
+is implemented in Chapel's runtime and allows for parallel-safe memory
+reclamation of arbitrary data. At 32-nodes with 44-cores per node, the RCUArray
+with EBR provides only 20% of the performance of an unsynchronized Chapel block
+distributed array for read and update operations but near-equivalent with QSBR;
+in both cases RCUArray is up to 40x faster for resize operations.
