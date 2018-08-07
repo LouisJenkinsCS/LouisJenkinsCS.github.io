@@ -34,15 +34,13 @@ up to 7× the performance of the state of the art in Go at 24 threads. In Java, 
 IHT performs on par with the best Java maps in the research literature, while providing
 iteration and other features absent from other maps.
 
-## Manuscript
-
 ### [RCUArray: An RCU-like Parallel-Safe Distributed Resizable Array]({{ site.baseurl }}/publications/RCUArray.pdf)
 
-#### Status: Accepted
-
-#### Venue: CHIUW 2018 (IPDPS)
+#### Venue: CHIUW 2018 (IPDPSW)
 
 #### Authors: Louis Jenkins
+
+#### [Presentation]({{ site.baseurl }}/presentations/CHGL.pdf)
 
 #### Abstract
 
@@ -57,3 +55,23 @@ reclamation of arbitrary data. At 32-nodes with 44-cores per node, the RCUArray
 with EBR provides only 20% of the performance of an unsynchronized Chapel block
 distributed array for read and update operations but near-equivalent with QSBR;
 in both cases RCUArray is up to 40x faster for resize operations.
+
+## Manuscript
+
+### [Chapel HyperGraph Library (CHGL)]({{ site.baseurl }}/publications/CHGL.pdf) ~To Appear~
+
+#### Venue: HPEC-2018
+
+#### Authors: Louis Jenkins, Marcin Zalewski, Sinan Aksoy, Hugh Medal, Cliff Joslyn,...
+
+#### Abstract
+
+We present the Chapel Hpergraph Library (CHGL), a library for hypergraph computation in the emerging Chapel language. 
+Hypergraphs generalize graphs, where a hypergraph edge can connect any number of vertices. Thus, hypergraphs capture 
+high-order, high-dimensional interactions between multiple entities that are not directly expressible in graphs. 
+CHGL is designed to provide HPC-class computation with high-level abstractions and modern language support for parallel 
+computing on shared memory and distributed memory systems. In this paper we describe the design of CHGL, including ﬁrst 
+principles, data structures, and algorithms, and we present preliminary performance results based on a graph generation 
+use case. We also discuss ongoing work of codesign with Chapel, which is currently centered on improving performance.
+
+
