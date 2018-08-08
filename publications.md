@@ -60,6 +60,8 @@ in both cases RCUArray is up to 40x faster for resize operations.
 
 ### [Chapel HyperGraph Library (CHGL)]({{ site.baseurl }}/publications/CHGL.pdf) ~To Appear~
 
+#### [Poster @PNNL]({{ site.baseurl }}/posters/CHGL.pdf)
+
 #### Venue: HPEC-2018
 
 #### Authors: Louis Jenkins, Marcin Zalewski, Sinan Aksoy, Hugh Medal, Cliff Joslyn,...
