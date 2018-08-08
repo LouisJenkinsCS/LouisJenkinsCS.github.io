@@ -74,4 +74,13 @@ computing on shared memory and distributed memory systems. In this paper we desc
 principles, data structures, and algorithms, and we present preliminary performance results based on a graph generation 
 use case. We also discuss ongoing work of codesign with Chapel, which is currently centered on improving performance.
 
+### Chapel Aggregation Library (CAL) ~Declassified~
+
+#### [Presentation @Cray]({{ site.baseurl }}/publications/CAL.pdf)
+
+#### Authors: (TBA)
+
+#### Abstract 
+
+**(TBA)**
 
