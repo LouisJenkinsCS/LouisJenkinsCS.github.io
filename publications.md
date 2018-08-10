@@ -40,7 +40,7 @@ iteration and other features absent from other maps.
 
 #### Authors: Louis Jenkins
 
-#### [Presentation]({{ site.baseurl }}/presentations/CHGL.pdf)
+#### [Presentation]({{ site.baseurl }}/presentations/RCUArray.pdf)
 
 #### Abstract
 
