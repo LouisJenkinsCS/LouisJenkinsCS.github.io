@@ -1,10 +1,12 @@
 ---
 layout: page
 title: Publications
+
 permalink: /publications/
 ---
 
 ## Published
+
 
 ### [Redesigning Go’s Built-In Map to Support Concurrent Operations]({{ site.baseurl }}/publications/PACT2017.pdf)
 
@@ -58,6 +60,7 @@ in both cases RCUArray is up to 40x faster for resize operations.
 
 ## Manuscript
 
+
 ### [Chapel HyperGraph Library (CHGL)]({{ site.baseurl }}/publications/CHGL.pdf) ~To Appear~
 
 #### [Poster @PNNL]({{ site.baseurl }}/posters/CHGL.pdf)
@@ -76,13 +79,31 @@ computing on shared memory and distributed memory systems. In this paper we desc
 principles, data structures, and algorithms, and we present preliminary performance results based on a graph generation 
 use case. We also discuss ongoing work of codesign with Chapel, which is currently centered on improving performance.
 
-### Chapel Aggregation Library (CAL) ~Declassified~
+### [Chapel Aggregation Library (CAL)]({{ site.baseurl }}/publications/CAL.pdf) ~Submitted~
 
-#### [Presentation @Cray]({{ site.baseurl }}/publications/CAL.pdf)
+#### [Presentation @Cray]({{ site.baseurl }}/presentations/CAL.pdf)
 
-#### Authors: (TBA)
+#### Authors: Louis Jenkins, Marcin Zalewski, Michael Ferguson
 
-#### Abstract 
+#### Abstract
 
-**(TBA)**
+Fine-grained communication is a fundamental principle of the Partitioned Global
+Address Space (PGAS), which serves to simplify creating and reasoning about
+programs in the distributed context. However, per-message overheads of
+communication rapidly accumulate in programs that generate a high volume of
+small messages, limiting the effective bandwidth and potentially increasing
+latency if the messages are generated at a much higher rate than the effective
+network bandwidth. One way to reduce such ﬁne-grained communication is by
+coarsening the granularity by aggregating data, or by buffering the smaller
+communications together in a way that they can be handled in bulk. Once these
+communications are buffered, the multiple units of the aggregated data can be
+combined into fewer units in an optimization called coalescing.  
 
+The Chapel Aggregation Library (CAL) provides a straightforward approach to
+handling both aggregation and coalescing of data in Chapel and aims to be as
+generic and minimal as possible to maximize code reuse and minimize its increase
+in complexity on user applications. CAL provides a high-performance,
+distributed, and parallel-safe solution that is entirely written as a Chapel
+module. In addition to being easy to use, CAL improves the performance of some
+benchmarks by one to two orders of magnitude over naive implementations at 32
+compute-nodes on a Cray XC50.
