@@ -81,7 +81,7 @@ use case. We also discuss ongoing work of codesign with Chapel, which is current
 
 ### [Chapel Aggregation Library (CAL)]({{ site.baseurl }}/publications/CAL.pdf) ~Submitted~
 
-#### DECLASSIFIED
+#### Presentation @Cray
 
 #### Authors: Louis Jenkins, Marcin Zalewski, Michael Ferguson
 
