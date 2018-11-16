@@ -58,9 +58,6 @@ with EBR provides only 20% of the performance of an unsynchronized Chapel block
 distributed array for read and update operations but near-equivalent with QSBR;
 in both cases RCUArray is up to 40x faster for resize operations.
 
-## Manuscript
-
-
 ### [Chapel HyperGraph Library (CHGL)]({{ site.baseurl }}/publications/CHGL.pdf) ~To Appear~
 
 #### [Poster @PNNL]({{ site.baseurl }}/posters/CHGL.pdf)
@@ -79,9 +76,11 @@ computing on shared memory and distributed memory systems. In this paper we desc
 principles, data structures, and algorithms, and we present preliminary performance results based on a graph generation 
 use case. We also discuss ongoing work of codesign with Chapel, which is currently centered on improving performance.
 
-### [Chapel Aggregation Library (CAL)]({{ site.baseurl }}/publications/CAL.pdf) ~Submitted~
+### [Chapel Aggregation Library (CAL)]({{ site.baseurl }}/publications/CAL.pdf) ~To Appear~
 
 #### Presentation @Cray
+
+#### [Presentation @SC18]({{ site.baseurl }}/presentations/CAL-SC18.pdf)
 
 #### Authors: Louis Jenkins, Marcin Zalewski, Michael Ferguson
 
@@ -107,3 +106,6 @@ distributed, and parallel-safe solution that is entirely written as a Chapel
 module. In addition to being easy to use, CAL improves the performance of some
 benchmarks by one to two orders of magnitude over naive implementations at 32
 compute-nodes on a Cray XC50.
+
+
+
