@@ -78,8 +78,6 @@ use case. We also discuss ongoing work of codesign with Chapel, which is current
 
 ### [Chapel Aggregation Library (CAL)]({{ site.baseurl }}/publications/CAL.pdf) ~To Appear~
 
-#### Presentation @Cray
-
 #### [Presentation @SC18]({{ site.baseurl }}/presentations/CAL-SC18.pdf)
 
 #### Authors: Louis Jenkins, Marcin Zalewski, Michael Ferguson
@@ -107,5 +105,25 @@ module. In addition to being easy to use, CAL improves the performance of some
 benchmarks by one to two orders of magnitude over naive implementations at 32
 compute-nodes on a Cray XC50.
 
+## To Appear
 
+### [High Performance Hypergraph Analytics of Domain Name System Relationships]({{ site.baseurl }}/publications/HICSS.pdf)
 
+#### [Presentation @HICSS]({{ site.baseurl }}/presentations/HICSS.pdf)
+
+#### Authors: Cliff Joslyn, ...,  Louis Jenkins, et al.
+
+#### Abstract
+
+We report on the use of novel mathematical methods in hypergraph analytics over a
+large quantity of DNS data. Hypergraphs generalize graphs, as used in network science,
+to better model complex multiway relations in cyber data. Specifically, casting DNS data
+from Georgia Tech’s ActiveDNS repository as hypergraphs allows us to fully represent the
+interactions between collections of domains and IP addresses. To facilitate large-scale
+analytics, we fielded an analytical pipeline of two capabilities. HyperNetX (HNX) is a
+Python package for the exploration and visualization of hypergraphs, acting as a frontend.
+For the backend, the Chapel HyperGraph Library (CHGL) is a library for high performance
+hypergraph analytics written in the exascale programming language Chapel. CHGL was used
+to process gigascale DNS data, performing compute-intensive calculations for data reduction
+and segmentation. Identified portions are then sent to HNX for both exploratory analysis
+and knowledge discovery targeting known tactics, techniques, and procedures.
