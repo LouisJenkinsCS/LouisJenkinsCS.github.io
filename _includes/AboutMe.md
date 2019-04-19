@@ -1,4 +1,11 @@
+I obtained my Bachelors of Science degree in Computer Science from [Bloomsburg University](http://www.bloomu.edu/computer-science),
+and currently am pursuing my PhD in Computer Science at the [University of Rochester](https://www.cs.rochester.edu). My advisor is
+[Michael L. Scott](https://www.cs.rochester.edu/~scott/) and my current line of research, as stated 
+[here](https://www.cs.rochester.edu/news-events/news/2019-04-17_jenkins_csgf.html), is focused on leveraging persistent memory
+to enhance both productivity and performance of fault-tolerant systems in high-performance computing applications. I am a fellow
+of the [Department of Energy's Computational Science Graduate Research Fellowship](https://www.krellinst.org/csgf/).
 
-I am a recent Computer Science graduate from Bloomsburg University and soon to be PhD student at the University of Rochester with hopes to concentrate in High-Performance Computing. I have interests and experience in the low-level areas such as compilers, operating systems, and the design and implementation of high-performance data structures. My love for computer science extends to both theory and application, and as such I am very fond of producing the higher-level abstractions that provide quality-of-life.
-
-I am a previous [Google Summer of Code student](https://summerofcode.withgoogle.com/archive/2017/projects/6530769430249472/) for Cray's Chapel programming language, and I am now a [Rails Girls Summer of Code coach](https://railsgirlssummerofcode.org/blog/2018-08-07-team-sectumsempra). I currently am an external collaborator for [Pacific Northwest National Laboratory (PNNL)](https://www.pnnl.gov/) and [Northwest Institute for Advanced Computing (NIAC)](https://www.niac-uw.org/), for a collaborative project between Cray and PNNL on improving the Chapel programming language to better support irregular applications such as graph algorithms.
+I have participated as a student in Google Summer of Code 2017 for Cray's exascale programming language called 'Chapel', where I created
+the language's first [Distributed Data Structures](https://summerofcode.withgoogle.com/archive/2017/projects/6530769430249472/) that enabled Global-View Programming, similar to Chapel's distributed arrays. I later became a [Rails Girls Summer of Code coach](https://railsgirlssummerofcode.org/blog/2018-08-07-team-sectumsempra) for Chapel in 2018 and will now be a [Google Summer of Code mentor](https://chapel-lang.org/gsoc/ideas.html) for Chapel in 2019. I am also a Chapel-specialist and part-time consultant for the
+[Department of Energy's Pacific Northwest National Laboratory](https://www.pnnl.gov/science/staff/staff_info.asp?staff_num=9451), where
+I am working on [Chapel HyperGraph Library (CHGL)](https://www.osti.gov/doecode/biblio/18401) and in collaboration with [HyperNetX (HNX)](https://www.osti.gov/doecode/biblio/22160-pnnlhypernetx).
