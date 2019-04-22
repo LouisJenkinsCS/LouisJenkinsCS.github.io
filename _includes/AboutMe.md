@@ -3,7 +3,7 @@ and currently am pursuing my PhD in Computer Science at the [University of Roche
 [Michael L. Scott](https://www.cs.rochester.edu/~scott/) and my current line of research, as stated 
 [here](https://www.cs.rochester.edu/news-events/news/2019-04-17_jenkins_csgf.html), is focused on leveraging persistent memory
 to enhance both productivity and performance of fault-tolerant systems in high-performance computing applications. I am a fellow
-of the [Department of Energy's Computational Science Graduate Research Fellowship](https://www.krellinst.org/csgf/).
+of the [Department of Energy's Computational Science Graduate Fellowship](https://www.krellinst.org/csgf/).
 
 I have participated as a student in Google Summer of Code 2017 for Cray's exascale programming language called 'Chapel', where I created
 the language's first [Distributed Data Structures](https://summerofcode.withgoogle.com/archive/2017/projects/6530769430249472/) that enabled Global-View Programming, similar to Chapel's distributed arrays. I later became a [Rails Girls Summer of Code coach](https://railsgirlssummerofcode.org/blog/2018-08-07-team-sectumsempra) for Chapel in 2018 and will now be a [Google Summer of Code mentor](https://chapel-lang.org/gsoc/ideas.html) for Chapel in 2019. I am also a Chapel-specialist and part-time consultant for the
