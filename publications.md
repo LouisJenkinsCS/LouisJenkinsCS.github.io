@@ -105,8 +105,6 @@ module. In addition to being easy to use, CAL improves the performance of some
 benchmarks by one to two orders of magnitude over naive implementations at 32
 compute-nodes on a Cray XC50.
 
-## To Appear
-
 ### [High Performance Hypergraph Analytics of Domain Name System Relationships]({{ site.baseurl }}/publications/HICSS.pdf)
 
 #### [Presentation @HICSS]({{ site.baseurl }}/presentations/HICSS.pdf)
