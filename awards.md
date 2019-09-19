@@ -24,3 +24,15 @@ The 2017 awards were also sponsored by Microsoft Research.
 #### Certificate
 
 ![CRA's Award]({{ site.baseurl }}/images/CRA_Award.jpg)
+
+### Pacific Northwest National Laboratory - Outstanding Performance Award
+
+I was nominated by Cliff Joslyn, Chief Scientist for Knowledge Sciences at Pacific Northwest
+National Laboratory, for my work on producing the prototype of the CHGL <~> HNX pipeline during
+ridiculously tight deadline of two weeks, while also doing my first year of graduate school.
+I believe I worked at least 80 hours those two weeks and worked sun-up sun-down, and so this
+is very well-deserved.
+
+#### Certificate
+
+![Outstanding Performance Award]({{ site.baseurl }}/images/outstanding-performance-award.jpg)
