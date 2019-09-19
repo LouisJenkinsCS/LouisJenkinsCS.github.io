@@ -4,6 +4,20 @@ title: Projects
 permalink: /projects/
 ---
 
+### [Quiescent State-Based Reclamation](https://github.com/chapel-lang/chapel-attic/tree/collaborators/QSBR)
+
+A three month effort to add concurrent-safe memory reclamation to the runtime of the Chapel programming
+language. Originally developed as a near zero-cost abstraction to handle reclamation of a component
+of the runtime, called _privatization_, which is responsible for keeping local copies of a data structure
+on each compute node, as it currently leaks whenever the table of objects are expanded. This effort
+was done in collaboration with Michael Ferguson, and also eventually lead to the 
+[RCUArray]({{ site.baseurl }}/publications/RCUArray.pdf)) abstraction that I published later. While it 
+was eventually merged, it was later [reverted](https://github.com/chapel-lang/chapel/pull/8842) due
+to issues with portability on a select few systems. At time, I no longer had time to work on the project
+and so it stagnated. Currently, it is hosted in Chapel's 
+['attic'](https://github.com/chapel-lang/chapel-attic/tree/collaborators/QSBR), an archive of research work
+that is no longer being worked on.
+
 ### [Distributed Data Structures](https://github.com/LouisJenkinsCS/Distributed-Data-Structures)
 
 For [Google Summer of Code](https://summerofcode.withgoogle.com/projects/#5363251622707200)
