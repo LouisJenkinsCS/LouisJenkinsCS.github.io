@@ -7,12 +7,15 @@ permalink: /publications/
 
 ## Published
 
-
 ### [Redesigning Go’s Built-In Map to Support Concurrent Operations]({{ site.baseurl }}/publications/PACT2017.pdf)
 
-#### Venue: PACT 2017
-
 #### Authors: Louis Jenkins, Tingzhe Zhou, and Michael F. Spear
+
+#### [Presentation @ NSF REU]({{ site.baseurl }}/presentations/go_concurrent_map.pdf)
+
+#### Presentation @ PACT 2017 (Unavailable)
+
+#### Venue: PACT 2017
 
 #### Abstract
 
@@ -38,11 +41,11 @@ iteration and other features absent from other maps.
 
 ### [RCUArray: An RCU-like Parallel-Safe Distributed Resizable Array]({{ site.baseurl }}/publications/RCUArray.pdf)
 
-#### Venue: CHIUW 2018 (IPDPSW)
-
 #### Authors: Louis Jenkins
 
 #### [Presentation]({{ site.baseurl }}/presentations/RCUArray.pdf)
+
+#### Venue: [The 5th Annual Chapel Implementers and Users Workshop 2018](https://chapel-lang.org/CHIUW2018-cfp.html)
 
 #### Abstract
 
@@ -58,13 +61,13 @@ with EBR provides only 20% of the performance of an unsynchronized Chapel block
 distributed array for read and update operations but near-equivalent with QSBR;
 in both cases RCUArray is up to 40x faster for resize operations.
 
-### [Chapel HyperGraph Library (CHGL)]({{ site.baseurl }}/publications/CHGL.pdf) ~To Appear~
+### [Chapel HyperGraph Library (CHGL)]({{ site.baseurl }}/publications/CHGL.pdf)
+
+#### Authors: Louis Jenkins, Marcin Zalewski, Sinan Aksoy, Hugh Medal, Cliff Joslyn,...
 
 #### [Poster @PNNL]({{ site.baseurl }}/posters/CHGL.pdf)
 
-#### Venue: HPEC-2018
-
-#### Authors: Louis Jenkins, Marcin Zalewski, Sinan Aksoy, Hugh Medal, Cliff Joslyn,...
+#### Venue: 2018 IEEE High Performance Extreme Computing Conference(HPEC ‘18)
 
 #### Abstract
 
@@ -76,11 +79,13 @@ computing on shared memory and distributed memory systems. In this paper we desc
 principles, data structures, and algorithms, and we present preliminary performance results based on a graph generation 
 use case. We also discuss ongoing work of codesign with Chapel, which is currently centered on improving performance.
 
-### [Chapel Aggregation Library (CAL)]({{ site.baseurl }}/publications/CAL.pdf) ~To Appear~
+### [Chapel Aggregation Library (CAL)]({{ site.baseurl }}/publications/CAL.pdf)
+
+#### Authors: Louis Jenkins, Marcin Zalewski, Michael Ferguson
 
 #### [Presentation @SC18]({{ site.baseurl }}/presentations/CAL-SC18.pdf)
 
-#### Authors: Louis Jenkins, Marcin Zalewski, Michael Ferguson
+#### Venue: [Parallel Applications Workshop, Alternatives To MPI](https://sourceryinstitute.github.io/PAW/PAW-ATM18/indexPAW-ATM18.html)
 
 #### Abstract
 
@@ -107,9 +112,11 @@ compute-nodes on a Cray XC50.
 
 ### [High Performance Hypergraph Analytics of Domain Name System Relationships]({{ site.baseurl }}/publications/HICSS.pdf)
 
+#### Authors: Cliff Joslyn, ...,  Louis Jenkins, et al.
+
 #### [Presentation @HICSS]({{ site.baseurl }}/presentations/HICSS.pdf)
 
-#### Authors: Cliff Joslyn, ...,  Louis Jenkins, et al.
+#### Venue: [HICSS Symposium on Cybersecurity Big Data Analytics](http://www.azsecure-hicss.org)
 
 #### Abstract
 
@@ -125,3 +132,46 @@ hypergraph analytics written in the exascale programming language Chapel. CHGL w
 to process gigascale DNS data, performing compute-intensive calculations for data reduction
 and segmentation. Identified portions are then sent to HNX for both exploratory analysis
 and knowledge discovery targeting known tactics, techniques, and procedures.
+
+### [Chapel Graph Library (CGL)]({{ site.baseurl }}/publications/CGL.pdf)
+
+#### Authors: Louis Jenkins, Marcin Zalewski
+
+#### [Presentation]({{ site.baseurl }}/presentations/CGL.pdf)
+
+#### Venue: [The ACM SIGPLAN 6th Annual Chapel Implementers and Users Workshop](https://chapel-lang.org/CHIUW2019.html)
+
+#### Abstract
+
+In this talk, I summarize prior work on the Chapel HyperGraph Library (CHGL), the Chapel Aggregation Library (CAL), and introduce the more general Chapel Graph Library (CGL). CGL is being designed to enable global-view programming, such that locality is abstracted from the user. CGL is also being designed in a way that is similar to Chapel's multiresolution design philosophy, where graphs are implemented in terms of hyper graphs, and where both the underlying hypergraph and overlying graphs are available for use. Some of the kinds of graphs being designed are bipartite graphs, directed and undirected graphs, and even trees.
+
+## To Appear
+
+### [Graph Algorithms in PGAS: Chapel and UPC++]({{ site.basurl }}/publications/HPEC.pdf)
+
+#### Authors: Louis Jenkins, et al.
+
+#### Venue: [2019 IEEE High Performance Extreme Computing Conference (HPEC ‘19)](http://ieee-hpec.org)
+
+#### Abstract
+
+The Partitioned Global Address Space (PGAS) programming
+model can be implemented either with programming
+language features or with runtime library APIs, each implementation
+favoring different aspects (e.g., productivity, abstraction, flexibility,
+or performance). Certain language and runtime features,
+such as collectives, explicit and asynchronous communication
+primitives, and constructs facilitating overlap of communication
+and computation (such as futures and conjoined futures) can
+enable better performance and scaling for irregular applications,
+in particular for distributed graph analytics. We compare graph
+algorithms in one of each of these environments: the Chapel
+PGAS programming language and the the UPC++ PGAS runtime
+library. We implement algorithms for breadth-first search and
+triangle counting graph kernels in both environments. We discuss
+the code in each of the environments, and compile performance
+data on a Cray Aries and an Infiniband platform. Our results
+show that the library-based approach of UPC++ currently provides
+strong performance while Chapel provides a high-level
+abstraction that, harder to optimize, still provides comparable
+performance.
