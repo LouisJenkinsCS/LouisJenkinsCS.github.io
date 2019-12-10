@@ -145,9 +145,7 @@ and knowledge discovery targeting known tactics, techniques, and procedures.
 
 In this talk, I summarize prior work on the Chapel HyperGraph Library (CHGL), the Chapel Aggregation Library (CAL), and introduce the more general Chapel Graph Library (CGL). CGL is being designed to enable global-view programming, such that locality is abstracted from the user. CGL is also being designed in a way that is similar to Chapel's multiresolution design philosophy, where graphs are implemented in terms of hyper graphs, and where both the underlying hypergraph and overlying graphs are available for use. Some of the kinds of graphs being designed are bipartite graphs, directed and undirected graphs, and even trees.
 
-## To Appear
-
-### [Graph Algorithms in PGAS: Chapel and UPC++]({{ site.basurl }}/publications/HPEC.pdf)
+### [Graph Algorithms in PGAS: Chapel and UPC++]({{ site.baseurl }}/publications/HPEC.pdf)
 
 #### Authors: Louis Jenkins, et al.
 
@@ -175,3 +173,15 @@ show that the library-based approach of UPC++ currently provides
 strong performance while Chapel provides a high-level
 abstraction that, harder to optimize, still provides comparable
 performance.
+
+## Unpublished
+
+### [Networks for High-Performance Computing]({{ site.baseurl }}/../survey/Networks_for_High-Performance_Computing.pdf)
+
+#### Authors: Louis Jenkins
+
+#### Survey for: Computer Networks, Fall 2019
+
+#### Abstract
+
+In high-performance computing (HPC), low-latency and high-bandwidth networks are required to maintain high-performance in a distributed computing environment. According to the Top500, the two most widely-used networks in the top 10 supercomputers are Cray's Aries network interconnect, and Mellanox's Infiniband network interconnect, which both take radically different approaches towards their design. This survey explores the design of each network interconnect, the ways they provide reliability and fault-tolerance, their support for remote direct memory access (RDMA), and analyze the performance of an Infiniband cluster and a Cray-XC50 supercomputer. Finally, the near-future of high-performance interconnect, obtained from an interview with Steve Scott, Chief Technology Officer (CTO) of Cray Inc., a Hewlett Packard Enterprise company, is also examined.
