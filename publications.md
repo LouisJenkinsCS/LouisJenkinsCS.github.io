@@ -174,6 +174,18 @@ strong performance while Chapel provides a high-level
 abstraction that, harder to optimize, still provides comparable
 performance.
 
+## Pending Review
+
+### [Persistent Memory Analysis Tool (PMAT)]({{ site.baseurl }}/../publications/PMAT_EA.pdf)
+
+#### Authors: Louis Jenkins, Michael L. Scott
+
+#### Venue: [11th Annual Non-Volatile Memories Workshop 2020](http://nvmw.ucsd.edu/)
+
+#### Abstract
+
+Intel’s Persistent Memory Development Kit (PMDK) provides two separate tools---pmreorder and pmemcheck---that allow the programmer to explore and verify the consistency of possible states that may be present in persistent memory in the wake of a crash, given that caches may write back values out of order. Unfortunately, these tools are heavy-weight and inefficient, and so we have developed the Persistent Memory Analysis Tool (PMAT), derived from pmemcheck, that enables the simulation and verification of hundreds to thousands of crashes per second for programs of significant size, for an improvement of at least three orders of magnitude. 
+
 ## Unpublished
 
 ### [Networks for High-Performance Computing]({{ site.baseurl }}/../survey/Networks_for_High-Performance_Computing.pdf)
