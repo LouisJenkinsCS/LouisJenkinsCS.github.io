@@ -174,8 +174,6 @@ strong performance while Chapel provides a high-level
 abstraction that, harder to optimize, still provides comparable
 performance.
 
-## Pending Review
-
 ### [Persistent Memory Analysis Tool (PMAT)]({{ site.baseurl }}/../publications/PMAT_EA.pdf)
 
 #### Authors: Louis Jenkins, Michael L. Scott
