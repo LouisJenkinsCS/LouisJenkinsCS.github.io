@@ -195,3 +195,20 @@ Intel’s Persistent Memory Development Kit (PMDK) provides two separate tools--
 #### Abstract
 
 In high-performance computing (HPC), low-latency and high-bandwidth networks are required to maintain high-performance in a distributed computing environment. According to the Top500, the two most widely-used networks in the top 10 supercomputers are Cray's Aries network interconnect, and Mellanox's Infiniband network interconnect, which both take radically different approaches towards their design. This survey explores the design of each network interconnect, the ways they provide reliability and fault-tolerance, their support for remote direct memory access (RDMA), and analyze the performance of an Infiniband cluster and a Cray-XC50 supercomputer. Finally, the near-future of high-performance interconnect, obtained from an interview with Steve Scott, Chief Technology Officer (CTO) of Cray Inc., a Hewlett Packard Enterprise company, is also examined.
+
+### [Compiler Optimization via Superoptimization]({{ site.baseurl }}/../survey/Compiler_Optimization_via_Superoptimization.pdf)
+
+#### Authors: Louis Jenkins
+
+#### Survey for: Synthesis of Systems, Fall 2018
+
+#### Abstract
+
+Program synthesis is a methodology for the synthesis, or creation, of programs from some high-level specification such as
+input-output examples. Such programs can not only be used for the sake of automation and convenience, but also efficiency.
+Compiler infrastructures such as LLVM provide reusable and general-purpose compiler optimizations, but these optimizations
+differ from superoptimization. Where compiler optimizations merely improve existing code, superoptimization seeks to
+synthesize an optimal replacement for the existing code. In the case of domain-specific compiler optimization, where the
+compiler leverages a priori knowledge about the semantics of the language that is being optimized, a superoptimizer will be
+at least as efficient in comparison. In this paper, I explore superoptimization and describe its more practical applications in
+compilers and programming languages.
