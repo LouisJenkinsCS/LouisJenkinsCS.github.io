@@ -27,7 +27,7 @@ In particular, the Chapel-MPI library would be more of a _proxy_ library, or a s
 5. Enter MPI function: MPI communication proceed as expected, utilizing the existing MPI library calls.
 6. Exit MPI function: Terminate non-yielding tasks, communication is now free to continue in Chapel 
 
-### GPU Kernel Generation via Symbolic Execution 
+### GPU Kernel Generation via Symbolic Execution [2020-02-24]
 
 Currently, Chapel, despite having multiple collaborative attempts to adding native GPU support, one from [Nvidia](https://github.com/chapel-lang/chapel-attic/tree/collaborations/gpu) and another from [AMD](https://github.com/rocmarchive/chapel/tree/chpl-hsa-master), and some attempts at promoting productivity towards the integration of GPU kernels with Chapel such as [GPUIterator](https://github.com/ahayashi/chapel-gpu), there has not been an approach towards generating GPU kernels from inside of Chapel. I started the idea for such [work](https://github.com/LouisJenkinsCS/ChapelCL) by taking a python-like approach of creating wrappers that act as symbolic variables, which overload operators and record any and all operations performed on said symbolic variables, generating an abstract syntax tree that can then be analyzed and optimized into a GPU kernel that could be run on the GPU. Example code could be seen below...
 
@@ -57,6 +57,16 @@ for (int __idx__ = 0; __idx__ < arr__size; __idx__++) {
 ```
 
 This isn't too far off from what a GPU kernel could look like, and is merely a proof-of-concept. The output of a optimized GPU kernel could possibly be not too far off. The motivation behind this is to allow users to write high-level GPU kernels using Chapel's syntax and semantics, and have it be translated into a compliant GPU kernel.
+
+### Amortized Time Complexity Profiler [2020-02-24]
+
+Proof of concept can be seen [here](https://gist.github.com/LouisJenkinsCS/2123e21d967ba779c76bf87c05bf88c4). By using performance counters, it is possible to test complexity by graphing the number of instructions executed to the number of operations. This has been rather successful in determining the amortized complexity, and was used in a homework assignment where the students had to ensure time complexity matched the specification. 
+
+![Time Complexity Graph]({{ site.baseurl }}/images/time_complexity.png)
+
+The goal is to perform image classification to automatically classify these curves as a specific complexity (logarithmic, quasi-linear, linear, constant, quadratic, cubic, etc.); more useful would be to perform some kind of linear regression to obtain an actual useful upper-bound equation for time complexity, I.E maybe something as precise as `O(N^2 + N log (N) + N + C)` instead of just `O(N^2)`, perhaps by obtaining a line that _best_ fits the line with the least number of dimensions (for example, dimension 0 is `C`, dimension 1 is `log(N)`, dimension 2 is `N`, etc.) This could be very useful as a profiling tool and for proving time complexity of algorithms where it actually matters. "Oh, no wonder my code is so slow, it has a time complexity of `O(N! + 2^N)`!"
+
+The main barrier for this project is the math required, and that my experience with machine learning is relatively limited, and my experience with performing advanced linear regression to this extent (I.E I need novel information that normal models cannot provide, requiring a mastery... or maybe I'm so inexperienced that I don't even know its easier to do than I think...) I have asked others, one data scientist (a professor of a class I took) and an HPC expert (a DoE CSGF Alumni) and both pretty much recommend I limit the scope of the project... but I want to push the boundary and make something cool, and this would be the coolest contribution I could make, I believe. 
 
 ## Small Project Ideas
 
