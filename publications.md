@@ -184,9 +184,9 @@ compute-nodes on a Cray XC50.
 
 In this talk, I summarize prior work on the Chapel HyperGraph Library (CHGL), the Chapel Aggregation Library (CAL), and introduce the more general Chapel Graph Library (CGL). CGL is being designed to enable global-view programming, such that locality is abstracted from the user. CGL is also being designed in a way that is similar to Chapel's multiresolution design philosophy, where graphs are implemented in terms of hyper graphs, and where both the underlying hypergraph and overlying graphs are available for use. Some of the kinds of graphs being designed are bipartite graphs, directed and undirected graphs, and even trees.
 
-## In Progress
+## Accepted - In Progress
 
-### [Paving the way for Distributed Non-Blocking Algorithms and Data Structures in the Partitioned Global Address Space]({{ site.baseurl }}/../publications/CHIUW2020.pdf) [[arXiv](https://arxiv.org/abs/2002.03068)]
+### [Paving the way for Distributed Non-Blocking Algorithms and Data Structures in the Partitioned Global Address Space model]({{ site.baseurl }}/../publications/CHIUW2020.pdf) [[arXiv](https://arxiv.org/abs/2002.03068)]
 
 #### Authors: Garvit Dewan and Louis Jenkins
 
@@ -194,20 +194,21 @@ In this talk, I summarize prior work on the Chapel HyperGraph Library (CHGL), th
 
 #### Abstract
 
-The partitioned global address space has bridged
-the gap between shared and distributed memory, and with this
-bridge comes the ability to adapt shared memory concepts,
-such as non-blocking programming, to distributed systems
-such as supercomputers. To enable non-blocking algorithms,
-we present ways to perform scalable atomic operations on
-objects in remote memory via remote direct memory address
-and pointer compression. As a solution to the problem of
-concurrent-safe reclamation of memory in a distributed system,
-we adapt Epoch-Based Memory Reclamation to distributed
-memory and implement it in such a way to support global-view
-programming. This construct is designed and implemented for
-the Chapel programming language, but can be adapted and
-generalized to work on other languages and libraries.
+The partitioned global address space memory model has bridged the gap between
+shared and distributed memory, and with this bridge comes the
+ability to adapt shared memory concepts, such as non-blocking
+programming, to distributed systems such as supercomputers. 
+To enable non-blocking algorithms, we present ways to perform
+scalable atomic operations on objmote memory
+via remote direct memory access and pointer
+compression. As a solution to the problem of concurrent-safe
+reclamation of memory in a distributed system, we adapt
+Epoch-Based Memory Reclamation to distributed memory and
+% implement it in such a wayupport global-view programming.
+implement it such that it supports global-view programming.
+This construct is designed and implemented for the Chapel
+programming language but can be adapted and generalized to
+work on other languages and libraries.
 
 ## Unpublished
 
