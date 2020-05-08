@@ -184,13 +184,15 @@ compute-nodes on a Cray XC50.
 
 In this talk, I summarize prior work on the Chapel HyperGraph Library (CHGL), the Chapel Aggregation Library (CAL), and introduce the more general Chapel Graph Library (CGL). CGL is being designed to enable global-view programming, such that locality is abstracted from the user. CGL is also being designed in a way that is similar to Chapel's multiresolution design philosophy, where graphs are implemented in terms of hyper graphs, and where both the underlying hypergraph and overlying graphs are available for use. Some of the kinds of graphs being designed are bipartite graphs, directed and undirected graphs, and even trees.
 
-## Accepted - In Progress
+## To Appear
 
 ### [Paving the way for Distributed Non-Blocking Algorithms and Data Structures in the Partitioned Global Address Space model]({{ site.baseurl }}/../publications/CHIUW2020.pdf) [[arXiv](https://arxiv.org/abs/2002.03068)]
 
 #### Authors: Garvit Dewan and Louis Jenkins
 
 #### Venue: [The 7th Annual Chapel Implementers and Users Workshop](https://chapel-lang.org/CHIUW2020.html)
+
+#### [Presentation @ IPDPSW]({{ site.basurl }}/presentations/CHIUW_Dewan.pdf)
 
 #### Abstract
 
