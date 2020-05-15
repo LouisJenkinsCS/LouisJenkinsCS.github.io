@@ -36,3 +36,18 @@ is very well-deserved.
 #### Certificate
 
 ![Outstanding Performance Award]({{ site.baseurl }}/images/outstanding-performance-award.jpg)
+
+
+### University of Rochester - Departmental Outstanding Graduate Teaching Assistant Award
+
+Given award for my role as graduate Teaching Assistant for Michael Scott's "Parallel and Distributed
+Computing" and "Programming Language, Design, and Implementation" course. During the former, I invited
+Brad Chamberlain, Technical Lead of the Chapel programming language and Principle Engineer of Cray (now
+a Hewlett Packard Enterprise company), to introduce himself and the Chapel programming language to set
+the basis for a programming assignment that I designed and developed on implementing Single Source Shortest Path (SSSP) utilizing Delta Stepping ([graph generator](https://gist.github.com/LouisJenkinsCS/305c1201b352ce672ea183122f123085) and [base for assignment](https://gist.github.com/LouisJenkinsCS/385fb7c9b031fc36328b70ed9fffef4b)), where students implement them in both Chapel and MPI. In the latter class,
+I was responsible for overseeing undergraduate TA's and primarily developed the autograders, including one [testing time complexity of data structures](https://gist.github.com/LouisJenkinsCS/2123e21d967ba779c76bf87c05bf88c4).
+
+#### Certificate
+
+![Departmental Outstanding Graduate Teaching Assistant Award]({{ site.baseurl }}/images/outstanding-graduate-teaching-assistant-award.png)
+
