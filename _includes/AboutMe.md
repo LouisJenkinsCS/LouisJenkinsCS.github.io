@@ -14,6 +14,8 @@ Favorite Anime: [Hunter x Hunter (2011)](https://myanimelist.net/anime/11061/Hun
 
 Favorite Game: [Zero Escape: Virtue's Last Reward](https://zeroescape.fandom.com/wiki/Zero_Escape:_Virtue%27s_Last_Reward)
 
+Favorite Novel: [Battle Royale](https://en.wikipedia.org/wiki/Battle_Royale_(novel))
+
 **Misc**
 
 [NSF GRFP Application]({{ site.baseurl }}/pdf/nsf.pdf) ~Not Recommended~ (Although very positive)
