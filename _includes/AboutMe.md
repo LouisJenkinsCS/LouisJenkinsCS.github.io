@@ -8,6 +8,12 @@ to enhance both productivity and performance of fault-tolerant systems in high-p
 I have participated as a student in Google Summer of Code 2017 for Cray's exascale programming language called 'Chapel', where I created
 the language's first [Distributed Data Structures](https://summerofcode.withgoogle.com/archive/2017/projects/6530769430249472/) that enabled Global-View Programming, similar to Chapel's distributed arrays. I later became a [Rails Girls Summer of Code coach](https://railsgirlssummerofcode.org/blog/2018-08-07-team-sectumsempra) for Chapel in 2018 and later was a [Google Summer of Code mentor](https://summerofcode.withgoogle.com/archive/2019/projects/5877554395742208/) for Chapel in 2019. Formerly, I was a Chapel-specialist and part-time consultant for Pacific Northwest National Laboratory, where I worked on the [Chapel HyperGraph Library (CHGL)](https://www.osti.gov/doecode/biblio/18401) and in collaboration with [HyperNetX (HNX)](https://www.osti.gov/doecode/biblio/22160) in an exploration of DNS names and relationships as hypergraphs.
 
+**Personal**
+
+Favorite Anime: [Hunter x Hunter (2011)](https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011)
+
+Favorite Game: [Zero Escape: The Nonary Games (Virtue's Last Reward)](https://store.steampowered.com/app/477740/Zero_Escape_The_Nonary_Games/)
+
 **Misc**
 
 [NSF GRFP Application]({{ site.baseurl }}/pdf/nsf.pdf) ~Not Recommended~ (Although very positive)
