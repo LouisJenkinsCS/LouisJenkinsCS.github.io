@@ -12,7 +12,7 @@ the language's first [Distributed Data Structures](https://summerofcode.withgoog
 
 Favorite Anime: [Hunter x Hunter (2011)](https://myanimelist.net/anime/11061/Hunter_x_Hunter_2011)
 
-Favorite Game: [Chrono Cross](https://en.wikipedia.org/wiki/Chrono_Cross)
+Favorite Game: [Fallout 2](https://fallout.fandom.com/wiki/Fallout_2) / [Fallout: New Vegas](https://fallout.fandom.com/wiki/Fallout:_New_Vegas)
 
 Favorite Visual Novel: [Zero Escape: Virtue's Last Reward](https://zeroescape.fandom.com/wiki/Zero_Escape:_Virtue%27s_Last_Reward)
 
