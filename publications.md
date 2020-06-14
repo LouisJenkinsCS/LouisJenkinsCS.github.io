@@ -49,7 +49,7 @@ iteration and other features absent from other maps.
 
 Intel’s Persistent Memory Development Kit (PMDK) provides two separate tools---pmreorder and pmemcheck---that allow the programmer to explore and verify the consistency of possible states that may be present in persistent memory in the wake of a crash, given that caches may write back values out of order. Unfortunately, these tools are heavy-weight and inefficient, and so we have developed the Persistent Memory Analysis Tool (PMAT), derived from pmemcheck, that enables the simulation and verification of hundreds to thousands of crashes per second for programs of significant size, for an improvement of at least three orders of magnitude. 
 
-### [High Performance Hypergraph Analytics of Domain Name System Relationships]({{ site.baseurl }}/publications/WAW_2020.pdf)
+### [Hypergraph Analytics of Domain Name System Relationships]({{ site.baseurl }}/publications/WAW_2020.pdf)
 
 #### Authors: Cliff Joslyn, ...,  Louis Jenkins, et al.
 
